@@ -1,0 +1,3 @@
+.localrc
+.luarc.json
+**/tmux/plugins

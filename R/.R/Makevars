@@ -1,0 +1,7 @@
+# Apple Silicon Macs
+LDFLAGS += -L/opt/homebrew/opt/libomp/lib -lomp
+CPPFLAGS += -I/opt/homebrew/opt/libomp/include -Xclang -fopenmp
+
+#VER=13  # set the version of brew gcc. (as of today: 11)
+#CC=/opt/homebrew/bin/gcc-$(VER)
+#CXX=/opt/homebrew/bin/g++-$(VER)

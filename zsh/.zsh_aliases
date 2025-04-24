@@ -1,0 +1,91 @@
+# general system aliases
+alias reload='. ~/.zshrc'
+alias clc='clear' # as in matlab
+alias untar="tar -zxvf"
+alias mkcd='mkdir_cd(){ mkdir -p "$1"; cd "$1" }; mkdir_cd '
+alias rmrf="rm -rf"
+alias up="cd ../"
+alias c='tr -d '\''\n'\'' | pbcopy'
+
+alias sudo='sudo '
+alias map='xargs -n1'
+alias mergepdf='gs -q -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -sOutputFile=_merged.pdf'
+alias path='echo -e ${PATH//:/\\n}'
+alias plistbuddy='/usr/libexec/PlistBuddy'
+alias urlencode='python3 -c "import sys;from urllib import parse;print(parse.quote_plus(sys.argv[1]));"'
+alias week='date +%V'
+
+alias lock='/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend'
+alias cleanup='find . -type f -name '\''*.DS_Store'\'' -ls -delete'
+alias dnsflush='sudo killall -HUP mDNSResponder'
+alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup'
+alias emptytrash='sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv /private/var/log/asl/*.asl; sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* '\''delete from LSQuarantineEvent'\'''
+alias hide='defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder'
+alias hidedesktop='defaults write com.apple.finder CreateDesktop -bool false && killall Finder'
+alias show='defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder'
+alias showdesktop='defaults write com.apple.finder CreateDesktop -bool true && killall Finder'
+alias pumpitup='osascript -e '\''set volume output volume 100'\'''
+alias stfu='osascript -e '\''set volume output muted true'\'''
+alias spotoff='sudo mdutil -a -i off'
+alias spoton='sudo mdutil -a -i on'
+
+# core/more-tools aliases
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias grep='grep --color=auto'
+
+# r
+alias R="R --no-save --no-restore"
+alias r="radian"
+
+# brew
+alias b='brew'
+alias bi='brew install'
+alias bic='brew install --cask'
+alias buu='brew update && brew upgrade'
+alias bgreedy='brew upgrade --greedy'
+alias bs="brew search"
+
+# git
+alias gpp='git pull --prune'
+alias gl="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
+alias gp='git push origin HEAD'
+# Remove `+` and `-` from start of diff lines; just rely upon color.
+alias gd='git diff --color | sed "s/^\([^-+ ]*\)[-+ ]/\\1/" | less -r'
+alias gc='git commit'
+alias gca='git commit -a'
+alias gco='git checkout'
+alias gcb='git copy-branch-name'
+alias gb='git branch'
+# short-format + show branch and tracking info
+alias gs='git status -sb' # overwrites ghostscript
+alias gac='git add -A && git commit -m'
+alias ge='git-edit-new'
+alias changes='git diff --stat -r'
+alias tracked='git ls-files -t'
+alias untracked='git ls-files --others'
+alias staged="git diff --name-only --cached"
+
+
+# other aliases
+alias cat="bat"
+alias ls='ls --color'
+
+alias python="python3"
+alias avenv="source .venv/bin/activate || source venv/bin/activate"
+alias dvenv="source deactivate"
+
+alias projects='cd ~/Documents/Projects/'
+alias cnvim='cd ~/.config/nvim/'
+alias dev='cd ~/Developer/'
+
+
+# safely delete file
+safe_rm() {
+    from="$1"
+    to="${HOME}/.Trash/"
+    [ -z "$from" ] && { echo "Usage: srm filename"; return 1; }
+    [ -e "$from" ] || { echo "File not found: $from"; return 1; }
+    mv "$from" "$to"
+    echo "Moved '$from' to '$to'"
+}

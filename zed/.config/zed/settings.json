@@ -1,0 +1,86 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette
+{
+  "base_keymap": "VSCode",
+  "vim_mode": true,
+  "relative_line_numbers": true,
+  "buffer_font_family": "MonoLisa",
+  "buffer_font_size": 15,
+  "ui_font_size": 15,
+  "ui_font_family": "MonoLisa",
+  "theme": {
+    "mode": "system",
+    "light": "Zed Legacy: Solarized Light",
+    "dark": "One Dark"
+  },
+  "icon_theme": "Material Icon Theme",
+  "autosave": "on_focus_change",
+  "format_on_save": "off",
+  "wrap_guides": [72, 80, 120],
+  "soft_wrap": "editor_width",
+  "outline_panel": {
+    "dock": "right"
+  },
+  "features": {
+    "edit_prediction_provider": "copilot"
+  },
+  "edit_predictions": {
+    "mode": "subtle",
+    "enabled_in_assistant": false
+  },
+  "assistant": {
+    "default_profile": "ask",
+    "dock": "right",
+    "default_model": {
+      "provider": "copilot_chat",
+      "model": "claude-3-7-sonnet"
+    },
+    "version": "2"
+  },
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  },
+  "file_types": {
+    "Markdown": ["*.qmd"]
+  },
+  "file_finder": {
+    "modal_width": "medium"
+  },
+  "lsp": {
+    "pyright": {
+      "settings": {
+        "python": {
+          "pythonPath": ".venv/bin/python"
+        }
+      }
+    }
+  },
+  // Configure Ruff to format, fix, and organize imports on-save
+  // https://docs.astral.sh/ruff/editors/setup/#zed
+  "languages": {
+    "Python": {
+      "language_servers": ["pyright", "ruff"],
+      "format_on_save": "off",
+      "formatter": [
+        {
+          "code_actions": {
+            "source.organizeImports.ruff": false,
+            "source.fixAll.ruff": true
+          }
+        },
+        {
+          "language_server": {
+            "name": "ruff"
+          }
+        }
+      ]
+    }
+  }
+}

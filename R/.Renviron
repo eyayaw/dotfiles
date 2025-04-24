@@ -1,0 +1,10 @@
+# Set the max vector heap size (default max(available memory, 16GB))
+# See https://cran.r-project.org/doc/manuals/r-devel/NEWS.3.html
+R_MAX_VSIZE=48Gb
+
+# Avails Homebrew binaries to R
+PATH="/opt/homebrew/bin:/opt/homebrew/sbin:${PATH}"
+
+# Let renv source ~/.Rprofile
+RENV_CONFIG_USER_PROFILE=TRUE
+RENV_CONFIG_SANDBOX_ENABLED=FALSE
