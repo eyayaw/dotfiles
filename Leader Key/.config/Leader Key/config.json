@@ -1,0 +1,482 @@
+{
+  "type": "group",
+  "actions": [
+    {
+      "key": "b",
+      "type": "group",
+      "label": "Browse",
+      "actions": [
+        {
+          "key": "j",
+          "type": "url",
+          "label": "GitHub Search",
+          "value": "https://github.com/search?s=stars&o=desc"
+        },
+        {
+          "key": "h",
+          "type": "url",
+          "label": "GitHub",
+          "value": "https://github.com"
+        },
+        {
+          "key": "k",
+          "type": "url",
+          "label": "Kagi",
+          "value": "https://kagi.com/search?q="
+        },
+        {
+          "key": "l",
+          "type": "url",
+          "label": "LinkedIn",
+          "value": "https://linkedin.com"
+        },
+        {
+          "key": "g",
+          "type": "url",
+          "label": "Google",
+          "value": "https://google.com/search?q="
+        },
+        {
+          "key": "n",
+          "type": "url",
+          "label": "Hacker News",
+          "value": "https://news.ycombinator.com"
+        },
+        {
+          "key": "m",
+          "type": "url",
+          "label": "Gmail",
+          "value": "https://mail.google.com"
+        },
+        {
+          "key": ",",
+          "type": "url",
+          "label": "Fedica",
+          "value": "https://fedica.com/dash"
+        },
+        {
+          "key": "y",
+          "type": "url",
+          "value": "https://youtube.com"
+        },
+        {
+          "key": "u",
+          "type": "url",
+          "label": "Mastodon",
+          "value": "https://mastodon.social"
+        },
+        {
+          "key": "i",
+          "type": "url",
+          "label": "Inoreader",
+          "value": "https://inoreader.com/all_articles"
+        },
+        {
+          "key": "o",
+          "type": "url",
+          "label": "Stack Overflow",
+          "value": "https://stackoverflow.com"
+        },
+        {
+          "key": "p",
+          "type": "url",
+          "label": "Tuta",
+          "value": "https://app.tuta.com/mail"
+        },
+        {
+          "key": "t",
+          "type": "url",
+          "label": "Twitter",
+          "value": "https://twitter.com"
+        },
+        {
+          "key": "r",
+          "type": "url",
+          "label": "Reddit",
+          "value": "https://reddit.com"
+        },
+        {
+          "key": "s",
+          "type": "url",
+          "label": "Bluesky",
+          "value": "https://bsky.app"
+        },
+        {
+          "key": "f",
+          "type": "url",
+          "label": "Facebook",
+          "value": "https://facebook.com"
+        }
+      ]
+    },
+    {
+      "key": "o",
+      "type": "group",
+      "label": "Open",
+      "actions": [
+        {
+          "key": "p",
+          "type": "application",
+          "value": "/Applications/1Password.app"
+        },
+        {
+          "key": "a",
+          "type": "application",
+          "value": "/Applications/Arc.app"
+        },
+        {
+          "key": "b",
+          "type": "application",
+          "value": "/Applications/Bruno.app"
+        },
+        {
+          "key": "c",
+          "type": "application",
+          "value": "/Applications/Positron.app"
+        },
+        {
+          "key": "d",
+          "type": "application",
+          "value": "/Applications/Docker.app"
+        },
+        {
+          "key": "e",
+          "type": "application",
+          "value": "/Applications/Zed Preview.app"
+        },
+        {
+          "key": "f",
+          "type": "application",
+          "value": "/System/Library/CoreServices/Finder.app"
+        },
+        {
+          "key": "g",
+          "type": "application",
+          "value": "/Applications/ChatGPT.app"
+        },
+        {
+          "key": "u",
+          "type": "application",
+          "value": "/Applications/zoom.us.app"
+        },
+        {
+          "key": "i",
+          "type": "application",
+          "value": "/System/Applications/Mail.app"
+        },
+        {
+          "key": "j",
+          "type": "application",
+          "value": "/Applications/Ghostty.app"
+        },
+        {
+          "key": "k",
+          "type": "application",
+          "value": "/Applications/Claude.app"
+        },
+        {
+          "key": "m",
+          "type": "application",
+          "value": "/Applications/Spotify.app"
+        },
+        {
+          "key": "n",
+          "type": "application",
+          "value": "/System/Applications/Notes.app"
+        },
+        {
+          "key": "q",
+          "type": "application",
+          "value": "/Applications/CleanMyMac X.app"
+        },
+        {
+          "key": "r",
+          "type": "application",
+          "value": "/Applications/RStudio.app"
+        },
+        {
+          "key": "s",
+          "type": "application",
+          "value": "/Applications/Safari.app"
+        },
+        {
+          "key": "t",
+          "type": "application",
+          "value": "/Applications/Telegram.app"
+        },
+        {
+          "key": "h",
+          "type": "application",
+          "value": "/Applications/Zen.app"
+        },
+        {
+          "key": "y",
+          "type": "application",
+          "value": "/Applications/LM Studio.app"
+        },
+        {
+          "key": "v",
+          "type": "application",
+          "value": "/Applications/Visual Studio Code - Insiders.app"
+        },
+        {
+          "key": "w",
+          "type": "application",
+          "value": "/Applications/WhatsApp.app"
+        },
+        {
+          "key": "z",
+          "type": "application",
+          "value": "/Applications/Zotero.app"
+        },
+        {
+          "key": ";",
+          "type": "application",
+          "value": "/Applications/Karabiner-Elements.app"
+        }
+      ]
+    },
+    {
+      "key": "w",
+      "type": "group",
+      "label": "Window",
+      "actions": [
+        {
+          "key": "c",
+          "type": "url",
+          "label": "Center",
+          "value": "raycast://extensions/raycast/window-management/center"
+        },
+        {
+          "key": "h",
+          "type": "url",
+          "label": "Left Half",
+          "value": "raycast://extensions/raycast/window-management/left-half"
+        },
+        {
+          "key": "l",
+          "type": "url",
+          "label": "Right Half",
+          "value": "raycast://extensions/raycast/window-management/right-half"
+        },
+        {
+          "key": "k",
+          "type": "url",
+          "label": "Top Half",
+          "value": "raycast://extensions/raycast/window-management/top-half"
+        },
+        {
+          "key": "j",
+          "type": "url",
+          "label": "Bottom Half",
+          "value": "raycast://extensions/raycast/window-management/bottom-half"
+        },
+        {
+          "key": "u",
+          "type": "url",
+          "label": "Top Left Quarter",
+          "value": "raycast://extensions/raycast/window-management/top-left-quarter"
+        },
+        {
+          "key": "i",
+          "type": "url",
+          "label": "Top Right Quarter",
+          "value": "raycast://extensions/raycast/window-management/top-right-quarter"
+        },
+        {
+          "key": "n",
+          "type": "url",
+          "label": "Bottom Left Quarter",
+          "value": "raycast://extensions/raycast/window-management/bottom-left-quarter"
+        },
+        {
+          "key": "m",
+          "type": "url",
+          "label": "Bottom Right Quarter",
+          "value": "raycast://extensions/raycast/window-management/bottom-right-quarter"
+        },
+        {
+          "key": "d",
+          "type": "url",
+          "label": "First Third",
+          "value": "raycast://extensions/raycast/window-management/first-third"
+        },
+        {
+          "key": "f",
+          "type": "url",
+          "label": "Center Third",
+          "value": "raycast://extensions/raycast/window-management/center-third"
+        },
+        {
+          "key": "g",
+          "type": "url",
+          "label": "Last Third",
+          "value": "raycast://extensions/raycast/window-management/last-third"
+        },
+        {
+          "key": "e",
+          "type": "url",
+          "label": "First Two Thirds",
+          "value": "raycast://extensions/raycast/window-management/first-two-thirds"
+        },
+        {
+          "key": "r",
+          "type": "url",
+          "label": "Center Two Thirds",
+          "value": "raycast://extensions/raycast/window-management/center-two-thirds"
+        },
+        {
+          "key": "t",
+          "type": "url",
+          "label": "Last Two Thirds",
+          "value": "raycast://extensions/raycast/window-management/last-two-thirds"
+        },
+        {
+          "key": "o",
+          "type": "url",
+          "value": "raycast://extensions/raycast/window-management/next-desktop"
+        },
+        {
+          "key": "y",
+          "type": "url",
+          "label": "Previous Desktop",
+          "value": "raycast://extensions/raycast/window-management/previous-desktop"
+        },
+        {
+          "key": " ",
+          "type": "url",
+          "label": "Almost Maximize",
+          "value": "raycast://extensions/raycast/window-management/almost-maximize"
+        },
+        {
+          "key": "↵",
+          "type": "url",
+          "label": "Maximize",
+          "value": "raycast://extensions/raycast/window-management/maximize"
+        },
+        {
+          "key": "⌫",
+          "type": "url",
+          "label": "Restore",
+          "value": "raycast://extensions/raycast/window-management/restore"
+        }
+      ]
+    },
+    {
+      "key": "r",
+      "type": "group",
+      "label": "Raycast",
+      "actions": [
+        {
+          "key": "j",
+          "type": "url",
+          "value": "raycast://extensions/raycast/raycast-ai/ai-chat"
+        },
+        {
+          "key": "i",
+          "type": "url",
+          "value": "raycast://extensions/raycast/raycast-ai/send-selection-to-ai-chat"
+        },
+        {
+          "key": ";",
+          "type": "url",
+          "value": "raycast://extensions/thomas/color-picker/pick-color"
+        },
+        {
+          "key": "k",
+          "type": "url",
+          "value": "raycast://extensions/raycast/dictionary/define-word"
+        },
+        {
+          "key": "o",
+          "type": "url",
+          "value": "raycast://extensions/raycast/emoji-symbols/search-emoji-symbols"
+        },
+        {
+          "key": "f",
+          "type": "url",
+          "value": "raycast://extensions/raycast/file-search/search-files"
+        },
+        {
+          "key": "l",
+          "type": "url",
+          "value": "raycast://extensions/raycast/system/lock-screen"
+        },
+        {
+          "key": "m",
+          "type": "url",
+          "value": "raycast://extensions/raycast/system/toggle-mute"
+        },
+        {
+          "key": "n",
+          "type": "url",
+          "value": "raycast://extensions/raycast/snippets/search-snippets"
+        },
+        {
+          "key": "p",
+          "type": "url",
+          "value": "raycast://extensions/raycast/raycast/confetti"
+        },
+        {
+          "key": "g",
+          "type": "url",
+          "value": "raycast://extensions/gebeto/translate/translate"
+        },
+        {
+          "key": "h",
+          "type": "url",
+          "value": "raycast://extensions/raycast/clipboard-history/clipboard-history"
+        }
+      ]
+    },
+    {
+      "key": "v",
+      "type": "group",
+      "label": "Move",
+      "actions": [
+        {
+          "key": "h",
+          "type": "command",
+          "label": "Left Arrow",
+          "value": "osascript -e 'tell application \"System Events\" to key code 123'"
+        },
+        {
+          "key": "j",
+          "type": "command",
+          "label": "Down Arrow",
+          "value": "osascript -e 'tell application \"System Events\" to key code 125'"
+        },
+        {
+          "key": "k",
+          "type": "command",
+          "label": "Up Arrow",
+          "value": "osascript -e 'tell application \"System Events\" to key code 126'"
+        },
+        {
+          "key": "l",
+          "type": "command",
+          "label": "Right Arrow",
+          "value": "osascript -e 'tell application \"System Events\" to key code 124'"
+        },
+        {
+          "key": "u",
+          "type": "command",
+          "label": "Page Up",
+          "value": "osascript -e 'tell application \"System Events\" to key code 116'"
+        },
+        {
+          "key": "d",
+          "type": "command",
+          "label": "Page Down",
+          "value": "osascript -e 'tell application \"System Events\" to key code 121'"
+        }
+      ]
+    },
+    {
+      "key": "s",
+      "type": "group",
+      "label": "System",
+      "actions": []
+    }
+  ]
+}
