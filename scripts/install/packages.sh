@@ -35,6 +35,7 @@ bi ripgrep # better grep
 bi fzf # fuzzy finder
 bi fd # better find
 bi tree # tree-like directory listing
+bi jq
 bi 1password-cli
 bi act # run github actions locally
 bi mas # Mac App Store CLI
@@ -70,16 +71,16 @@ bi ark # r kernel
 brew tap r-lib/rig
 bic rig # install multiple R versions
 
-### Linters and formatters
-bi ruff # python linter
-#bi air # r formatter
+### Linters, formatters, type checkers
+uv tool install ruff # python linter and formatter
+uv tools install ty
+# air r formatter
 curl -LsSf https://github.com/posit-dev/air/releases/latest/download/air-installer.sh | sh
 
 # Literate programming ----
 bi pandoc # Document converter
-bi typst # better latex
 bi quarto
-bi latex
+bi typst # better latex
 bi glow # Markdown viewer
 
 
@@ -101,15 +102,16 @@ bic bruno insomnia
 
 # API Hacking
 bic burp-suite
-bic mitmproxy
+uv tool install mitmproxy
 
 # For android virtual devices
 bic android-studio # installs emulator adb fastboot
-# decompile android apps
+# Decompile android apps
 bi apktool jadx
 
 
 # Security ----
+bic tailscale
 bic adguard{,-vpn} # Adblocker + VPN
 bic {little,micro}-snitch # Network & device monitor
 bic mullvadvpn # VPN
@@ -130,7 +132,11 @@ bic the-unarchiver # faster than archive utility for unzipping
 bic zen-browser # arc alternative (firefox-based)
 
 
-# Social & Communication ----
+# Media, Social, Communication ----
+bic spotify #
+bi ffmpeg imagemagick
+# brew tap iina/homebrew-mpv-iina && bi mpv-iina || bi --HEAD iina/mpv-iina/mpv-iina
+# install rather from the releases page
 bic whatsapp signal telegram
 bic zoom microsoft-teams
 

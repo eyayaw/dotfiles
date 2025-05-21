@@ -10,6 +10,7 @@ files=(
 "scripts/install/tpm.sh"
 "scripts/install/better_bibtex.sh"
 "scripts/install/appstore.sh"
+"scripts/install/uv_tools.sh"
 )
 
 echo "${GREEN}Starting installations ...${NC}"
@@ -21,6 +22,9 @@ for fname in "${files[@]}"; do
     echo "${RED}File $fname does not exist. Skipping ...${NC}"
   fi
 done
+
+# Install favorite R packages
+Rscript scripts/install/packages.R
 
 unset files
 
