@@ -21,5 +21,5 @@ else
     echo "No purchased fonts to install for ${USER:l}"
 fi
 
-brew install --cask font-{jetbrains,ibm-plex}-mono font-monaspace
+brew install --cask font-{jetbrains,ibm-plex,annotation,maple}-mono font-monaspace
 brew install --cask font-{fontawesome,inter,open-sans,roboto}
