@@ -35,7 +35,6 @@ bi ripgrep # better grep
 bi fzf # fuzzy finder
 bi fd # better find
 bi tree # tree-like directory listing
-bi trash # move files to macOS Trash (with Finder undo)
 bi jq
 bi delta # better git diff
 bi 1password-cli
