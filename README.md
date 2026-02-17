@@ -15,14 +15,13 @@ Setting up macOS with Homebrew, GNU Stowed dotfiles, and good default macOS sett
 
 ## Usage
 
-```sh
 1. Clone my dotfiles repository: `git clone --depth=1 https://github.com/eyayaw/dotfiles.git ~/Developer/dotfiles`
   > macOS comes with a pre-installed version of Git.
   > Review the repo and add/remove stuff.
 2. Run the bootstrap script: `cd ~/Developer/dotfiles && ./bootstrap.sh`.
   > You may need to give a permission with `chmod +x bootstrap.sh`
 3. Reboot, your mac should be ready for use.
-```
+
 
 ## Stowing
 
@@ -30,7 +29,7 @@ Most of the subdirs (pkgs in gnu Stow lingo) are symlinked into the home dir (-t
 
 ```sh
 cd ~/Developer/dotfiles
-stow -t ~ git ghostty karabiner nvim R rstudio tmux zed zsh
+stow -t ~ git ghostty karabiner nvim R rstudio tmux zed zsh tuna
 ```
 
 The empty `.stow-local-ignore` file in `git/` is a [trick](https://github.com/aspiers/stow/issues/75#issuecomment-1719558252) to stow git/.gitignore.
