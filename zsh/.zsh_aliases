@@ -1,4 +1,39 @@
-# general system aliases
+# ---------------------------------------------------------------
+# alias_fallback  <alias-name>  <primary-command>  [fallback-cmd]
+#
+# • Creates an alias called <alias-name>.
+# • If <primary-command> exists in PATH, the alias points to it.
+# • Otherwise, if [fallback-cmd] is given, the alias points there.
+# • If no fallback is supplied and the primary is missing, nothing
+#   is aliased and the function exits with status 1.
+#
+# Example usage
+#   alias_fallback r radian R        # r → radian or R
+#   alias_fallback py python3        # py → python3 (no fallback)
+# ---------------------------------------------------------------
+alias_fallback() {
+  if (( $# < 2 || $# > 3 )); then
+    printf 'Usage: alias_fallback <alias-name> <primary-cmd> [fallback-cmd]\n' >&2
+    return 1
+  fi
+
+  local _name="$1"
+  local _primary="$2"
+  local _fallback="${3:-}"
+
+  if command -v "$_primary" >/dev/null 2>&1; then
+    builtin alias "$_name"="$_primary"
+  elif [[ -n "$_fallback" ]]; then
+    builtin alias "$_name"="$_fallback"
+  else
+    printf 'alias_fallback: "%s" not found and no fallback provided\n' "$_primary" >&2
+    return 1
+  fi
+}
+
+
+# General/System aliases
+alias_fallback vim nvim
 alias reload='. ~/.zshrc'
 alias clc='clear' # as in matlab
 alias untar="tar -zxvf"
@@ -6,6 +41,8 @@ alias mkcd='mkdir_cd(){ mkdir -p "$1"; cd "$1" }; mkdir_cd '
 alias rmrf="rm -rf"
 alias up="cd ../"
 alias c='tr -d '\''\n'\'' | pbcopy'
+alias_fallback cat bat
+alias_fallback ls eza "ls -G"
 
 alias sudo='sudo '
 alias map='xargs -n1'
@@ -15,8 +52,7 @@ alias plistbuddy='/usr/libexec/PlistBuddy'
 alias urlencode='python3 -c "import sys;from urllib import parse;print(parse.quote_plus(sys.argv[1]));"'
 alias week='date +%V'
 
-alias lock='/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend'
-alias cleanup='find . -type f -name '\''*.DS_Store'\'' -ls -delete'
+alias lock='pmset displaysleepnow'
 alias dnsflush='sudo killall -HUP mDNSResponder'
 alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup'
 alias emptytrash='sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv /private/var/log/asl/*.asl; sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* '\''delete from LSQuarantineEvent'\'''
@@ -30,13 +66,9 @@ alias spotoff='sudo mdutil -a -i off'
 alias spoton='sudo mdutil -a -i on'
 
 # core/more-tools aliases
-alias egrep='egrep --color=auto'
-alias fgrep='fgrep --color=auto'
 alias grep='grep --color=auto'
-
-# r
-alias R="R --no-save --no-restore"
-alias r="radian"
+alias egrep='grep -E --color=auto'
+alias fgrep='grep -F --color=auto'
 
 # brew
 alias b='brew'
@@ -50,8 +82,7 @@ alias bs="brew search"
 alias gpp='git pull --prune'
 alias gl="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
 alias gp='git push origin HEAD'
-# Remove `+` and `-` from start of diff lines; just rely upon color.
-alias gd='git diff --color | sed "s/^\([^-+ ]*\)[-+ ]/\\1/" | less -r'
+alias gd='git diff'
 alias gc='git commit'
 alias gca='git commit -a'
 alias gco='git checkout'
@@ -65,27 +96,34 @@ alias changes='git diff --stat -r'
 alias tracked='git ls-files -t'
 alias untracked='git ls-files --others'
 alias staged="git diff --name-only --cached"
+gotorepo() {
+  open "$(git remote get-url origin)"
+}
 
+# r
+alias R="R --no-save --no-restore"
+alias_fallback r radian R
 
-# other aliases
-alias cat="bat"
-alias ls='ls --color'
-
-alias python="python3"
+# python
+alias_fallback python python3
 alias avenv="source .venv/bin/activate || source venv/bin/activate"
-alias dvenv="source deactivate"
+alias dvenv="deactivate"
 
+# local folders
 alias projects='cd ~/Documents/Projects/'
 alias cnvim='cd ~/.config/nvim/'
 alias dev='cd ~/Developer/'
+alias notes='cd ~/Developer/notes'
 
 
-# safely delete file
-safe_rm() {
-    from="$1"
-    to="${HOME}/.Trash/"
-    [ -z "$from" ] && { echo "Usage: srm filename"; return 1; }
-    [ -e "$from" ] || { echo "File not found: $from"; return 1; }
-    mv "$from" "$to"
-    echo "Moved '$from' to '$to'"
+# Helpful functions
+nfiles() { rg --files "${1:-.}" --glob='!.DS_Store' | wc -l }
+cleanup() {
+  local dir="${1:-.}"
+  if command -v fd >/dev/null 2>&1; then
+    fd --hidden --type f -g '.DS_Store' "$dir" -x rm -v
+  else
+    find "$dir" -type f -name '.DS_Store' -print -delete
+  fi
 }
+
