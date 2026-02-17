@@ -14,6 +14,14 @@ if [[ ! -f git/.stow-local-ignore ]]; then
     touch git/.stow-local-ignore
 fi
 
-stow --target=${HOME} ghostty git karabiner nvim R rstudio tmux zed zsh
+stow --restow --target=${HOME} ghostty git karabiner nvim R rstudio tmux zed zsh
 
-git config --global core.excludesfile ~/.gitignore
+# Generate starship config if missing
+if command -v starship &>/dev/null && [[ ! -f ~/.config/starship.toml ]]; then
+    starship preset pure-preset -o ~/.config/starship.toml
+fi
+
+# Install tmux plugin manager if missing
+if [[ ! -d ~/.tmux/plugins/tpm ]]; then
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi
