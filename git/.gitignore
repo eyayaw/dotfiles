@@ -1,3 +1,37 @@
-# Folder view configuration files
+# OS
 .DS_Store
 Desktop.ini
+Thumbs.db
+
+# Editors
+.vscode/
+*.swp
+*.swo
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+.mypy_cache/
+
+# R
+.Rhistory
+.Rdata
+.RData
+.Rproj.user/
+
+# Quarto
+*_cache/
+*_files/
+
+# Environment/secrets
+.env
+.env.*
+
+# Build artifacts
+*.o
+*.so
+*.dylib
+node_modules/
+
