@@ -1,7 +1,7 @@
 # Appearance
 font-family = Monaspace Argon
-font-size = 18
-theme = dark:gruvbox dark hard,light:rose pine moon
+font-size = 14
+theme = dark:Catppuccin Mocha,light:Catppuccin Latte
 background-opacity = 0.95
 
 adjust-cell-height = 35%
@@ -33,4 +33,4 @@ keybind = cmd+s>z=toggle_split_zoom
 keybind = cmd+s>e=equalize_splits
 keybind = shift+enter=text:\x1b\r
 
-command = tmux new-session -A -s casual
+command = /opt/homebrew/bin/tmux new-session -A -s casual
