@@ -1,0 +1,60 @@
+#!/usr/bin/env zsh
+# Theme sync: ghostty + tmux + nvim from a single source of truth
+
+typeset -A _ts_ghostty _ts_tmux
+_ts_ghostty=(
+  mocha     "Catppuccin Mocha"
+  frappe    "Catppuccin Frappe"
+  latte     "Catppuccin Latte"
+  macchiato "Catppuccin Macchiato"
+  moon      "Rose Pine Moon"
+  dawn      "Rose Pine Dawn"
+  solarized-dark  "Builtin Solarized Dark"
+  solarized-light "Builtin Solarized Light"
+  gruvbox-dark    "Gruvbox Dark"
+  gruvbox-light   "Gruvbox Light"
+)
+_ts_tmux=(
+  mocha mocha frappe frappe latte latte macchiato macchiato moon mocha dawn latte
+  solarized-dark mocha solarized-light latte gruvbox-dark mocha gruvbox-light latte
+)
+_ts_names=(mocha frappe latte macchiato moon dawn solarized-dark solarized-light gruvbox-dark gruvbox-light)
+
+theme() {
+  local state="$HOME/.config/theme/current"
+  local ghostty_cfg="$HOME/.config/ghostty/config"
+  local tmux_cfg="$HOME/.config/tmux/tmux.conf"
+
+  if [[ -z "$1" ]]; then
+    local current="(none)"
+    [[ -f "$state" ]] && current="$(< "$state")"
+    echo "Current theme: $current"
+    echo "Available: ${_ts_names[*]}"
+    return 0
+  fi
+
+  local name="$1"
+  if [[ -z "${_ts_ghostty[$name]}" ]]; then
+    echo "Unknown theme: $name"
+    echo "Available: ${_ts_names[*]}"
+    return 1
+  fi
+
+  mkdir -p "$(dirname "$state")"
+  echo "$name" > "$state"
+
+  # Update ghostty (auto-reloads on file change)
+  if [[ -f "$ghostty_cfg" ]]; then
+    sed -i '' "s/^theme = .*/theme = ${_ts_ghostty[$name]}/" "$ghostty_cfg"
+  fi
+
+  # Update tmux
+  if [[ -f "$tmux_cfg" ]]; then
+    sed -i '' "s/^set -g @catppuccin_flavor .*/set -g @catppuccin_flavor '${_ts_tmux[$name]}'/" "$tmux_cfg"
+    if command -v tmux &>/dev/null && tmux list-sessions &>/dev/null; then
+      tmux source-file "$tmux_cfg" 2>/dev/null
+    fi
+  fi
+
+  echo "Theme set to: $name"
+}

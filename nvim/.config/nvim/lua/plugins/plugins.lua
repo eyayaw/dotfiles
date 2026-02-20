@@ -8,8 +8,12 @@ return {
     opts = {
       flavour = "auto",
       background = { light = "latte", dark = "mocha" },
+      transparent_background = true,
     },
   },
+  { "rose-pine/neovim", name = "rose-pine", lazy = false, opts = { variant = "moon", styles = { transparency = true } } },
+  { "maxmx03/solarized.nvim", lazy = false, opts = { transparent = { enabled = true } } },
+  { "ellisonleao/gruvbox.nvim", lazy = false, opts = { transparent_mode = true } },
   {
     "LazyVim/LazyVim",
     opts = { colorscheme = "catppuccin" },

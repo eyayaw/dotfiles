@@ -64,7 +64,7 @@ eval "$(zoxide init zsh)"
 ## Load other zsh files
 # Load aliases
 [[ -f ~/.zsh_aliases ]] && source ~/.zsh_aliases
-
+[[ -f ~/.zsh_theme ]] && source ~/.zsh_theme
 
 # Fastfetch
 FASTFETCH_ALLOWED=(ghostty apple_terminal wezterm kitty alacritty)

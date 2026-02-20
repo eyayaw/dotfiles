@@ -1,8 +1,9 @@
 # Appearance
 font-family = Monaspace Argon
 font-size = 14
-theme = dark:Catppuccin Mocha,light:Catppuccin Latte
-background-opacity = 0.95
+theme = Catppuccin Frappe
+# theme = dark:Catppuccin Mocha,light:Rose Pine Moon
+# background-opacity = 0.95
 
 adjust-cell-height = 35%
 title = " "
@@ -32,5 +33,3 @@ keybind = cmd+s>l=goto_split:right
 keybind = cmd+s>z=toggle_split_zoom
 keybind = cmd+s>e=equalize_splits
 keybind = shift+enter=text:\x1b\r
-
-command = /opt/homebrew/bin/tmux new-session -A -s casual
