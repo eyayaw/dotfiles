@@ -18,6 +18,9 @@ alias bic_trusted="brew install --cask --no-quarantine"
 # I trust these packages
 bic_trusted 1password
 bic_trusted raycast alfred
+bic tuna leader-key # Launch at speed of light
+bic helium-browser # delightful browser (chromium-based), truly successor to Arc
+bic zen-browser # delightful browser (firefox-based)
 bic_trusted arc # zen-browser
 bic_trusted karabiner-elements
 bic_trusted ghostty
@@ -37,6 +40,8 @@ bi fd # better find
 bi tree # tree-like directory listing
 bi jq
 bi delta # better git diff
+bi eza # better ls
+bi lazygit # git TUI
 bi 1password-cli
 bi act # run github actions locally
 bi mas # Mac App Store CLI
@@ -51,14 +56,14 @@ bic cleanshot # Screenshot/recording tool
 bic shottr # Alternative for cleanshot
 bic alt-tab # cmd + tab alternative
 bic keycastr # Keystroke visualizer
-bi leader-key # Faster launcher
 
 # Development ----
-bic_trusted visual-studio-code{,@insiders}
 bic_trusted zed{,@preview}
+bic_trusted visual-studio-code{,@insiders}
 bic_trusted rstudio positron # R & Python IDE by Posit
 bi neovim
 bic docker # Container management
+bi doxx xleak # docx, xlsx parsers
 
 
 # Programming ----
@@ -68,14 +73,15 @@ bi lua
 
 ## Pkg managers, kernels
 bi uv
-bi ark # r kernel
 brew tap r-lib/rig
 bic rig # install multiple R versions
+bi ark # r kernel
+bi arf # r console
 
 ### Linters, formatters, type checkers
 uv tool install ruff # python linter and formatter
 uv tools install ty
-# air r formatter
+# Air r formatter
 curl -LsSf https://github.com/posit-dev/air/releases/latest/download/air-installer.sh | sh
 
 # Literate programming ----
@@ -88,6 +94,8 @@ bi glow # Markdown viewer
 ## Databases ----
 bi postgresql
 bi duckdb
+bic beekeeper-studio # Database GUI
+bi harlequin # SQL client for the terminal
 
 ## GIS ----
 # GIS libraries
@@ -99,11 +107,11 @@ bic qgis
 
 ## Web and API ----
 # API tools
-bic bruno insomnia
+bic yaak bruno insomnia
 
 # API Hacking
 bic burp-suite
-uv tool install mitmproxy
+bic mitmproxy
 
 # For android virtual devices
 bic android-studio # installs emulator adb fastboot
@@ -125,12 +133,14 @@ bic cryptomator # Encrypt files and folders
 
 
 # Misc ----
-bic bearnotes # Note taking
 bic pdfexpert # PDF reader
 bic zotero # Reference manager
 bic raindropio # Bookmark manager
 bic the-unarchiver # faster than archive utility for unzipping
-bic zen-browser # arc alternative (firefox-based)
+bic hazel # Automated file organization
+bic netnewswire # RSS reader
+bic anki # Flashcards
+bic microsoft-outlook
 
 
 # Media, Social, Communication ----
@@ -143,12 +153,11 @@ bic zoom microsoft-teams
 
 
 # AI tools ----
-bic windsurf # vibe coding
 bic ollama # Local LLMs
 bic lm-studio # Local LLMs
 bic claude # Anthropic
 bic chatgpt # OpenAI
-bi aider codex claude-code # AI pair programming in your terminal
+bi codex opencode claude-code # AI pair programming in your terminal
 bic superwhisper # voice2text
 
 

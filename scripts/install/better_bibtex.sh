@@ -1,4 +1,3 @@
-
 #!/bin/zsh
 
 # Define URLs and paths
