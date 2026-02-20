@@ -13,12 +13,17 @@ _ts_ghostty=(
   solarized-light "Builtin Solarized Light"
   gruvbox-dark    "Gruvbox Dark"
   gruvbox-light   "Gruvbox Light"
+  kanso-zen       "kanso-zen"
+  kanso-ink       "kanso-ink"
+  kanso-mist      "kanso-mist"
+  kanso-pearl     "kanso-pearl"
 )
 _ts_tmux=(
   mocha mocha frappe frappe latte latte macchiato macchiato moon mocha dawn latte
   solarized-dark mocha solarized-light latte gruvbox-dark mocha gruvbox-light latte
+  kanso-zen mocha kanso-ink mocha kanso-mist mocha kanso-pearl latte
 )
-_ts_names=(mocha frappe latte macchiato moon dawn solarized-dark solarized-light gruvbox-dark gruvbox-light)
+_ts_names=(mocha frappe latte macchiato moon dawn solarized-dark solarized-light gruvbox-dark gruvbox-light kanso-zen kanso-ink kanso-mist kanso-pearl)
 
 theme() {
   local state="$HOME/.config/theme/current"

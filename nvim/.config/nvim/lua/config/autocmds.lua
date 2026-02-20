@@ -13,6 +13,10 @@ local theme_map = {
   ["solarized-light"] = { "solarized", "light" },
   ["gruvbox-dark"] = { "gruvbox", "dark" },
   ["gruvbox-light"] = { "gruvbox", "light" },
+  ["kanso-zen"] = { "kanso-zen", "dark" },
+  ["kanso-ink"] = { "kanso-ink", "dark" },
+  ["kanso-mist"] = { "kanso-mist", "dark" },
+  ["kanso-pearl"] = { "kanso-pearl", "light" },
 }
 
 local theme_file = vim.fn.expand("~/.config/theme/current")
