@@ -1,47 +1,91 @@
 schemaVersion = 1
 
-[catalogs]
-disabledIdentifiers = [
-    'Tuna.Internal.ApplicationProxyCatalog',
-    'TunaAutomation.QuickActionsCatalog',
-    'TunaAutomation.ScriptsCatalog',
-    'TunaAutomation.ShortcutsCatalog',
-    'TunaContacts.ContactsCatalog',
-    'TunaCore.RecentsCatalog',
-    'TunaCore.RecentsSearchCatalog',
-    'TunaCore.RunningProcessesCatalog',
-    'TunaCore.TextActionsCatalog',
-    'TunaDevices.DevicesCatalog',
-    'TunaEmoji.EmojiCatalog',
-    'TunaNotes.NotesSearchCatalog',
-    'TunaObsidian.ObsidianNotesCatalog',
-    'TunaObsidian.ObsidianSearchCatalog',
-    'TunaObsidian.ObsidianVaultsCatalog',
-    'TunaReminders.RemindersSearchCatalog',
-    'TunaSafari.SafariActionsCatalog',
-    'TunaSafari.SafariBookmarksCatalog',
-    'TunaSafari.SafariBookmarksSearchCatalog',
-    'TunaSafari.SafariFavoritesCatalog',
-    'TunaSafari.SafariFavoritesSearchCatalog',
-    'TunaSafari.SafariMetaCatalog',
-    'TunaSafari.SafariReadingListCatalog',
-    'TunaSafari.SafariReadingListSearchCatalog',
-    'TunaSmartLinks.SmartLinksActionsCatalog',
-    'TunaSmartLinks.SmartLinksCatalog',
-    'TunaSystem.WindowManagementCatalog'
-]
-disabledItemKeys = []
-sortOrders = []
+[hotkeys.app.activate]
+carbonKeyCode = 3
+carbonModifiers = 6912
 
-[hotkeys]
-custom = []
+[hotkeys.app.dictation]
+carbonKeyCode = 2
+carbonModifiers = 6912
 
-    [hotkeys.app.dictation]
-    carbonKeyCode = 2
+[hotkeys.app.leaderMode]
+carbonKeyCode = 45
+carbonModifiers = 6912
+
+[hotkeys.app.textMode]
+carbonKeyCode = 17
+carbonModifiers = 6912
+
+[[hotkeys.custom]]
+id = '2B8A6F7D-EA45-4D40-930A-5FFFF9966E5B'
+presentation = 'auto'
+
+    [hotkeys.custom.command]
+    actionIdentifier = 'Tuna.BasicActionsCatalog.Stage'
+    subjectIdentifier = 'leader.Raycast'
+
+    [hotkeys.custom.shortcut]
+    carbonKeyCode = 38
     carbonModifiers = 6912
 
-    [hotkeys.app.leaderMode]
-    carbonKeyCode = 45
+[[hotkeys.custom]]
+id = '30EB81E8-8F5A-4F7E-ACBF-ABE72153BE63'
+presentation = 'auto'
+
+    [hotkeys.custom.command]
+    actionIdentifier = 'Tuna.BasicActionsCatalog.Stage'
+    subjectIdentifier = 'leader.Window'
+
+    [hotkeys.custom.shortcut]
+    carbonKeyCode = 13
+    carbonModifiers = 6912
+
+[[hotkeys.custom]]
+id = '71863401-2E1D-4D59-BAB8-4AEDABD2B1B4'
+presentation = 'auto'
+
+    [hotkeys.custom.command]
+    actionIdentifier = 'Tuna.BasicActionsCatalog.Stage'
+    subjectIdentifier = 'leader.Browse'
+
+    [hotkeys.custom.shortcut]
+    carbonKeyCode = 11
+    carbonModifiers = 6912
+
+[[hotkeys.custom]]
+id = '77C6FEA6-0F8E-49AA-8A27-B0E71F993E22'
+presentation = 'auto'
+
+    [hotkeys.custom.command]
+    actionIdentifier = 'Tuna.BasicActionsCatalog.Stage'
+    subjectIdentifier = 'leader.Open'
+
+    [hotkeys.custom.shortcut]
+    carbonKeyCode = 31
+    carbonModifiers = 6912
+
+[[hotkeys.custom]]
+id = 'D4B87277-EA99-4C4F-A8EB-830B917A0D84'
+presentation = 'auto'
+
+    [hotkeys.custom.command]
+    actionIdentifier = 'Tuna.BasicActionsCatalog.Stage'
+    subjectIdentifier = 'leader.Social'
+
+    [hotkeys.custom.shortcut]
+    carbonKeyCode = 46
+    carbonModifiers = 6912
+
+[[hotkeys.custom]]
+id = 'DBA402D2-83E7-4864-945B-234E29C9EBA1'
+presentation = 'auto'
+
+    [hotkeys.custom.command]
+    actionIdentifier = 'Tuna.BasicActionsCatalog.Stage'
+    subjectIdentifier = 'leader.LLM'
+
+    [hotkeys.custom.shortcut]
+    carbonKeyCode = 37
     carbonModifiers = 6912
 
 [[leaderMode.bindings]]
@@ -59,24 +103,9 @@ label = 'Browse'
     url = 'tuna://run/url.https:%252F%252Fgithub.com/Open%20URL'
 
     [[leaderMode.bindings.children]]
-    key = 'k'
-    label = 'Kagi'
-    url = 'tuna://run/url.https:%252F%252Fkagi.com%252Fsearch%253Fq=/Open%20URL'
-
-    [[leaderMode.bindings.children]]
-    key = 'l'
-    label = 'LinkedIn'
-    url = 'tuna://run/url.https:%252F%252Flinkedin.com/Open%20URL'
-
-    [[leaderMode.bindings.children]]
     key = 'g'
     label = 'Google'
     url = 'tuna://run/url.https:%252F%252Fgoogle.com%252Fsearch%253Fq=/Open%20URL'
-
-    [[leaderMode.bindings.children]]
-    key = 'd'
-    label = 'Discord'
-    url = 'tuna://run/url.https:%252F%252Fdiscord.com/Open%20URL'
 
     [[leaderMode.bindings.children]]
     key = 'n'
@@ -89,29 +118,9 @@ label = 'Browse'
     url = 'tuna://run/url.https:%252F%252Fmail.google.com/Open%20URL'
 
     [[leaderMode.bindings.children]]
-    key = ','
-    label = 'Fedica'
-    url = 'tuna://run/url.https:%252F%252Ffedica.com%252Fdash/Open%20URL'
-
-    [[leaderMode.bindings.children]]
-    key = 'y'
-    label = 'YouTube'
-    url = 'tuna://run/url.https:%252F%252Fyoutube.com/Open%20URL'
-
-    [[leaderMode.bindings.children]]
-    key = 'u'
-    label = 'Mastodon'
-    url = 'tuna://run/url.https:%252F%252Fmastodon.social/Open%20URL'
-
-    [[leaderMode.bindings.children]]
     key = 'i'
     label = 'Inoreader'
     url = 'tuna://run/url.https:%252F%252Finoreader.com%252Fall_articles/Open%20URL'
-
-    [[leaderMode.bindings.children]]
-    key = 'o'
-    label = 'Stack Overflow'
-    url = 'tuna://run/url.https:%252F%252Fstackoverflow.com/Open%20URL'
 
     [[leaderMode.bindings.children]]
     key = 'p'
@@ -119,24 +128,14 @@ label = 'Browse'
     url = 'tuna://run/url.https:%252F%252Fapp.tuta.com%252Fmail/Open%20URL'
 
     [[leaderMode.bindings.children]]
-    key = 't'
-    label = 'Twitter'
-    url = 'tuna://run/url.https:%252F%252Ftwitter.com/Open%20URL'
-
-    [[leaderMode.bindings.children]]
-    key = 'r'
-    label = 'Reddit'
-    url = 'tuna://run/url.https:%252F%252Freddit.com/Open%20URL'
-
-    [[leaderMode.bindings.children]]
-    key = 's'
-    label = 'Bluesky'
-    url = 'tuna://run/url.https:%252F%252Fbsky.app/Open%20URL'
-
-    [[leaderMode.bindings.children]]
     key = 'f'
     label = 'Brave'
     url = 'tuna://run/url.https:%252F%252Fsearch.brave.com%252Fsearch%253Fq=/Open%20URL'
+
+    [[leaderMode.bindings.children]]
+    key = 's'
+    label = 'Streamed.su'
+    url = 'tuna://run/url.https:%252F%252Fstreamed.su/Open%20URL'
 
 [[leaderMode.bindings]]
 key = 'o'
@@ -185,12 +184,6 @@ label = 'Open'
     url = 'tuna://run/path.%252FSystem%252FLibrary%252FCoreServices%252FFinder.app/Open'
 
     [[leaderMode.bindings.children]]
-    iconPath = '/Applications/Telegram.app'
-    key = 'g'
-    label = 'Telegram'
-    url = 'tuna://run/path.%252FApplications%252FTelegram.app/Open'
-
-    [[leaderMode.bindings.children]]
     iconPath = '/Applications/Cursor.app'
     key = 'h'
     label = 'Cursor'
@@ -207,12 +200,6 @@ label = 'Open'
     key = 'j'
     label = 'Ghostty'
     url = 'tuna://run/path.%252FApplications%252FGhostty.app/Open'
-
-    [[leaderMode.bindings.children]]
-    iconPath = '/Applications/Claude.app'
-    key = 'k'
-    label = 'Claude'
-    url = 'tuna://run/path.%252FApplications%252FClaude.app/Open'
 
     [[leaderMode.bindings.children]]
     iconPath = '/Applications/Zotero.app'
@@ -263,30 +250,6 @@ label = 'Open'
     url = 'tuna://run/path.%252FApplications%252FThings3.app/Open'
 
     [[leaderMode.bindings.children]]
-    iconPath = '/Applications/Ollama.app'
-    key = 'u'
-    label = 'Ollama'
-    url = 'tuna://run/path.%252FApplications%252FOllama.app/Open'
-
-    [[leaderMode.bindings.children]]
-    iconPath = '/Applications/Visual Studio Code.app'
-    key = 'v'
-    label = 'VS Code'
-    url = 'tuna://run/path.%252FApplications%252FVisual%2520Studio%2520Code.app/Open'
-
-    [[leaderMode.bindings.children]]
-    iconPath = '/Applications/WhatsApp.app'
-    key = 'w'
-    label = 'WhatsApp'
-    url = 'tuna://run/path.%252FApplications%252FWhatsApp.app/Open'
-
-    [[leaderMode.bindings.children]]
-    iconPath = '/Applications/LM Studio.app'
-    key = 'y'
-    label = 'LM Studio'
-    url = 'tuna://run/path.%252FApplications%252FLM%2520Studio.app/Open'
-
-    [[leaderMode.bindings.children]]
     iconPath = '/Applications/Zoom.us.app'
     key = 'z'
     label = 'Zoom'
@@ -297,6 +260,69 @@ label = 'Open'
     key = ';'
     label = 'Karabiner'
     url = 'tuna://run/path.%252FApplications%252FKarabiner-Elements.app/Open'
+
+[[leaderMode.bindings]]
+key = 'm'
+label = 'Social'
+
+    [[leaderMode.bindings.children]]
+    iconPath = '/Applications/Discord.app'
+    key = 'd'
+    label = 'Discord'
+    url = 'tuna://run/path.%252FApplications%252FDiscord.app/Open'
+
+    [[leaderMode.bindings.children]]
+    key = 'r'
+    label = 'Reddit'
+    url = 'tuna://run/url.https:%252F%252Freddit.com/Open%20URL'
+
+    [[leaderMode.bindings.children]]
+    iconPath = '/Applications/Signal.app'
+    key = 's'
+    label = 'Signal'
+    url = 'tuna://run/path.%252FApplications%252FSignal.app/Open'
+
+    [[leaderMode.bindings.children]]
+    iconPath = '/Applications/WhatsApp.app'
+    key = 'w'
+    label = 'WhatsApp'
+    url = 'tuna://run/path.%252FApplications%252FWhatsApp.app/Open'
+
+    [[leaderMode.bindings.children]]
+    iconPath = '/Applications/Telegram.app'
+    key = 'g'
+    label = 'Telegram'
+    url = 'tuna://run/path.%252FApplications%252FTelegram.app/Open'
+
+    [[leaderMode.bindings.children]]
+    key = 't'
+    label = 'Twitter'
+    url = 'tuna://run/url.https:%252F%252Ftwitter.com/Open%20URL'
+
+    [[leaderMode.bindings.children]]
+    key = 'b'
+    label = 'Bluesky'
+    url = 'tuna://run/url.https:%252F%252Fbsky.app/Open%20URL'
+
+    [[leaderMode.bindings.children]]
+    key = 'm'
+    label = 'Mastodon'
+    url = 'tuna://run/url.https:%252F%252Fmastodon.social/Open%20URL'
+
+    [[leaderMode.bindings.children]]
+    key = 'l'
+    label = 'LinkedIn'
+    url = 'tuna://run/url.https:%252F%252Flinkedin.com/Open%20URL'
+
+    [[leaderMode.bindings.children]]
+    key = 'y'
+    label = 'YouTube'
+    url = 'tuna://run/url.https:%252F%252Fyoutube.com/Open%20URL'
+
+    [[leaderMode.bindings.children]]
+    key = 'f'
+    label = 'Fedica'
+    url = 'tuna://run/url.https:%252F%252Ffedica.com%252Fdash/Open%20URL'
 
 [[leaderMode.bindings]]
 iconPath = '/Applications/Raycast.app'
@@ -409,16 +435,6 @@ key = 'r'
 label = 'Raycast'
 
     [[leaderMode.bindings.children]]
-    key = 'j'
-    label = 'AI Chat'
-    url = 'tuna://run/url.raycast:%252F%252Fextensions%252Fraycast%252Fraycast-ai%252Fai-chat/Open%20URL'
-
-    [[leaderMode.bindings.children]]
-    key = 'i'
-    label = 'Send to AI Chat'
-    url = 'tuna://run/url.raycast:%252F%252Fextensions%252Fraycast%252Fraycast-ai%252Fsend-selection-to-ai-chat/Open%20URL'
-
-    [[leaderMode.bindings.children]]
     key = ';'
     label = 'Color Picker'
     url = 'tuna://run/url.raycast:%252F%252Fextensions%252Fthomas%252Fcolor-picker%252Fpick-color/Open%20URL'
@@ -478,12 +494,17 @@ label = 'LLM'
     url = 'tuna://run/url.raycast:%252F%252Fextensions%252Fraycast%252Fraycast-ai%252Fai-chat/Open%20URL'
 
     [[leaderMode.bindings.children]]
-    key = 'c'
+    key = 'i'
+    label = 'Send to Raycast AI'
+    url = 'tuna://run/url.raycast:%252F%252Fextensions%252Fraycast%252Fraycast-ai%252Fsend-selection-to-ai-chat/Open%20URL'
+
+    [[leaderMode.bindings.children]]
+    key = 'g'
     label = 'ChatGPT'
     url = 'tuna://run/url.https:%252F%252Fchat.openai.com%252Fchat/Open%20URL'
 
     [[leaderMode.bindings.children]]
-    key = 'g'
+    key = 'n'
     label = 'Gemini'
     url = 'tuna://run/url.https:%252F%252Fgemini.google.com/Open%20URL'
 
@@ -491,6 +512,24 @@ label = 'LLM'
     key = 'k'
     label = 'Claude'
     url = 'tuna://run/url.https:%252F%252Fclaude.ai/Open%20URL'
+
+    [[leaderMode.bindings.children]]
+    iconPath = '/Applications/Claude.app'
+    key = 'c'
+    label = 'Claude App'
+    url = 'tuna://run/path.%252FApplications%252FClaude.app/Open'
+
+    [[leaderMode.bindings.children]]
+    iconPath = '/Applications/Ollama.app'
+    key = 'o'
+    label = 'Ollama'
+    url = 'tuna://run/path.%252FApplications%252FOllama.app/Open'
+
+    [[leaderMode.bindings.children]]
+    iconPath = '/Applications/LM Studio.app'
+    key = 'l'
+    label = 'LM Studio'
+    url = 'tuna://run/path.%252FApplications%252FLM%2520Studio.app/Open'
 
 [settings]
 themeIdentifier = 'com.brnbw.tuna.themes.default'
