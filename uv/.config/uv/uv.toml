@@ -1,0 +1,21 @@
+# ~/.config/uv/uv.toml
+python-preference = "only-managed"
+exclude-newer = "3 days"
+constraint-dependencies = [
+  "litellm!=1.82.7,!=1.82.8",
+]
+
+[exclude-newer-package]
+# private packages
+itemstore = false
+databrew = false
+fetchkit = false
+extractkit = false
+# trusted packages
+duckdb = false
+pandas = false
+polars = false
+httpx = false
+beautifulsoup4 = false
+numpy = false
+openai = false
