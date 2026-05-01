@@ -34,17 +34,14 @@ setopt hist_ignore_dups
 setopt hist_find_no_dups
 
 # Keybindings
+bindkey -e
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
 bindkey '^[w' kill-region
 
-# Stolen from Luke Smith's dotfiles
-# Edit line in vim with ctrl-e:
+# Edit line in $EDITOR with ctrl-x ctrl-e (Bash-compatible):
 autoload edit-command-line; zle -N edit-command-line
-bindkey '^e' edit-command-line
-bindkey -M vicmd '^[[P' vi-delete-char
-bindkey -M vicmd '^e' edit-command-line
-bindkey -M visual '^[[P' vi-delete
+bindkey '^x^e' edit-command-line
 
 # Shell integrations
 # Homebrew -- pkg manager

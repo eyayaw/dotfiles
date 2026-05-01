@@ -35,6 +35,9 @@ return {
   -- disable noice entirely, use vanilla vim cmdline
   { "folke/noice.nvim", enabled = false },
 
+  -- disable autopairs (LazyVim default)
+  { "echasnovski/mini.pairs", enabled = false },
+
   -- disable cmdline completion popup
   {
     "saghen/blink.cmp",
