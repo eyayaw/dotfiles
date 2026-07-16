@@ -12,7 +12,7 @@ files=(
 "scripts/install/fonts.sh"
 "scripts/install/tpm.sh"
 "scripts/install/better_bibtex.sh"
-"scripts/install/appstore.sh"
+"scripts/install/app_store.sh"
 "scripts/install/uv_tools.sh"
 )
 

@@ -15,3 +15,4 @@ mas install 1554235898 # Peek - A quick look extension
 mas install 1569813296 # 1Password for Safari
 mas install 572281534 # Transloader
 mas install 1136220934 # Infuse
+mas install 904280696 # Things
