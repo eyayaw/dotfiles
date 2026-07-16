@@ -61,7 +61,6 @@ eval "$(zoxide init zsh)"
 ## Load other zsh files
 # Load aliases
 [[ -f ~/.zsh_aliases ]] && source ~/.zsh_aliases
-[[ -f ~/.zsh_theme ]] && source ~/.zsh_theme
 
 # Fastfetch — only on a fresh interactive shell in an allowed terminal.
 # Skip inside herdr (it inherits the outer TERM_PROGRAM, so the allow-list would
