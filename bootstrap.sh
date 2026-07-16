@@ -14,7 +14,7 @@ if [[ ! -f git/.stow-local-ignore ]]; then
     touch git/.stow-local-ignore
 fi
 
-stow --restow --target=${HOME} ghostty git karabiner nvim R rstudio tmux zed zsh
+stow --restow --target=${HOME} ghostty git karabiner nvim R rstudio tmux zed zsh tuna claude codex
 
 # Generate starship config if missing
 if command -v starship &>/dev/null && [[ ! -f ~/.config/starship.toml ]]; then

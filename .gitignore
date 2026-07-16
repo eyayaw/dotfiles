@@ -1,3 +1,6 @@
 .localrc
 .luarc.json
 **/tmux/plugins
+automatic_backups/
+!claude/.claude
+!codex/.codex

@@ -1,0 +1,47 @@
+{
+  "cleanupPeriodDays": 99999,
+  "permissions": {
+    "allow": [
+      "Bash(rg:*)",
+      "Bash(fd:*)",
+      "Bash(ls:*)"
+    ],
+    "deny": [
+      "Read(**/.localrc)",
+      "Read(**/.env)"
+    ],
+    "defaultMode": "auto"
+  },
+  "model": "fable",
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash '/Users/eyayaw/.claude/hooks/herdr-agent-state.sh' session",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "bash ~/.claude/statusline-command.sh"
+  },
+  "enabledPlugins": {
+    "apify-actor-commands@apify-agent-skills": false,
+    "code-simplifier@claude-plugins-official": false
+  },
+  "alwaysThinkingEnabled": true,
+  "effortLevel": "high",
+  "autoUpdatesChannel": "latest",
+  "skipDangerousModePermissionPrompt": true,
+  "skipWorkflowUsageWarning": true,
+  "theme": "auto",
+  "preferredNotifChannel": "terminal_bell",
+  "skipAutoPermissionPrompt": true,
+  "voiceEnabled": true
+}
