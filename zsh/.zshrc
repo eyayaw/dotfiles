@@ -63,12 +63,14 @@ eval "$(zoxide init zsh)"
 [[ -f ~/.zsh_aliases ]] && source ~/.zsh_aliases
 [[ -f ~/.zsh_theme ]] && source ~/.zsh_theme
 
-# Fastfetch
+# Fastfetch — only on a fresh interactive shell in an allowed terminal.
+# Skip inside herdr (it inherits the outer TERM_PROGRAM, so the allow-list would
+# still match) and skip on `reload`, which re-sources this file in the same shell.
 FASTFETCH_ALLOWED=(ghostty apple_terminal wezterm kitty alacritty)
 term_id=${TERM_PROGRAM:-${TERM}}
 
-if (( ${FASTFETCH_ALLOWED[(Ie)${(L)term_id}]} )); then
+if [[ -z $HERDR_PANE_ID && -z $FASTFETCH_SHOWN ]] \
+    && (( ${FASTFETCH_ALLOWED[(Ie)${(L)term_id}]} )); then
     command -v fastfetch >/dev/null 2>&1 && fastfetch
 fi
-
-
+export FASTFETCH_SHOWN=1
