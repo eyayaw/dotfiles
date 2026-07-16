@@ -1,0 +1,111 @@
+# Herdr config mirroring my tmux setup
+# (github.com/eyayaw/dotfiles/tree/main/tmux/.config/tmux/tmux.conf).
+#
+# Herdr models Workspace (≈ tmux session) → Tab (≈ tmux window) → Pane → Agent.
+# Only ONE key binds per action, so tmux's redundant nav (prefix+hjkl AND
+# Alt-arrows both moving between panes/windows) collapses to a single binding.
+# Regenerate the commented defaults with `herdr --default-config`; reload live
+# with `herdr server reload-config`.
+
+onboarding = false
+
+[theme]
+name = "terminal"
+auto_switch = false
+# To follow the OS light/dark mode instead:
+# auto_switch = true
+# dark_name = "catppuccin"
+# light_name = "catppuccin-latte"
+
+[terminal]
+# New panes inherit the focused pane's cwd — like tmux's `-c "#{pane_current_path}"`.
+new_cwd = "follow"
+
+[session]
+# Replaces tmux-resurrect / tmux-continuum. Detach/reattach keeps processes
+# running; after a full server restart herdr snapshots workspaces/tabs/panes/
+# cwd/layout and resumes supported agents (Claude Code, etc.) natively.
+resume_agents_on_restore = false
+
+[advanced]
+# tmux had `history-limit 50000`. Herdr caps scrollback by bytes, not lines;
+# bump well past the 10 MB default for a long buffer.
+scrollback_limit_bytes = 33554432  # 32 MB
+
+[experimental]
+# tmux had @resurrect-capture-pane-contents 'on'. Restores pane screen contents
+# after a server restart. Off by default (scrollback may hold secrets).
+pane_history = true
+switch_ascii_input_source_in_prefix = true
+
+[ui]
+# tmux had `mouse on`. Set false if you rely on terminal-native Cmd-click URLs.
+mouse_capture = true
+# Accent tuned to Catppuccin Mocha blue.
+accent = "#89b4fa"
+
+[keys]
+# tmux: set -g prefix C-Space
+prefix = "ctrl+space"
+
+# --- reload / help / detach / settings ---------------------------------------
+# tmux reloaded on `prefix r`, but prefix+r is resize_mode in herdr, so reload
+# stays on herdr's default prefix+shift+r.
+reload_config = "prefix+shift+r"
+help = "prefix+?"
+detach = "prefix+d"            # herdr prefix q
+settings = "prefix+comma"      # moved off prefix+s (taken by workspace_picker below)
+
+# --- workspaces (≈ tmux sessions) --------------------------------------------
+# tmux `prefix s` (fzf session switcher) -> herdr workspace picker.
+workspace_picker = "prefix+s"
+# new_workspace moved off prefix+shift+n so next_workspace can take it.
+# c = new tab, shift+c = new workspace.
+new_workspace = "prefix+shift+c"
+# Uppercase P/N step through workspaces (lowercase p/n step through tabs below).
+previous_workspace = "prefix+shift+p"
+next_workspace = "prefix+shift+n"
+# tmux `prefix w` (fzf window switcher) -> herdr's fuzzy jump navigator.
+goto = "prefix+w"
+
+# --- tabs (≈ tmux windows) ----------------------------------------------------
+new_tab = "prefix+c"
+# prefix+p / prefix+n step through tabs (herdr default).
+previous_tab = "prefix+p"
+next_tab = "prefix+n"
+switch_tab = "prefix+1..9"
+rename_tab = "prefix+shift+t"
+close_tab = "prefix+shift+x"
+
+# --- panes: focus (vim-style, herdr default) ---------------------------------
+# tmux: bind h/j/k/l select-pane -L/-D/-U/-R
+focus_pane_left = "prefix+h"
+focus_pane_down = "prefix+j"
+focus_pane_up = "prefix+k"
+focus_pane_right = "prefix+l"
+cycle_pane_next = "prefix+tab"
+cycle_pane_previous = "prefix+shift+tab"
+
+# --- panes: split / close / zoom / resize ------------------------------------
+# tmux: `-` split -v (stack down), `|` split -h (side by side).
+# Verify direction empirically once; herdr's naming isn't obvious.
+split_horizontal = "prefix+minus"  # down
+split_vertical = "prefix+|"        # right (fall back to "prefix+v" if | won't bind)
+close_pane = "prefix+x"
+zoom = "prefix+z"
+resize_mode = "prefix+r"
+
+# copy_mode is fixed at prefix+[ (vi-style: v/Space select, y/Enter copy, q/Esc
+# exit) and isn't listed as a remappable action in the current schema.
+
+# --- sidebar ------------------------------------------------------------------
+toggle_sidebar = "prefix+b"
+
+# --- custom commands (≈ tmux `bind ... new-window "cmd"`) ---------------------
+# tmux: bind g new-window -n lazygit -c "#{pane_current_path}" "lazygit"
+# prefix+g is free because goto moved to prefix+w above.
+[[keys.command]]
+key = "prefix+g"
+type = "pane"
+command = "lazygit"
+description = "lazygit"
