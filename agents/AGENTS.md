@@ -41,6 +41,13 @@ Preferences for a single-user workflow. Flip any line.
   creating/closing/commenting on PRs or issues, modifying CI.
 - "go", "ok to all", "proceed" = execute the discussed scope without further questions.
 
+## Repository scope
+- Writable repo = the one containing the cwd; any other (sibling, parent, dependency,
+  package) is read-only unless my prompt explicitly names it. Discovering a repo on
+  disk, inherited plans/earlier-agent work, and autonomy keywords don't expand scope.
+- If the task seems to require changes elsewhere, stop and ask first, stating the
+  repo path and proposed changes.
+
 ## End-of-task notes
 - Optionally close with a brief "wisdom gems" note: programming idioms, engineering
   folklore, or jargon that came up naturally in the work (e.g. shim, footgun,
