@@ -44,8 +44,7 @@ autoload edit-command-line; zle -N edit-command-line
 bindkey '^x^e' edit-command-line
 
 # Shell integrations
-# Homebrew -- pkg manager
-eval "$(/opt/homebrew/bin/brew shellenv)"
+# Homebrew shellenv lives in .zprofile (path_helper ordering; see there)
 
 # Starship -- Prompt
 eval "$(starship init zsh)"

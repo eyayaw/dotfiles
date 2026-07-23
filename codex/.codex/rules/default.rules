@@ -1,0 +1,58 @@
+# Execpolicy rules (Starlark). allow = auto-run outside the sandbox;
+# prompt = ask first; most restrictive decision wins when rules overlap.
+# Test: codex execpolicy check --pretty -- gh pr view 12
+
+# Read-only gh commands run freely (outside sandbox: network + keychain work).
+GH_READS = [
+    ["pr", "view"], ["pr", "list"], ["pr", "diff"], ["pr", "checks"], ["pr", "status"],
+    ["issue", "view"], ["issue", "list"], ["issue", "status"],
+    ["run", "view"], ["run", "list"], ["run", "watch"],
+    ["release", "view"], ["release", "list"],
+    ["repo", "view"], ["search"], ["status"], ["auth", "status"], ["label", "list"],
+]
+
+[prefix_rule(pattern = ["gh"] + p, decision = "allow") for p in GH_READS]
+
+# Read-only-ish git network commands.
+prefix_rule(pattern = ["git", "fetch"], decision = "allow")
+prefix_rule(pattern = ["git", "ls-remote"], decision = "allow")
+
+# Local git ops need no rules: they write .git, which the read-only sandbox
+# rejects, so the model requests escalation and you get exactly one prompt.
+# A prompt rule here would double-prompt (rule ask + escalation ask).
+
+# Tests run without prompting; generic prefixes so argument variations
+# don't re-prompt like persisted exact-match approvals do. Prefix match is
+# positional, so `--extra <x>` variants need their own rule.
+prefix_rule(pattern = ["uv", "run", "-m", "pytest"], decision = "allow")
+prefix_rule(pattern = ["uv", "run", "pytest"], decision = "allow")
+prefix_rule(pattern = ["uv", "run", "--extra", "parquet", "pytest"], decision = "allow")
+prefix_rule(pattern = ["pytest"], decision = "allow")
+
+# Read-only lint/format checks; running outside the sandbox avoids the
+# .ruff_cache write denial that otherwise fails the first sandboxed attempt.
+prefix_rule(pattern = ["ruff", "check"], decision = "allow")
+prefix_rule(pattern = ["ruff", "format", "--check"], decision = "allow")
+prefix_rule(pattern = ["uv", "run", "ruff", "check"], decision = "allow")
+
+# Outward-facing operations: always surface an approval prompt, never auto-run.
+OUTWARD = [
+    ["git", "push"],
+    ["gh", "pr", "create"], ["gh", "pr", "merge"], ["gh", "pr", "close"],
+    ["gh", "pr", "comment"], ["gh", "pr", "edit"], ["gh", "pr", "review"],
+    ["gh", "issue", "create"], ["gh", "issue", "close"], ["gh", "issue", "comment"],
+    ["gh", "issue", "edit"],
+    ["gh", "repo", "delete"], ["gh", "workflow", "run"], ["gh", "release", "create"],
+    ["gh", "api"],
+]
+
+[prefix_rule(
+    pattern = p,
+    decision = "prompt",
+    justification = "Outward-facing per AGENTS.md do-confirm list",
+) for p in OUTWARD]
+
+# Carried over from codex-persisted "always approve" decisions; prune freely.
+prefix_rule(pattern = ["fd"], decision = "allow")
+prefix_rule(pattern = ["gh", "--version"], decision = "allow")
+prefix_rule(pattern = ["git", "remote", "-v"], decision = "allow")

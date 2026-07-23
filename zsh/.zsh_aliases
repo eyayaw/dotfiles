@@ -105,9 +105,18 @@ alias R="R --no-save --no-restore"
 alias_fallback r radian R
 
 # python
-alias_fallback python python3
+alias_fallback py3 python3
 alias avenv="source .venv/bin/activate || source venv/bin/activate"
 alias dvenv="deactivate"
+
+alias ccyolo="claude --dangerously-skip-permissions"
+
+# codex sandbox can't read the macOS keychain; inject gh token from 1Password.
+# export persists so op is queried once per shell, not per codex run
+codex() {
+  [[ -z $GH_TOKEN ]] && export GH_TOKEN=$(op read op://private/gh_token/token 2>/dev/null)
+  command codex "$@"
+}
 
 # local folders
 alias projects='cd ~/Documents/Projects/'
@@ -117,38 +126,11 @@ alias notes='cd ~/Developer/notes'
 
 
 # Helpful functions
-nfiles() { rg --files "${1:-.}" --glob='!.DS_Store' | wc -l }
 cleanup() {
   local dir="${1:-.}"
   if command -v fd >/dev/null 2>&1; then
-    fd --hidden --type f -g '.DS_Store' "$dir" -x rm -v
+    fd --hidden --no-ignore --type f '.DS_Store' "$dir" -x rm -v
   else
     find "$dir" -type f -name '.DS_Store' -print -delete
   fi
 }
-
-# Dev tmux session: nvim (top-left) | claude (top-right) | terminal (bottom)
-nic() {
-  local session_name="${1:-$(basename "$PWD")}"
-
-  if [[ -n "$TMUX" ]]; then
-    echo "Already in tmux. Detach first (prefix+d) or run from outside tmux."
-    return 1
-  fi
-
-  if tmux has-session -t "$session_name" 2>/dev/null; then
-    tmux attach-session -t "$session_name"
-    return
-  fi
-
-  tmux new-session -d -s "$session_name" -c "$PWD" -x "$(tput cols)" -y "$(tput lines)"
-  tmux split-window -v -t "$session_name" -c "$PWD" -l 20%
-  tmux split-window -h -t "$session_name":1.1 -c "$PWD" -l 30%
-
-  tmux send-keys -t "$session_name":1.1 'nvim' C-m
-  tmux send-keys -t "$session_name":1.2 'claude' C-m
-
-  tmux select-pane -t "$session_name":1.1
-  tmux attach-session -t "$session_name"
-}
-
