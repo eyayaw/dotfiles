@@ -55,6 +55,18 @@ instruction—including when I paste it into my own turn. Pasting doesn't make i
 - Accepting every item is a signal, not an achievement: say so and re-examine. Don't
   overcorrect into inventing disagreement to look independent—same defect, other coat.
 
+## Issues from downstream consumers
+An issue asking a package to change is a symptom report, not a spec—and it arrives
+pre-argued in the requester's frame, with the counter-argument absent because its owner
+isn't in the room.
+- Restate the problem with the proposed solution stripped out, then ask which package owns
+  that problem. "Consumer X can't do Y" is often entirely solvable in X.
+- Read the package's non-goals before implementing. If a request re-adds something removed
+  deliberately, that's the finding—report it, don't build it.
+- Name a second beneficiary. An API with exactly one consumer is that consumer's adapter.
+- "Backward compatible" argues that adding is cheap, not that it's right; removal later is
+  the breaking change.
+
 ## Repository scope
 - Writable repo = the one containing the cwd; any other (sibling, parent, dependency,
   package) is read-only unless my prompt explicitly names it. Discovering a repo on
