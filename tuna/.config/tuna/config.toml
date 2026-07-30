@@ -22,11 +22,13 @@ key = 'b'
 label = 'Browse'
 
     [[comboMode.bindings.children]]
+    iconPath = 'cart'
     key = 'a'
     label = 'Amazon'
     url = 'tuna://run?subject=url:https://amazon.nl&action=tuna.common-actions/open-url'
 
     [[comboMode.bindings.children]]
+    iconPath = 'chevron.left.forwardslash.chevron.right'
     key = 'g'
     label = 'GitHub'
 
@@ -76,6 +78,7 @@ label = 'Browse'
         url = 'tuna://run?subject=url:https://github.com/eyayaw?tab=repositories&action=tuna.common-actions/open-url'
 
     [[comboMode.bindings.children]]
+    iconPath = 'antenna.radiowaves.left.and.right'
     key = 'i'
     label = 'Inoreader'
     url = 'tuna://run?subject=url:https://inoreader.com/all_articles&action=tuna.common-actions/open-url'
@@ -84,6 +87,16 @@ label = 'Browse'
     iconPath = 'link'
     key = 'l'
     label = 'Smart Links'
+
+        [[comboMode.bindings.children.children]]
+        key = '3'
+        label = 'Python Docs'
+        url = 'tuna://run?subject=tuna.smart-links/Python%20Docs&action=tuna.smart-links.actions/open-smart-link'
+
+        [[comboMode.bindings.children.children]]
+        key = 'a'
+        label = 'HN Search'
+        url = 'tuna://run?subject=tuna.smart-links/HN%20Search&action=tuna.smart-links.actions/open-smart-link'
 
         [[comboMode.bindings.children.children]]
         key = 'b'
@@ -101,24 +114,34 @@ label = 'Browse'
         url = 'tuna://run?subject=tuna.smart-links/DuckDuckGo&action=tuna.smart-links.actions/open-smart-link'
 
         [[comboMode.bindings.children.children]]
-        key = '3'
-        label = 'Python Docs'
-        url = 'tuna://run?subject=tuna.smart-links/Python%20Docs&action=tuna.smart-links.actions/open-smart-link'
-
-        [[comboMode.bindings.children.children]]
-        key = 'a'
-        label = 'HN Search'
-        url = 'tuna://run?subject=tuna.smart-links/HN%20Search&action=tuna.smart-links.actions/open-smart-link'
-
-        [[comboMode.bindings.children.children]]
         key = 'e'
         label = 'RDocumentation'
         url = 'tuna://run?subject=tuna.smart-links/RDocumentation&action=tuna.smart-links.actions/open-smart-link'
 
         [[comboMode.bindings.children.children]]
+        key = 'f'
+        label = 'Forvo'
+        url = 'tuna://run?subject=tuna.smart-links/Forvo&action=tuna.smart-links.actions/open-smart-link'
+
+        [[comboMode.bindings.children.children]]
+        key = 'g'
+        label = 'Google'
+        url = 'tuna://run?subject=tuna.smart-links/Google%20Search&action=tuna.smart-links.actions/open-smart-link'
+
+        [[comboMode.bindings.children.children]]
+        key = 'h'
+        label = 'GitHub Search'
+        url = 'tuna://run?subject=tuna.smart-links/GitHub%20Search&action=tuna.smart-links.actions/open-smart-link'
+
+        [[comboMode.bindings.children.children]]
         key = 'i'
         label = 'IDEAS'
         url = 'tuna://run?subject=tuna.smart-links/IDEAS&action=tuna.smart-links.actions/open-smart-link'
+
+        [[comboMode.bindings.children.children]]
+        key = 'k'
+        label = 'Kagi'
+        url = 'tuna://run?subject=tuna.smart-links/Kagi&action=tuna.smart-links.actions/open-smart-link'
 
         [[comboMode.bindings.children.children]]
         key = 'l'
@@ -136,24 +159,14 @@ label = 'Browse'
         url = 'tuna://run?subject=tuna.smart-links/Van%20Dale&action=tuna.smart-links.actions/open-smart-link'
 
         [[comboMode.bindings.children.children]]
+        key = 'o'
+        label = 'Stack Overflow'
+        url = 'tuna://run?subject=tuna.smart-links/Stack%20Overflow&action=tuna.smart-links.actions/open-smart-link'
+
+        [[comboMode.bindings.children.children]]
         key = 'p'
         label = 'Google Scholar'
         url = 'tuna://run?subject=tuna.smart-links/Google%20Scholar&action=tuna.smart-links.actions/open-smart-link'
-
-        [[comboMode.bindings.children.children]]
-        key = 'u'
-        label = 'YouGlish'
-        url = 'tuna://run?subject=tuna.smart-links/YouGlish&action=tuna.smart-links.actions/open-smart-link'
-
-        [[comboMode.bindings.children.children]]
-        key = 'z'
-        label = 'DOI Clipboard'
-        url = 'tuna://run?subject=tuna.smart-links/DOI%20Clipboard&action=tuna.smart-links.actions/open-smart-link'
-
-        [[comboMode.bindings.children.children]]
-        key = 'k'
-        label = 'Kagi'
-        url = 'tuna://run?subject=tuna.smart-links/Kagi&action=tuna.smart-links.actions/open-smart-link'
 
         [[comboMode.bindings.children.children]]
         key = 'r'
@@ -161,34 +174,20 @@ label = 'Browse'
         url = 'tuna://run?subject=tuna.smart-links/Brave&action=tuna.smart-links.actions/open-smart-link'
 
         [[comboMode.bindings.children.children]]
-        key = 'f'
-        label = 'Forvo'
-        url = 'tuna://run?subject=tuna.smart-links/Forvo&action=tuna.smart-links.actions/open-smart-link'
-
-        [[comboMode.bindings.children.children]]
-        key = 'g'
-        label = 'Google'
-        url = 'tuna://run?subject=tuna.smart-links/Google&action=tuna.smart-links.actions/open-smart-link'
-
-        [[comboMode.bindings.children.children]]
-        key = 'h'
-        label = 'GitHub Search'
-        url = 'tuna://run?subject=tuna.smart-links/GitHub&action=tuna.smart-links.actions/open-smart-link'
-
-        [[comboMode.bindings.children.children]]
-        key = 'o'
-        label = 'Stack Overflow'
-        url = 'tuna://run?subject=tuna.smart-links/Stack%20Overflow&action=tuna.smart-links.actions/open-smart-link'
-
-        [[comboMode.bindings.children.children]]
         key = 's'
         label = 'Scihub'
         url = 'tuna://run?subject=tuna.smart-links/Scihub&action=tuna.smart-links.actions/open-smart-link'
 
         [[comboMode.bindings.children.children]]
+        iconPath = 'character.bubble'
         key = 't'
         label = 'Translate'
         url = 'tuna://run?subject=tuna.smart-links/Google%20Translate%20Input&action=tuna.smart-links.actions/open-smart-link'
+
+        [[comboMode.bindings.children.children]]
+        key = 'u'
+        label = 'YouGlish'
+        url = 'tuna://run?subject=tuna.smart-links/YouGlish&action=tuna.smart-links.actions/open-smart-link'
 
         [[comboMode.bindings.children.children]]
         key = 'v'
@@ -201,11 +200,18 @@ label = 'Browse'
         url = 'tuna://run?subject=tuna.smart-links/Wikipedia&action=tuna.smart-links.actions/open-smart-link'
 
         [[comboMode.bindings.children.children]]
+        iconPath = 'play.rectangle.fill'
         key = 'y'
         label = 'YouTube'
         url = 'tuna://run?subject=tuna.smart-links/YouTube&action=tuna.smart-links.actions/open-smart-link'
 
+        [[comboMode.bindings.children.children]]
+        key = 'z'
+        label = 'DOI Clipboard'
+        url = 'tuna://run?subject=tuna.smart-links/DOI%20Clipboard&action=tuna.smart-links.actions/open-smart-link'
+
     [[comboMode.bindings.children]]
+    iconPath = 'envelope'
     key = 'm'
     label = 'Gmail'
     url = 'tuna://run?subject=url:https://mail.google.com&action=tuna.common-actions/open-url'
@@ -236,47 +242,122 @@ label = 'Browse'
         url = 'tuna://run?subject=url:https://stat.ethz.ch/R-manual/R-devel/doc/html/NEWS.html&action=tuna.common-actions/open-url'
 
     [[comboMode.bindings.children]]
+    iconPath = 'sportscourt'
     key = 's'
     label = 'Streamed.su'
     url = 'tuna://run?subject=url:https://streamed.pk&action=tuna.common-actions/open-url'
 
     [[comboMode.bindings.children]]
+    iconPath = 'character.bubble'
     key = 't'
     label = 'Google Translate'
     url = 'tuna://run?subject=url:https://translate.google.com/?langpair=auto%257Cauto%26sl=auto%26tl=en&action=tuna.common-actions/open-url'
 
 [[comboMode.bindings]]
-iconPath = '/Applications/CleanShot X.app'
+iconPath = '/Applications/Shottr.app'
 key = 'c'
 label = 'Screenshot'
 
     [[comboMode.bindings.children]]
+    iconPath = 'display'
     key = 'f'
-    url = 'tuna://run?subject=cleanshot.commands/capture-full-screen&action=tuna.common-actions/run'
+    label = 'Fullscreen'
+    url = 'tuna://run?subject=url:shottr://grab/fullscreen&action=tuna.common-actions/open-url'
 
     [[comboMode.bindings.children]]
-    key = 'h'
-    url = 'tuna://run?subject=cleanshot.commands/open-history&action=tuna.common-actions/run'
-
-    [[comboMode.bindings.children]]
+    iconPath = 'rectangle.dashed'
     key = 'k'
-    url = 'tuna://run?subject=cleanshot.commands/capture-area&action=tuna.common-actions/run'
+    label = 'Area'
+    url = 'tuna://run?subject=url:shottr://grab/area&action=tuna.common-actions/open-url'
 
     [[comboMode.bindings.children]]
+    iconPath = 'ellipsis'
+    key = 'm'
+    label = 'More'
+
+        [[comboMode.bindings.children.children]]
+        iconPath = 'plus.rectangle.on.rectangle'
+        key = 'a'
+        label = 'Append Capture'
+        url = 'tuna://run?subject=url:shottr://grab/append&action=tuna.common-actions/open-url'
+
+        [[comboMode.bindings.children.children]]
+        iconPath = 'doc.on.clipboard'
+        key = 'c'
+        label = 'Clipboard to Editor'
+        url = 'tuna://run?subject=url:shottr://load/clipboard&action=tuna.common-actions/open-url'
+
+        [[comboMode.bindings.children.children]]
+        iconPath = 'timer'
+        key = 'd'
+        label = 'Delayed Capture'
+        url = 'tuna://run?subject=url:shottr://grab/delayed&action=tuna.common-actions/open-url'
+
+        [[comboMode.bindings.children.children]]
+        iconPath = 'doc'
+        key = 'f'
+        label = 'Open File in Editor'
+        url = 'tuna://run?subject=url:shottr://load/file&action=tuna.common-actions/open-url'
+
+        [[comboMode.bindings.children.children]]
+        iconPath = 'folder'
+        key = 'h'
+        label = 'Screenshots Folder'
+        url = 'tuna://run?subject=path:/Users/eyayaw/Library/Mobile%20Documents/com~apple~CloudDocs/Media/Screenshots/Shottr&action=tuna.common-actions/open'
+
+        [[comboMode.bindings.children.children]]
+        iconPath = '/Applications/Shottr.app'
+        key = 'o'
+        label = 'Show Shottr'
+        url = 'tuna://run?subject=url:shottr://show&action=tuna.common-actions/open-url'
+
+        [[comboMode.bindings.children.children]]
+        iconPath = 'arrow.up'
+        key = 'r'
+        label = 'Scrolling Up'
+        url = 'tuna://run?subject=url:shottr://grab/scrolling/reverse&action=tuna.common-actions/open-url'
+
+        [[comboMode.bindings.children.children]]
+        iconPath = 'gearshape'
+        key = 's'
+        label = 'Settings'
+        url = 'tuna://run?subject=url:shottr://settings&action=tuna.common-actions/open-url'
+
+        [[comboMode.bindings.children.children]]
+        iconPath = 'icloud.and.arrow.up'
+        key = 'u'
+        label = 'Uploads'
+        url = 'tuna://run?subject=url:shottr://uploads&action=tuna.common-actions/open-url'
+
+    [[comboMode.bindings.children]]
+    iconPath = 'text.viewfinder'
     key = 'o'
-    url = 'tuna://run?subject=cleanshot.commands/capture-text-ocr&action=tuna.common-actions/run'
+    label = 'OCR'
+    url = 'tuna://run?subject=url:shottr://ocr&action=tuna.common-actions/open-url'
 
     [[comboMode.bindings.children]]
+    iconPath = 'arrow.counterclockwise'
     key = 'r'
-    url = 'tuna://run?subject=cleanshot.commands/restore-recently-closed&action=tuna.common-actions/run'
+    label = 'Repeat Area'
+    url = 'tuna://run?subject=url:shottr://grab/repeat&action=tuna.common-actions/open-url'
 
     [[comboMode.bindings.children]]
+    iconPath = 'arrow.up.and.down'
+    key = 's'
+    label = 'Scrolling'
+    url = 'tuna://run?subject=url:shottr://grab/scrolling&action=tuna.common-actions/open-url'
+
+    [[comboMode.bindings.children]]
+    iconPath = 'record.circle'
     key = 'v'
-    url = 'tuna://run?subject=cleanshot.commands/record-screen&action=tuna.common-actions/run'
+    label = 'Record Screen'
+    url = 'tuna://run?subject=url:cleanshot://record-screen&action=tuna.common-actions/open-url'
 
     [[comboMode.bindings.children]]
+    iconPath = 'macwindow'
     key = 'w'
-    url = 'tuna://run?subject=cleanshot.commands/capture-window&action=tuna.common-actions/run'
+    label = 'Window'
+    url = 'tuna://run?subject=url:shottr://grab/window&action=tuna.common-actions/open-url'
 
 [[comboMode.bindings]]
 iconPath = '/System/Library/CoreServices/Finder.app'
@@ -316,13 +397,132 @@ label = 'Goto Folder'
     url = 'tuna://run?subject=path:/Users/eyayaw/AMS%20Institute%20Dropbox/Eyayaw%20Beze/Work&action=tuna.common-actions/open'
 
 [[comboMode.bindings]]
-iconPath = 'hands.and.sparkles.fill'
+iconPath = '/Applications/CleanShot X.app'
+key = 'k'
+label = 'CleanShot'
+
+    [[comboMode.bindings.children]]
+    iconPath = 'viewfinder'
+    key = 'a'
+    label = 'All-in-One'
+    url = 'tuna://run?subject=url:cleanshot://all-in-one&action=tuna.common-actions/open-url'
+
+    [[comboMode.bindings.children]]
+    iconPath = 'display'
+    key = 'f'
+    label = 'Fullscreen'
+    url = 'tuna://run?subject=url:cleanshot://capture-fullscreen&action=tuna.common-actions/open-url'
+
+    [[comboMode.bindings.children]]
+    iconPath = 'clock'
+    key = 'h'
+    label = 'History'
+    url = 'tuna://run?subject=url:cleanshot://open-history&action=tuna.common-actions/open-url'
+
+    [[comboMode.bindings.children]]
+    iconPath = 'rectangle.dashed'
+    key = 'k'
+    label = 'Area'
+    url = 'tuna://run?subject=url:cleanshot://capture-area&action=tuna.common-actions/open-url'
+
+    [[comboMode.bindings.children]]
+    iconPath = 'text.viewfinder'
+    key = 'o'
+    label = 'OCR'
+    url = 'tuna://run?subject=url:cleanshot://capture-text&action=tuna.common-actions/open-url'
+
+    [[comboMode.bindings.children]]
+    iconPath = 'arrow.uturn.backward'
+    key = 'r'
+    label = 'Restore Recently Closed'
+    url = 'tuna://run?subject=url:cleanshot://restore-recently-closed&action=tuna.common-actions/open-url'
+
+    [[comboMode.bindings.children]]
+    iconPath = 'arrow.up.and.down'
+    key = 's'
+    label = 'Scrolling Capture'
+    url = 'tuna://run?subject=url:cleanshot://scrolling-capture&action=tuna.common-actions/open-url'
+
+    [[comboMode.bindings.children]]
+    iconPath = 'record.circle'
+    key = 'v'
+    label = 'Record Screen'
+    url = 'tuna://run?subject=url:cleanshot://record-screen&action=tuna.common-actions/open-url'
+
+    [[comboMode.bindings.children]]
+    iconPath = 'macwindow'
+    key = 'w'
+    label = 'Window'
+    url = 'tuna://run?subject=url:cleanshot://capture-window&action=tuna.common-actions/open-url'
+
+    [[comboMode.bindings.children]]
+    iconPath = 'ellipsis'
+    key = 'm'
+    label = 'More'
+
+        [[comboMode.bindings.children.children]]
+        iconPath = 'pin'
+        key = 'a'
+        label = 'Pin'
+        url = 'tuna://run?subject=url:cleanshot://pin&action=tuna.common-actions/open-url'
+
+        [[comboMode.bindings.children.children]]
+        iconPath = 'doc.on.clipboard'
+        key = 'c'
+        label = 'Annotate Clipboard'
+        url = 'tuna://run?subject=url:cleanshot://open-from-clipboard&action=tuna.common-actions/open-url'
+
+        [[comboMode.bindings.children.children]]
+        iconPath = 'desktopcomputer'
+        key = 'd'
+        label = 'Toggle Desktop Icons'
+        url = 'tuna://run?subject=url:cleanshot://toggle-desktop-icons&action=tuna.common-actions/open-url'
+
+        [[comboMode.bindings.children.children]]
+        iconPath = 'pencil.tip.crop.circle'
+        key = 'e'
+        label = 'Annotate'
+        url = 'tuna://run?subject=url:cleanshot://open-annotate&action=tuna.common-actions/open-url'
+
+        [[comboMode.bindings.children.children]]
+        iconPath = 'gearshape'
+        key = 'g'
+        label = 'Settings'
+        url = 'tuna://run?subject=url:cleanshot://open-settings&action=tuna.common-actions/open-url'
+
+        [[comboMode.bindings.children.children]]
+        iconPath = 'eye.slash'
+        key = 'h'
+        label = 'Hide Desktop Icons'
+        url = 'tuna://run?subject=url:cleanshot://hide-desktop-icons&action=tuna.common-actions/open-url'
+
+        [[comboMode.bindings.children.children]]
+        iconPath = 'eye'
+        key = 'i'
+        label = 'Show Desktop Icons'
+        url = 'tuna://run?subject=url:cleanshot://show-desktop-icons&action=tuna.common-actions/open-url'
+
+        [[comboMode.bindings.children.children]]
+        iconPath = 'arrow.counterclockwise'
+        key = 'p'
+        label = 'Previous Area'
+        url = 'tuna://run?subject=url:cleanshot://capture-previous-area&action=tuna.common-actions/open-url'
+
+        [[comboMode.bindings.children.children]]
+        iconPath = 'timer'
+        key = 't'
+        label = 'Self Timer'
+        url = 'tuna://run?subject=url:cleanshot://self-timer&action=tuna.common-actions/open-url'
+
+[[comboMode.bindings]]
+iconPath = 'sparkles'
 key = 'l'
 label = 'LLMs'
 
     [[comboMode.bindings.children]]
     iconPath = '/Applications/Codex.app'
     key = 'c'
+    label = 'ChatGPT'
     url = 'tuna://run?subject=tuna.applications//Applications/ChatGPT.app&action=tuna.common-actions/open'
 
     [[comboMode.bindings.children]]
@@ -332,8 +532,9 @@ label = 'LLMs'
     url = 'tuna://run?subject=tuna.applications//Applications/AgentsView.app&action=tuna.common-actions/open'
 
     [[comboMode.bindings.children]]
+    iconPath = 'sparkle'
     key = 'g'
-    label = 'ChatGPT'
+    label = 'ChatGPT Web'
     url = 'tuna://run?subject=url:https://chat.openai.com/chat&action=tuna.common-actions/open-url'
 
     [[comboMode.bindings.children]]
@@ -359,6 +560,7 @@ label = 'LLMs'
     url = 'tuna://run?subject=path:/Applications/LM%20Studio.app&action=tuna.common-actions/open'
 
     [[comboMode.bindings.children]]
+    iconPath = 'diamond'
     key = 'n'
     label = 'Gemini'
     url = 'tuna://run?subject=url:https://gemini.google.com&action=tuna.common-actions/open-url'
@@ -370,11 +572,12 @@ label = 'LLMs'
     url = 'tuna://run?subject=path:/Applications/Ollama.app&action=tuna.common-actions/open'
 
 [[comboMode.bindings]]
-iconPath = 'restart.circle'
+iconPath = 'bubble.left.and.bubble.right'
 key = 'm'
 label = 'Socials - media'
 
     [[comboMode.bindings.children]]
+    iconPath = 'cloud'
     key = 'b'
     label = 'Bluesky'
     url = 'tuna://run?subject=url:https://bsky.app&action=tuna.common-actions/open-url'
@@ -386,6 +589,7 @@ label = 'Socials - media'
     url = 'tuna://run?subject=path:/Applications/Discord.app&action=tuna.common-actions/open'
 
     [[comboMode.bindings.children]]
+    iconPath = 'chart.bar'
     key = 'f'
     label = 'Fedica'
     url = 'tuna://run?subject=url:https://fedica.com/dash&action=tuna.common-actions/open-url'
@@ -397,16 +601,19 @@ label = 'Socials - media'
     url = 'tuna://run?subject=path:/Applications/Telegram.app&action=tuna.common-actions/open'
 
     [[comboMode.bindings.children]]
+    iconPath = 'briefcase'
     key = 'l'
     label = 'LinkedIn'
     url = 'tuna://run?subject=url:https://linkedin.com&action=tuna.common-actions/open-url'
 
     [[comboMode.bindings.children]]
+    iconPath = 'megaphone'
     key = 'm'
     label = 'Mastodon'
     url = 'tuna://run?subject=url:https://elk.zone/home&action=tuna.common-actions/open-url'
 
     [[comboMode.bindings.children]]
+    iconPath = 'quote.bubble'
     key = 'r'
     label = 'Reddit'
     url = 'tuna://run?subject=url:https://reddit.com&action=tuna.common-actions/open-url'
@@ -418,6 +625,7 @@ label = 'Socials - media'
     url = 'tuna://run?subject=path:/Applications/Signal.app&action=tuna.common-actions/open'
 
     [[comboMode.bindings.children]]
+    iconPath = 'bird'
     key = 't'
     label = 'Twitter'
     url = 'tuna://run?subject=url:https://twitter.com&action=tuna.common-actions/open-url'
@@ -429,12 +637,13 @@ label = 'Socials - media'
     url = 'tuna://run?subject=path:/Applications/WhatsApp.app&action=tuna.common-actions/open'
 
     [[comboMode.bindings.children]]
+    iconPath = 'play.rectangle.fill'
     key = 'y'
     label = 'YouTube'
     url = 'tuna://run?subject=url:https://youtube.com&action=tuna.common-actions/open-url'
 
 [[comboMode.bindings]]
-iconPath = 'dot.circle.and.cursorarrow'
+iconPath = 'square.grid.3x3.fill'
 key = 'o'
 label = 'Open Apps'
 
@@ -469,12 +678,6 @@ label = 'Open Apps'
     url = 'tuna://run?subject=path:/Applications/Visual%20Studio%20Code.app&action=tuna.common-actions/open'
 
     [[comboMode.bindings.children]]
-    iconPath = '/Applications/Dia.app'
-    key = 'd'
-    label = 'Dia'
-    url = 'tuna://run?subject=path:/Applications/Dia.app&action=tuna.common-actions/open'
-
-    [[comboMode.bindings.children]]
     iconPath = '/Applications/Zed.app'
     key = 'e'
     label = 'Zed'
@@ -485,12 +688,6 @@ label = 'Open Apps'
     key = 'f'
     label = 'Finder'
     url = 'tuna://run?subject=path:/System/Library/CoreServices/Finder.app&action=tuna.common-actions/open'
-
-    [[comboMode.bindings.children]]
-    iconPath = '/Applications/Cursor.app'
-    key = 'h'
-    label = 'Cursor'
-    url = 'tuna://run?subject=path:/Applications/Cursor.app&action=tuna.common-actions/open'
 
     [[comboMode.bindings.children]]
     iconPath = '/Applications/Tuta Mail.app'
@@ -559,16 +756,39 @@ label = 'Open Apps'
     url = 'tuna://run?subject=path:/Applications/Zoom.us.app&action=tuna.common-actions/open'
 
 [[comboMode.bindings]]
-iconPath = 'burst.fill'
+iconPath = 'wand.and.stars'
 key = 'p'
 label = 'Prompts'
 
     [[comboMode.bindings.children]]
+    iconPath = 'square.grid.2x2'
     key = 'b'
+    label = 'Browse Prompts'
     url = 'tuna://run?subject=tuna.prompts/tuna.prompts.browse&action=tuna.common-actions/browse'
 
     [[comboMode.bindings.children]]
+    iconPath = 'mic'
+    key = 'c'
+    label = 'Clean Up Dictation'
+    url = 'tuna://run?subject=tuna.prompts//Users/eyayaw/Developer/dotfiles/tuna/.config/tuna/Prompts/clean-up-dictation.md&action=tuna.prompts.actions/run-with-input'
+
+    [[comboMode.bindings.children]]
+    iconPath = 'textformat.abc'
     key = 'f'
+    label = 'Fix Spelling'
+    url = 'tuna://run?subject=tuna.prompts//Users/eyayaw/Developer/dotfiles/tuna/.config/tuna/Prompts/fix-spelling-grammar.md&action=tuna.prompts.actions/run-with-input'
+
+    [[comboMode.bindings.children]]
+    iconPath = 'wand.and.stars'
+    key = 'i'
+    label = 'Improve Writing'
+    url = 'tuna://run?subject=tuna.prompts//Users/eyayaw/Developer/dotfiles/tuna/.config/tuna/Prompts/improve-writing.md&action=tuna.prompts.actions/run-with-input'
+
+    [[comboMode.bindings.children]]
+    iconPath = 'text.alignleft'
+    key = 's'
+    label = 'Summarize'
+    url = 'tuna://run?subject=tuna.prompts//Users/eyayaw/Developer/dotfiles/tuna/.config/tuna/Prompts/summarize.md&action=tuna.prompts.actions/run-with-input'
 
 [[comboMode.bindings]]
 iconPath = '/Applications/Raycast.app'
@@ -576,51 +796,61 @@ key = 'r'
 label = 'Raycast'
 
     [[comboMode.bindings.children]]
+    iconPath = 'eyedropper'
     key = ';'
     label = 'Color Picker'
     url = 'tuna://run?subject=url:raycast://extensions/thomas/color-picker/pick-color&action=tuna.common-actions/open-url'
 
     [[comboMode.bindings.children]]
+    iconPath = 'magnifyingglass'
     key = 'f'
     label = 'File Search'
     url = 'tuna://run?subject=url:raycast://extensions/raycast/file-search/search-files&action=tuna.common-actions/open-url'
 
     [[comboMode.bindings.children]]
+    iconPath = 'character.bubble'
     key = 'g'
     label = 'Translate'
     url = 'tuna://run?subject=url:raycast://extensions/gebeto/translate/translate&action=tuna.common-actions/open-url'
 
     [[comboMode.bindings.children]]
+    iconPath = 'doc.on.clipboard'
     key = 'h'
     label = 'Clipboard History'
     url = 'tuna://run?subject=url:raycast://extensions/raycast/clipboard-history/clipboard-history&action=tuna.common-actions/open-url'
 
     [[comboMode.bindings.children]]
+    iconPath = 'character.book.closed'
     key = 'k'
     label = 'Dictionary'
     url = 'tuna://run?subject=url:raycast://extensions/raycast/dictionary/define-word&action=tuna.common-actions/open-url'
 
     [[comboMode.bindings.children]]
+    iconPath = 'lock'
     key = 'l'
     label = 'Lock Screen'
     url = 'tuna://run?subject=url:raycast://extensions/raycast/system/lock-screen&action=tuna.common-actions/open-url'
 
     [[comboMode.bindings.children]]
+    iconPath = 'mic.slash'
     key = 'm'
     label = 'Toggle Mute'
     url = 'tuna://run?subject=url:raycast://extensions/raycast/system/toggle-mute&action=tuna.common-actions/open-url'
 
     [[comboMode.bindings.children]]
+    iconPath = 'curlybraces'
     key = 'n'
     label = 'Snippets'
     url = 'tuna://run?subject=url:raycast://extensions/raycast/snippets/search-snippets&action=tuna.common-actions/open-url'
 
     [[comboMode.bindings.children]]
+    iconPath = 'face.smiling'
     key = 'o'
     label = 'Emoji'
     url = 'tuna://run?subject=url:raycast://extensions/raycast/emoji-symbols/search-emoji-symbols&action=tuna.common-actions/open-url'
 
     [[comboMode.bindings.children]]
+    iconPath = 'party.popper'
     key = 'p'
     label = 'Confetti'
     url = 'tuna://run?subject=url:raycast://extensions/raycast/raycast/confetti&action=tuna.common-actions/open-url'
@@ -631,23 +861,69 @@ key = 's'
 label = 'Systemy'
 
     [[comboMode.bindings.children]]
+    iconPath = 'backward.fill'
+    key = 'b'
+    label = 'Previous Track'
+    url = 'tuna://run?subject=tuna.media-controls/previous-track&action=tuna.common-actions/run'
+
+    [[comboMode.bindings.children]]
+    iconPath = 'doc.on.clipboard'
     key = 'c'
+    label = 'Clipboard History'
     url = 'tuna://run?subject=tuna.clipboard/clipboard.history.root&action=tuna.common-actions/browse'
 
     [[comboMode.bindings.children]]
+    iconPath = 'display'
+    key = 'd'
+    label = 'Sleep Displays'
+    url = 'tuna://run?subject=tuna.system-tasks/Sleep%20Displays&action=tuna.common-actions/run'
+
+    [[comboMode.bindings.children]]
+    iconPath = 'trash'
+    key = 'e'
+    label = 'Empty Trash'
+    url = 'tuna://run?subject=tuna.system-tasks/Empty%20Trash&action=tuna.common-actions/run'
+
+    [[comboMode.bindings.children]]
+    iconPath = 'lock'
     key = 'l'
+    label = 'Lock Screen'
     url = 'tuna://run?subject=tuna.system-tasks/Lock%20Screen&action=tuna.common-actions/run'
 
     [[comboMode.bindings.children]]
+    iconPath = 'forward.fill'
+    key = 'n'
+    label = 'Next Track'
+    url = 'tuna://run?subject=tuna.media-controls/next-track&action=tuna.common-actions/run'
+
+    [[comboMode.bindings.children]]
+    iconPath = 'playpause.fill'
     key = 'p'
+    label = 'Play/Pause'
     url = 'tuna://run?subject=tuna.media-controls/playpause&action=tuna.common-actions/run'
 
     [[comboMode.bindings.children]]
+    iconPath = 'power'
+    key = 'q'
+    label = 'Shut Down'
+    url = 'tuna://run?subject=tuna.system-tasks/Shut%20Down&action=tuna.common-actions/run'
+
+    [[comboMode.bindings.children]]
+    iconPath = 'restart.circle'
     key = 'r'
+    label = 'Restart'
     url = 'tuna://run?subject=tuna.system-tasks/Restart&action=tuna.common-actions/run'
 
     [[comboMode.bindings.children]]
+    iconPath = 'moon.fill'
+    key = 's'
+    label = 'Sleep'
+    url = 'tuna://run?subject=tuna.system-tasks/Sleep&action=tuna.common-actions/run'
+
+    [[comboMode.bindings.children]]
+    iconPath = 'circle.lefthalf.filled'
     key = 't'
+    label = 'Toggle Light/Dark'
     url = 'tuna://run?subject=tuna.system-tasks/Toggle%20Light/Dark%20Mode&action=tuna.common-actions/run'
 
 [[comboMode.bindings]]
@@ -656,125 +932,212 @@ key = 't'
 label = 'Things'
 
     [[comboMode.bindings.children]]
+    iconPath = 'square.stack'
+    key = 'a'
+    label = 'Anytime'
+    url = 'tuna://run?subject=url:things:///show?id=anytime&action=tuna.common-actions/open-url'
+
+    [[comboMode.bindings.children]]
+    iconPath = 'tray'
     key = 'i'
-    url = 'tuna://run?subject=things/things.list.inbox&action=things.actions/show-in-things'
+    label = 'Inbox'
+    url = 'tuna://run?subject=url:things:///show?id=inbox&action=tuna.common-actions/open-url'
 
     [[comboMode.bindings.children]]
+    iconPath = 'plus.circle'
+    key = 'n'
+    label = 'New To-Do'
+    url = 'tuna://run?subject=url:things:///add?show-quick-entry=true&action=tuna.common-actions/open-url'
+
+    [[comboMode.bindings.children]]
+    iconPath = 'rectangle.stack'
     key = 'p'
-    url = 'tuna://run?subject=things/things.list.all-projects&action=things.actions/show-in-things'
+    label = 'All Projects'
+    url = 'tuna://run?subject=url:things:///show?id=all-projects&action=tuna.common-actions/open-url'
 
     [[comboMode.bindings.children]]
+    iconPath = 'magnifyingglass'
+    key = 's'
+    label = 'Search'
+    url = 'tuna://run?subject=url:things:///search&action=tuna.common-actions/open-url'
+
+    [[comboMode.bindings.children]]
+    iconPath = 'star'
     key = 't'
-    url = 'tuna://run?subject=things/things.list.today&action=things.actions/show-in-things'
+    label = 'Today'
+    url = 'tuna://run?subject=url:things:///show?id=today&action=tuna.common-actions/open-url'
 
     [[comboMode.bindings.children]]
+    iconPath = 'calendar'
     key = 'u'
-    url = 'tuna://run?subject=things/things.list.upcoming&action=things.actions/show-in-things'
+    label = 'Upcoming'
+    url = 'tuna://run?subject=url:things:///show?id=upcoming&action=tuna.common-actions/open-url'
+
+    [[comboMode.bindings.children]]
+    iconPath = 'ellipsis'
+    key = 'm'
+    label = 'More'
+
+        [[comboMode.bindings.children.children]]
+        iconPath = 'flag'
+        key = 'd'
+        label = 'Deadlines'
+        url = 'tuna://run?subject=url:things:///show?id=deadlines&action=tuna.common-actions/open-url'
+
+        [[comboMode.bindings.children.children]]
+        iconPath = 'folder.badge.plus'
+        key = 'n'
+        label = 'New Project'
+        url = 'tuna://run?subject=url:things:///add-project?reveal=true&action=tuna.common-actions/open-url'
+
+        [[comboMode.bindings.children.children]]
+        iconPath = 'archivebox'
+        key = 'g'
+        label = 'Logged Projects'
+        url = 'tuna://run?subject=url:things:///show?id=logged-projects&action=tuna.common-actions/open-url'
+
+        [[comboMode.bindings.children.children]]
+        iconPath = 'checkmark.circle'
+        key = 'l'
+        label = 'Logbook'
+        url = 'tuna://run?subject=url:things:///show?id=logbook&action=tuna.common-actions/open-url'
+
+        [[comboMode.bindings.children.children]]
+        iconPath = 'repeat'
+        key = 'r'
+        label = 'Repeating'
+        url = 'tuna://run?subject=url:things:///show?id=repeating&action=tuna.common-actions/open-url'
+
+        [[comboMode.bindings.children.children]]
+        iconPath = 'sunrise'
+        key = 't'
+        label = 'Tomorrow'
+        url = 'tuna://run?subject=url:things:///show?id=tomorrow&action=tuna.common-actions/open-url'
 
 [[comboMode.bindings]]
-iconPath = '/Applications/Raycast.app'
+iconPath = 'macwindow'
 key = 'w'
 label = 'Window'
 
     [[comboMode.bindings.children]]
+    iconPath = 'rectangle.inset.filled'
     key = ' '
     label = 'Almost Maximize'
     url = 'tuna://run?subject=url:raycast://extensions/raycast/window-management/almost-maximize&action=tuna.common-actions/open-url'
 
     [[comboMode.bindings.children]]
-    key = 'z'
-    label = 'Restore'
-    url = 'tuna://run?subject=url:raycast://extensions/raycast/window-management/restore&action=tuna.common-actions/open-url'
-
-    [[comboMode.bindings.children]]
+    iconPath = 'rectangle.center.inset.filled'
     key = 'c'
     label = 'Center'
     url = 'tuna://run?subject=url:raycast://extensions/raycast/window-management/center&action=tuna.common-actions/open-url'
 
     [[comboMode.bindings.children]]
+    iconPath = 'rectangle.leadingthird.inset.filled'
     key = 'd'
     label = 'First Third'
     url = 'tuna://run?subject=url:raycast://extensions/raycast/window-management/first-third&action=tuna.common-actions/open-url'
 
     [[comboMode.bindings.children]]
+    iconPath = 'rectangle.split.3x1'
     key = 'e'
     label = 'First Two Thirds'
     url = 'tuna://run?subject=url:raycast://extensions/raycast/window-management/first-two-thirds&action=tuna.common-actions/open-url'
 
     [[comboMode.bindings.children]]
+    iconPath = 'rectangle.fill'
     key = 'enter'
     label = 'Maximize'
     url = 'tuna://run?subject=url:raycast://extensions/raycast/window-management/maximize&action=tuna.common-actions/open-url'
 
     [[comboMode.bindings.children]]
+    iconPath = 'rectangle.center.inset.filled'
     key = 'f'
     label = 'Center Third'
     url = 'tuna://run?subject=url:raycast://extensions/raycast/window-management/center-third&action=tuna.common-actions/open-url'
 
     [[comboMode.bindings.children]]
+    iconPath = 'rectangle.trailingthird.inset.filled'
     key = 'g'
     label = 'Last Third'
     url = 'tuna://run?subject=url:raycast://extensions/raycast/window-management/last-third&action=tuna.common-actions/open-url'
 
     [[comboMode.bindings.children]]
+    iconPath = 'rectangle.lefthalf.filled'
     key = 'h'
     label = 'Left Half'
     url = 'tuna://run?subject=url:raycast://extensions/raycast/window-management/left-half&action=tuna.common-actions/open-url'
 
     [[comboMode.bindings.children]]
+    iconPath = 'rectangle.inset.topright.filled'
     key = 'i'
     label = 'Top Right Quarter'
     url = 'tuna://run?subject=url:raycast://extensions/raycast/window-management/top-right-quarter&action=tuna.common-actions/open-url'
 
     [[comboMode.bindings.children]]
+    iconPath = 'rectangle.bottomhalf.filled'
     key = 'j'
     label = 'Bottom Half'
     url = 'tuna://run?subject=url:raycast://extensions/raycast/window-management/bottom-half&action=tuna.common-actions/open-url'
 
     [[comboMode.bindings.children]]
+    iconPath = 'rectangle.tophalf.filled'
     key = 'k'
     label = 'Top Half'
     url = 'tuna://run?subject=url:raycast://extensions/raycast/window-management/top-half&action=tuna.common-actions/open-url'
 
     [[comboMode.bindings.children]]
+    iconPath = 'rectangle.righthalf.filled'
     key = 'l'
     label = 'Right Half'
     url = 'tuna://run?subject=url:raycast://extensions/raycast/window-management/right-half&action=tuna.common-actions/open-url'
 
     [[comboMode.bindings.children]]
+    iconPath = 'rectangle.inset.bottomright.filled'
     key = 'm'
     label = 'Bottom Right Quarter'
     url = 'tuna://run?subject=url:raycast://extensions/raycast/window-management/bottom-right-quarter&action=tuna.common-actions/open-url'
 
     [[comboMode.bindings.children]]
+    iconPath = 'rectangle.inset.bottomleft.filled'
     key = 'n'
     label = 'Bottom Left Quarter'
     url = 'tuna://run?subject=url:raycast://extensions/raycast/window-management/bottom-left-quarter&action=tuna.common-actions/open-url'
 
     [[comboMode.bindings.children]]
+    iconPath = 'arrow.right.square'
     key = 'o'
     label = 'Next Desktop'
     url = 'tuna://run?subject=url:raycast://extensions/raycast/window-management/next-desktop&action=tuna.common-actions/open-url'
 
     [[comboMode.bindings.children]]
+    iconPath = 'rectangle.split.3x1'
     key = 'r'
     label = 'Center Two Thirds'
     url = 'tuna://run?subject=url:raycast://extensions/raycast/window-management/center-two-thirds&action=tuna.common-actions/open-url'
 
     [[comboMode.bindings.children]]
+    iconPath = 'rectangle.split.3x1'
     key = 't'
     label = 'Last Two Thirds'
     url = 'tuna://run?subject=url:raycast://extensions/raycast/window-management/last-two-thirds&action=tuna.common-actions/open-url'
 
     [[comboMode.bindings.children]]
+    iconPath = 'rectangle.inset.topleft.filled'
     key = 'u'
     label = 'Top Left Quarter'
     url = 'tuna://run?subject=url:raycast://extensions/raycast/window-management/top-left-quarter&action=tuna.common-actions/open-url'
 
     [[comboMode.bindings.children]]
+    iconPath = 'arrow.left.square'
     key = 'y'
     label = 'Previous Desktop'
     url = 'tuna://run?subject=url:raycast://extensions/raycast/window-management/previous-desktop&action=tuna.common-actions/open-url'
+
+    [[comboMode.bindings.children]]
+    iconPath = 'arrow.uturn.backward'
+    key = 'z'
+    label = 'Restore'
+    url = 'tuna://run?subject=url:raycast://extensions/raycast/window-management/restore&action=tuna.common-actions/open-url'
 
 [[comboMode.bindings]]
 iconPath = '/Applications/Tuna.app'
@@ -782,9 +1145,28 @@ key = 'x'
 label = 'Misc'
 
     [[comboMode.bindings.children]]
+    iconPath = 'waveform'
     key = 'd'
-    label = 'dictation'
+    label = 'Dictation History'
     url = 'tuna://run?subject=tuna.dictation-history/dictation.history.search&action=tuna.common-actions/browse'
+
+    [[comboMode.bindings.children]]
+    iconPath = 'eyedropper'
+    key = 'p'
+    label = 'Pick Color'
+    url = 'tuna://run?subject=tuna.color-tools/pick-color&action=tuna.common-actions/run'
+
+    [[comboMode.bindings.children]]
+    iconPath = 'tray.full'
+    key = 's'
+    label = 'Shelf'
+    url = 'tuna://run?subject=tuna.shelf/shelf.root&action=tuna.common-actions/browse'
+
+    [[comboMode.bindings.children]]
+    iconPath = 'character.cursor.ibeam'
+    key = 't'
+    label = 'Text Mode'
+    url = 'tuna://text'
 
 [hotkeys.app.activate]
 carbonKeyCode = 38
@@ -797,6 +1179,19 @@ carbonModifiers = 6912
 [hotkeys.app.textMode]
 carbonKeyCode = 4
 carbonModifiers = 6912
+
+[[hotkeys.custom]]
+id = '14D9D3A6-4584-42DC-9D92-D59ABC5985A7'
+presentation = 'auto'
+
+    [hotkeys.custom.command]
+    actionIdentifier = 'tuna.prompts.actions/send-to-prompt'
+    subjectIdentifier = 'tuna.current-selection/Current Text Selection'
+    targetIdentifier = 'tuna.prompts//Users/eyayaw/Developer/dotfiles/tuna/.config/tuna/Prompts/summarize.md'
+
+    [hotkeys.custom.shortcut]
+    carbonKeyCode = 25
+    carbonModifiers = 6912
 
 [[hotkeys.custom]]
 id = '1AD4B33E-95DE-48C6-83FF-56EFBC5F51AE'
@@ -828,7 +1223,7 @@ presentation = 'auto'
 
     [hotkeys.custom.command]
     actionIdentifier = 'tuna.common-actions/run'
-    subjectIdentifier = 'tuna.combo-groups/c'
+    subjectIdentifier = 'tuna.combo-groups/k'
 
     [hotkeys.custom.shortcut]
     carbonKeyCode = 40
@@ -844,6 +1239,19 @@ presentation = 'auto'
 
     [hotkeys.custom.shortcut]
     carbonKeyCode = 17
+    carbonModifiers = 6912
+
+[[hotkeys.custom]]
+id = '70645ED7-CACD-4CA1-B35F-D3AB538BC327'
+presentation = 'auto'
+
+    [hotkeys.custom.command]
+    actionIdentifier = 'tuna.prompts.actions/send-to-prompt'
+    subjectIdentifier = 'tuna.current-selection/Current Text Selection'
+    targetIdentifier = 'tuna.prompts//Users/eyayaw/Developer/dotfiles/tuna/.config/tuna/Prompts/improve-writing.md'
+
+    [hotkeys.custom.shortcut]
+    carbonKeyCode = 28
     carbonModifiers = 6912
 
 [[hotkeys.custom]]
@@ -943,6 +1351,19 @@ presentation = 'auto'
     carbonModifiers = 6912
 
 [[hotkeys.custom]]
+id = 'F66E69EF-FB76-43C6-83CE-4A5EEAF93C55'
+presentation = 'auto'
+
+    [hotkeys.custom.command]
+    actionIdentifier = 'tuna.prompts.actions/send-to-prompt'
+    subjectIdentifier = 'tuna.current-selection/Current Text Selection'
+    targetIdentifier = 'tuna.prompts//Users/eyayaw/Developer/dotfiles/tuna/.config/tuna/Prompts/fix-spelling-grammar.md'
+
+    [hotkeys.custom.shortcut]
+    carbonKeyCode = 26
+    carbonModifiers = 6912
+
+[[hotkeys.custom]]
 id = 'F73A0BE5-9E8B-40BD-804B-9A7955E61945'
 presentation = 'auto'
 
@@ -996,21 +1417,21 @@ template = 'https://forvo.com/search/{{input}}/en_usa/'
 
 [[smartLinks.entries]]
 enabled = true
-name = 'GitHub'
+name = 'GitHub Search'
 requiresInput = true
 template = 'https://github.com/search?q={{input}}'
-
-[[smartLinks.entries]]
-enabled = true
-name = 'Google'
-requiresInput = true
-template = 'https://www.google.com/search?q={{input}}'
 
 [[smartLinks.entries]]
 enabled = true
 name = 'Google Scholar'
 requiresInput = true
 template = 'https://scholar.google.com/scholar?q={{input}}'
+
+[[smartLinks.entries]]
+enabled = true
+name = 'Google Search'
+requiresInput = true
+template = 'https://www.google.com/search?q={{input}}'
 
 [[smartLinks.entries]]
 enabled = true
