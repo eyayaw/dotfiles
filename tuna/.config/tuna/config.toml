@@ -1173,7 +1173,7 @@ carbonKeyCode = 38
 carbonModifiers = 6912
 
 [hotkeys.app.comboMode]
-carbonKeyCode = 8
+carbonKeyCode = 3
 carbonModifiers = 6912
 
 [hotkeys.app.textMode]
@@ -1194,6 +1194,18 @@ presentation = 'auto'
     carbonModifiers = 6912
 
 [[hotkeys.custom]]
+id = '1754B4B2-8661-427C-858C-09F3FD803639'
+presentation = 'auto'
+
+    [hotkeys.custom.command]
+    actionIdentifier = 'tuna.common-actions/run'
+    subjectIdentifier = 'tuna.combo-groups/x'
+
+    [hotkeys.custom.shortcut]
+    carbonKeyCode = 7
+    carbonModifiers = 6912
+
+[[hotkeys.custom]]
 id = '1AD4B33E-95DE-48C6-83FF-56EFBC5F51AE'
 presentation = 'auto'
 
@@ -1203,6 +1215,18 @@ presentation = 'auto'
 
     [hotkeys.custom.shortcut]
     carbonKeyCode = 34
+    carbonModifiers = 6912
+
+[[hotkeys.custom]]
+id = '26BAE5E7-7D98-423A-AE87-690EA5C53A5B'
+presentation = 'auto'
+
+    [hotkeys.custom.command]
+    actionIdentifier = 'tuna.common-actions/run'
+    subjectIdentifier = 'tuna.combo-groups/c'
+
+    [hotkeys.custom.shortcut]
+    carbonKeyCode = 8
     carbonModifiers = 6912
 
 [[hotkeys.custom]]
@@ -1303,6 +1327,18 @@ presentation = 'auto'
     carbonModifiers = 6912
 
 [[hotkeys.custom]]
+id = 'A80B8019-6D7B-492B-B3F5-06C6C33DCBE8'
+presentation = 'auto'
+
+    [hotkeys.custom.command]
+    actionIdentifier = 'tuna.common-actions/run'
+    subjectIdentifier = 'tuna.combo-groups/r'
+
+    [hotkeys.custom.shortcut]
+    carbonKeyCode = 15
+    carbonModifiers = 6912
+
+[[hotkeys.custom]]
 id = 'B7D99E7E-9E37-431E-BCFC-80BDEF569924'
 presentation = 'auto'
 
@@ -1315,18 +1351,6 @@ presentation = 'auto'
     carbonModifiers = 6912
 
 [[hotkeys.custom]]
-id = 'C4A073A0-995F-4478-BDE8-6B7D819AA260'
-presentation = 'auto'
-
-    [hotkeys.custom.command]
-    actionIdentifier = 'tuna.common-actions/run'
-    subjectIdentifier = 'tuna.combo-groups/r'
-
-    [hotkeys.custom.shortcut]
-    carbonKeyCode = 3
-    carbonModifiers = 6912
-
-[[hotkeys.custom]]
 id = 'C899BE08-DF09-4E15-B6E3-3CE1F4E38FA0'
 presentation = 'auto'
 
@@ -1336,18 +1360,6 @@ presentation = 'auto'
 
     [hotkeys.custom.shortcut]
     carbonKeyCode = 5
-    carbonModifiers = 6912
-
-[[hotkeys.custom]]
-id = 'DCF6809D-802E-439E-9AA6-CA4627A15223'
-presentation = 'auto'
-
-    [hotkeys.custom.command]
-    actionIdentifier = 'tuna.common-actions/run'
-    subjectIdentifier = 'tuna.combo-groups/x'
-
-    [hotkeys.custom.shortcut]
-    carbonKeyCode = 41
     carbonModifiers = 6912
 
 [[hotkeys.custom]]
