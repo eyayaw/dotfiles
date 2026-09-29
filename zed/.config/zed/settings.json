@@ -22,6 +22,14 @@
   "autosave": "on_focus_change",
   "wrap_guides": [72, 80, 120],
   "soft_wrap": "editor_width",
+  "sticky_scroll": {
+    "enabled": true,
+  },
+  "diagnostics": {
+    "inline": {
+      "enabled": true,
+    },
+  },
   "outline_panel": {
     "dock": "right"
   },
