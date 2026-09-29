@@ -7,11 +7,83 @@
 // custom settings, run `zed: open default settings` from the
 // command palette
 {
-  "use_system_window_tabs": true,
+  // Appearance
+  "theme": {
+    "light": "Zed Legacy: Solarized Light",
+    "dark": "One Dark",
+  },
+  "icon_theme": {
+    "mode": "system",
+    "light": "Material Icon Theme",
+    "dark": "Material Icon Theme",
+  },
+  "ui_font_family": "Lilex",
+  "buffer_font_family": "MonoLisaCode",
+  "buffer_font_size": 14,
+  "colorize_brackets": true,
+  "scrollbar": {
+    "show": "never",
+  },
+  "tabs": {
+    "file_icons": true,
+    "git_status": true,
+  },
+  "title_bar": {
+    "show_menus": true,
+    "show_branch_status_icon": true,
+  },
+
+  // Editing
+  "base_keymap": "VSCode",
+  "vim_mode": true,
+  "relative_line_numbers": "enabled",
+  "autosave": "on_focus_change",
+  "wrap_guides": [72, 80, 100, 120],
+  "soft_wrap": "editor_width",
+  "sticky_scroll": {
+    "enabled": true,
+  },
+  "diagnostics": {
+    "inline": {
+      "enabled": true,
+    },
+  },
   "completion_menu_item_kind": "symbol",
+
+  // Workspace
+  "use_system_window_tabs": true,
   "default_open_behavior": "new_window",
   "diff_view_style": "unified",
-  // ai + agents
+  "session": {
+    "trust_all_worktrees": true,
+  },
+  "project_panel": {
+    "dock": "left",
+  },
+  "which_key": {
+    "enabled": true,
+  },
+
+  // Terminal
+  "terminal": {
+    "cursor_shape": "bar",
+    "font_family": "BerkeleyMono Nerd Font Mono",
+    "font_size": 15,
+  },
+
+  // AI
+  "agent": {
+    "sidebar_side": "right",
+    "dock": "right",
+    "show_turn_stats": true,
+    "play_sound_when_agent_done": "when_hidden",
+    "default_profile": "ask",
+    "commit_message_model": { "provider": "google", "model": "auto" },
+    "inline_assistant_model": {
+      "provider": "google",
+      "model": "auto",
+    },
+  },
   "agent_servers": {
     "antigravity-acp": {
       "type": "registry",
@@ -39,74 +111,8 @@
     "allow_data_collection": "no",
     "provider": "none",
   },
-  "agent": {
-    "sidebar_side": "right",
-    "dock": "right",
-    "show_turn_stats": true,
-    "play_sound_when_agent_done": "when_hidden",
-    "default_profile": "ask",
-    "commit_message_model": { "provider": "google", "model": "auto" },
-    "inline_assistant_model": {
-      "provider": "google",
-      "model": "auto",
-    },
-  },
-  "tabs": {
-    "file_icons": true,
-    "git_status": true,
-  },
-  "title_bar": {
-    "show_menus": true,
-    "show_branch_status_icon": true,
-  },
-  "project_panel": {
-    "dock": "left",
-  },
-  "which_key": {
-    "enabled": true,
-  },
-  "session": {
-    "trust_all_worktrees": true,
-  },
-  "redact_private_values": true,
-  "base_keymap": "VSCode",
-  "vim_mode": true,
-  "relative_line_numbers": "enabled",
-  "scrollbar": {
-    "show": "never",
-  },
-  // ui
-  "ui_font_family": "Lilex",
-  // editor
-  "buffer_font_family": "MonoLisaCode",
-  "buffer_font_size": 14,
-  // terminal
-  "terminal": {
-    "cursor_shape": "bar",
-    "font_family": "BerkeleyMono Nerd Font Mono",
-    "font_size": 15,
-  },
-  // theme
-  "theme": {
-    "light": "Zed Legacy: Solarized Light",
-    "dark": "One Dark",
-  },
-  "icon_theme": {
-    "mode": "system",
-    "light": "Material Icon Theme",
-    "dark": "Material Icon Theme",
-  },
-  "autosave": "on_focus_change",
-  "wrap_guides": [72, 80, 100, 120],
-  "soft_wrap": "editor_width",
-  "sticky_scroll": {
-    "enabled": true,
-  },
-  "diagnostics": {
-    "inline": {
-      "enabled": true,
-    },
-  },
+
+  // Languages
   "file_types": {
     "Markdown": ["*.qmd"],
     "R": [".Rprofile", ".Rhistory"],
@@ -151,9 +157,11 @@
       },
     },
   },
+
+  // Privacy
+  "redact_private_values": true,
   "telemetry": {
     "diagnostics": false,
     "metrics": false,
   },
-  "colorize_brackets": true,
 }
