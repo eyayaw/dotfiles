@@ -15,13 +15,11 @@
   "ui_font_size": 15,
   "ui_font_family": "MonoLisa",
   "theme": {
-    "mode": "system",
     "light": "Zed Legacy: Solarized Light",
     "dark": "One Dark"
   },
   "icon_theme": "Material Icon Theme",
   "autosave": "on_focus_change",
-  "format_on_save": "off",
   "wrap_guides": [72, 80, 120],
   "soft_wrap": "editor_width",
   "outline_panel": {
