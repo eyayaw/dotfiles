@@ -18,11 +18,19 @@
       // "j k": ["workspace::SendKeystrokes", "escape"]
     }
   },
+  // Zed's Python tasks use the interpreter of the selected toolchain
   {
-    "context": "Editor && mode == full && !(ContextEditor > Editor) || Terminal",
+    "context": "Editor && mode == full && extension == py",
     "bindings": {
-      "cmd-enter": ["task::Spawn", { "task_name": "Run Selection" }],
-      "cmd-shift-s": ["task::Spawn", { "task_name": "Run Current File" }]
+      "cmd-enter": ["task::Spawn", { "task_name": "execute selection" }],
+      "cmd-shift-s": ["task::Spawn", { "task_name": "run '$ZED_FILE'" }]
+    }
+  },
+  {
+    "context": "Editor && mode == full && (extension == R || extension == r)",
+    "bindings": {
+      "cmd-enter": ["task::Spawn", { "task_name": "Run R Selection/Line" }],
+      "cmd-shift-s": ["task::Spawn", { "task_name": "Run R File" }]
     }
   }
 ]

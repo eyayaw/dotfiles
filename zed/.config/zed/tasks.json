@@ -46,20 +46,6 @@
     "shell": "system"
   },
   {
-    "label": "Run Python File",
-    "command": "source \"$ZED_WORKTREE_ROOT/.venv/bin/activate\" || source \"$ZED_WORKTREE_ROOT/venv/bin/activate\"; python3",
-    "args": ["$ZED_FILE"],
-    "use_new_terminal": false,
-    "allow_concurrent_runs": false,
-    "reveal": "always"
-  },
-  {
-    "label": "Run Python Selection/Line",
-    "command": "source \"$ZED_WORKTREE_ROOT/.venv/bin/activate\" || source \"$ZED_WORKTREE_ROOT/venv/bin/activate\"; python3",
-    "args": ["-c", "$ZED_SELECTED_TEXT"],
-    "use_new_terminal": false
-  },
-  {
     "label": "Run R File",
     "command": "Rscript --vanilla",
     "args": ["$ZED_FILE"],
