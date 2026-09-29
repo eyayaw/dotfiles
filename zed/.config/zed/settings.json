@@ -12,11 +12,7 @@
     "light": "Zed Legacy: Solarized Light",
     "dark": "One Dark",
   },
-  "icon_theme": {
-    "mode": "system",
-    "light": "Material Icon Theme",
-    "dark": "Material Icon Theme",
-  },
+  "icon_theme": "Material Icon Theme",
   "ui_font_family": "Lilex",
   "buffer_font_family": "MonoLisaCode",
   "buffer_font_size": 14,
