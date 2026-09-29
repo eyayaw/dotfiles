@@ -7,20 +7,97 @@
 // custom settings, run `zed: open default settings` from the
 // command palette
 {
+  "use_system_window_tabs": true,
+  "completion_menu_item_kind": "symbol",
+  "default_open_behavior": "new_window",
+  "diff_view_style": "unified",
+  // ai + agents
+  "agent_servers": {
+    "antigravity-acp": {
+      "type": "registry",
+    },
+    "github-copilot-cli": {
+      "type": "registry",
+    },
+    "codex-acp": {
+      "default_config_options": {
+        "fast-mode": false,
+        "reasoning_effort": "high",
+      },
+      "type": "registry",
+    },
+    "claude-acp": {
+      "default_config_options": {
+        "model": "opus-5.5",
+        "mode": "default",
+        "effort": "high",
+      },
+      "type": "registry",
+    },
+  },
+  "edit_predictions": {
+    "allow_data_collection": "no",
+    "provider": "none",
+  },
+  "agent": {
+    "sidebar_side": "right",
+    "dock": "right",
+    "show_turn_stats": true,
+    "play_sound_when_agent_done": "when_hidden",
+    "default_profile": "ask",
+    "commit_message_model": { "provider": "google", "model": "auto" },
+    "inline_assistant_model": {
+      "provider": "google",
+      "model": "auto",
+    },
+  },
+  "tabs": {
+    "file_icons": true,
+    "git_status": true,
+  },
+  "title_bar": {
+    "show_menus": true,
+    "show_branch_status_icon": true,
+  },
+  "project_panel": {
+    "dock": "left",
+  },
+  "which_key": {
+    "enabled": true,
+  },
+  "session": {
+    "trust_all_worktrees": true,
+  },
+  "redact_private_values": true,
   "base_keymap": "VSCode",
   "vim_mode": true,
-  "relative_line_numbers": true,
-  "buffer_font_family": "MonoLisa",
-  "buffer_font_size": 15,
-  "ui_font_size": 15,
-  "ui_font_family": "MonoLisa",
+  "relative_line_numbers": "enabled",
+  "scrollbar": {
+    "show": "never",
+  },
+  // ui
+  "ui_font_family": "Lilex",
+  // editor
+  "buffer_font_family": "MonoLisaCode",
+  "buffer_font_size": 14,
+  // terminal
+  "terminal": {
+    "cursor_shape": "bar",
+    "font_family": "BerkeleyMono Nerd Font Mono",
+    "font_size": 15,
+  },
+  // theme
   "theme": {
     "light": "Zed Legacy: Solarized Light",
-    "dark": "One Dark"
+    "dark": "One Dark",
   },
-  "icon_theme": "Material Icon Theme",
+  "icon_theme": {
+    "mode": "system",
+    "light": "Material Icon Theme",
+    "dark": "Material Icon Theme",
+  },
   "autosave": "on_focus_change",
-  "wrap_guides": [72, 80, 120],
+  "wrap_guides": [72, 80, 100, 120],
   "soft_wrap": "editor_width",
   "sticky_scroll": {
     "enabled": true,
@@ -30,34 +107,9 @@
       "enabled": true,
     },
   },
-  "outline_panel": {
-    "dock": "right"
-  },
-  "features": {
-    "edit_prediction_provider": "copilot"
-  },
-  "edit_predictions": {
-    "mode": "subtle",
-    "enabled_in_assistant": false
-  },
-  "assistant": {
-    "default_profile": "ask",
-    "dock": "right",
-    "default_model": {
-      "provider": "copilot_chat",
-      "model": "claude-3-7-sonnet"
-    },
-    "version": "2"
-  },
-  "telemetry": {
-    "diagnostics": false,
-    "metrics": false
-  },
   "file_types": {
-    "Markdown": ["*.qmd"]
-  },
-  "file_finder": {
-    "modal_width": "medium"
+    "Markdown": ["*.qmd"],
+    "R": [".Rprofile", ".Rhistory"],
   },
   "languages": {
     "Python": {
@@ -73,6 +125,10 @@
       "language_servers": ["ty", "ruff"],
       "inlay_hints": { "enabled": true },
       "semantic_tokens": "combined",
+    },
+    "R": {
+      "language_servers": ["air", "r_language_server"],
+      "use_on_type_format": false,
     },
   },
   "lsp": {
@@ -95,4 +151,9 @@
       },
     },
   },
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false,
+  },
+  "colorize_brackets": true,
 }
