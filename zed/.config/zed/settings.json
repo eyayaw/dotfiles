@@ -53,34 +53,40 @@
   "file_finder": {
     "modal_width": "medium"
   },
-  "lsp": {
-    "pyright": {
-      "settings": {
-        "python": {
-          "pythonPath": ".venv/bin/python"
-        }
-      }
-    }
-  },
-  // Configure Ruff to format, fix, and organize imports on-save
-  // https://docs.astral.sh/ruff/editors/setup/#zed
   "languages": {
     "Python": {
-      "language_servers": ["pyright", "ruff"],
-      "format_on_save": "off",
-      "formatter": [
-        {
-          "code_actions": {
-            "source.organizeImports.ruff": false,
-            "source.fixAll.ruff": true
-          }
-        },
-        {
-          "language_server": {
-            "name": "ruff"
-          }
-        }
-      ]
-    }
-  }
+      // Ruff applies its fixes and sorts imports on each manual format
+      // https://docs.astral.sh/ruff/editors/setup/#zed
+      "code_actions_on_format": {
+        "source.organizeImports.ruff": true,
+        "source.fixAll.ruff": true,
+      },
+      // Servers left out of this list stay off. Zed prefers the project's
+      // .venv/bin/ty, then ty on PATH. For basedpyright in one project, set
+      // ["basedpyright", "ruff"] in its .zed/settings.json.
+      "language_servers": ["ty", "ruff"],
+      "inlay_hints": { "enabled": true },
+      "semantic_tokens": "combined",
+    },
+  },
+  "lsp": {
+    "ty": {
+      "settings": {
+        // openFilesOnly leaves stale diagnostics in Zed (astral-sh/ty#1622)
+        "diagnosticMode": "workspace",
+        "inlayHints": { "variableTypes": true, "callArgumentNames": false },
+        "completions": { "autoImport": true },
+      },
+      "initialization_options": {
+        // Resolve PEP 723 inline script dependencies through uv
+        "experimental": { "useUv": "scripts" },
+      },
+    },
+    "basedpyright": {
+      "settings": {
+        // Zed injects "standard" unless this is set
+        "basedpyright.analysis": { "typeCheckingMode": "recommended" },
+      },
+    },
+  },
 }
