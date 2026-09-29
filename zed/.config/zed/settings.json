@@ -108,6 +108,30 @@
     "provider": "none",
   },
 
+  // Zed installs these extensions at startup if they are missing
+  "auto_install_extensions": {
+    "air": true,
+    "catppuccin": true,
+    "dockerfile": true,
+    "git-firefly": true,
+    "html": true,
+    "kanso": true,
+    "log": true,
+    "lua": true,
+    "macos-classic": true,
+    "make": true,
+    "material-icon-theme": true,
+    "r": true,
+    "rainbow-csv": true,
+    "rose-pine-theme": true,
+    "scss": true,
+    "solarized": true,
+    "sql": true,
+    "toml": true,
+    "typst": true,
+    "zed-legacy-themes": true,
+  },
+
   // Languages
   "file_types": {
     "Markdown": ["*.qmd"],
