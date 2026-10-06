@@ -3,7 +3,7 @@
 # and a key set there overrides the same key here.
 
 # Claude Code-like: reads run freely in the read-only sandbox; any mutation
-# (file writes, git ops, network) fails there, the model requests escalation,
+# (file writes, git ops, network writes) fails there, the model requests escalation,
 # you get prompted, and approved commands run unsandboxed so they actually
 # work. NOT "untrusted": that policy forbids escalation requests entirely
 # ("you cannot ask for escalated permissions if the approval policy is
@@ -11,12 +11,28 @@
 # ~/.codex/rules/default.rules layers on top: allow = run outside the sandbox
 # silently (gh/git reads, pytest); prompt = always ask (push, PR/issue mutations).
 approval_policy = "on-request"
-sandbox_mode    = "read-only"
+default_permissions = "github-read"
 approvals_reviewer = "user"    # you do the approving, not auto-review
 
 model_reasoning_effort = "high"
 
+# Read-only files, plus read requests to the GitHub API through Codex's proxy.
+# "limited" passes only GET, HEAD, and OPTIONS, so `gh api` reads work inside
+# the sandbox, also in a pipeline, and every write still needs escalation.
+# gh commands built on GraphQL (pr, issue, and repo view) send POST, so they
+# run outside the sandbox through the allow rules.
+[permissions.github-read]
+extends = ":read-only"
+
+[permissions.github-read.network]
+enabled = true
+mode = "limited"
+
+[permissions.github-read.network.domains]
+"api.github.com" = "allow"
+
 [features]
+network_proxy = true # without it the profile's domain and method rules are not enforced
 memories = true
 # snapshot wraps every command in `/bin/zsh -lc '...'`, which execpolicy can't
 # parse -> trusted set and rules never match, everything prompts
@@ -25,9 +41,6 @@ shell_snapshot = false
 [memories]
 generate_memories = true
 use_memories = true
-
-[sandbox_workspace_write]
-network_access = true # allow gh/curl etc. inside the sandbox
 
 [shell_environment_policy]
 ignore_default_excludes = true # default filter strips *TOKEN*, which would block GH_TOKEN
