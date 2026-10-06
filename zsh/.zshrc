@@ -72,3 +72,9 @@ if [[ -z $HERDR_PANE_ID && -z $FASTFETCH_SHOWN ]] \
     command -v fastfetch >/dev/null 2>&1 && fastfetch
 fi
 export FASTFETCH_SHOWN=1
+
+# A tool that edits an agent config can replace its dotfiles symlink with a
+# regular file, and edits to the tracked file then stop taking effect.
+for f in ~/.claude/settings.json ~/.codex/hooks.json /etc/codex/config.toml; do
+    [[ -L $f ]] || print -u2 "$f is not a symlink into dotfiles. Merge its changes into the tracked file and relink it."
+done
