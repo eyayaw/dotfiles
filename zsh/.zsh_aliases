@@ -111,13 +111,6 @@ alias dvenv="deactivate"
 
 alias ccyolo="claude --dangerously-skip-permissions"
 
-# codex sandbox can't read the macOS keychain; inject gh token from 1Password.
-# export persists so op is queried once per shell, not per codex run
-codex() {
-  [[ -z $GH_TOKEN ]] && export GH_TOKEN=$(op read op://private/gh_token/token 2>/dev/null)
-  command codex "$@"
-}
-
 # local folders
 alias projects='cd ~/Documents/Projects/'
 alias cnvim='cd ~/.config/nvim/'

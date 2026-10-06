@@ -43,8 +43,7 @@ generate_memories = true
 use_memories = true
 
 [shell_environment_policy]
-ignore_default_excludes = true # default filter strips *TOKEN*, which would block GH_TOKEN
-exclude = ["*KEY*", "*SECRET*"] # still hold back real secrets
+exclude = ["*KEY*", "*SECRET*"] # keep these variables out of the shells Codex runs
 
 [tui]
 notifications = true
