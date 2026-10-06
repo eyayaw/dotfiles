@@ -1,0 +1,37 @@
+# Codex system config, linked at /etc/codex/config.toml. Codex writes its own
+# state (trusted projects, plugins, the selected model) to ~/.codex/config.toml,
+# and a key set there overrides the same key here.
+
+# Claude Code-like: reads run freely in the read-only sandbox; any mutation
+# (file writes, git ops, network) fails there, the model requests escalation,
+# you get prompted, and approved commands run unsandboxed so they actually
+# work. NOT "untrusted": that policy forbids escalation requests entirely
+# ("you cannot ask for escalated permissions if the approval policy is
+# UnlessTrusted"), so approved git ops still died on read-only .git.
+# ~/.codex/rules/default.rules layers on top: allow = run outside the sandbox
+# silently (gh/git reads, pytest); prompt = always ask (push, PR/issue mutations).
+approval_policy = "on-request"
+sandbox_mode    = "read-only"
+approvals_reviewer = "user"    # you do the approving, not auto-review
+
+model_reasoning_effort = "high"
+
+[features]
+memories = true
+# snapshot wraps every command in `/bin/zsh -lc '...'`, which execpolicy can't
+# parse -> trusted set and rules never match, everything prompts
+shell_snapshot = false
+
+[memories]
+generate_memories = true
+use_memories = true
+
+[sandbox_workspace_write]
+network_access = true # allow gh/curl etc. inside the sandbox
+
+[shell_environment_policy]
+ignore_default_excludes = true # default filter strips *TOKEN*, which would block GH_TOKEN
+exclude = ["*KEY*", "*SECRET*"] # still hold back real secrets
+
+[tui]
+notifications = true
