@@ -15,6 +15,7 @@ default_permissions = "github-read"
 approvals_reviewer = "user"    # you do the approving, not auto-review
 
 model_reasoning_effort = "high"
+model_auto_compact_token_limit = 125000
 
 # Read-only files, plus read requests to the GitHub API through Codex's proxy.
 # "limited" passes only GET, HEAD, and OPTIONS, so `gh api` reads work inside
