@@ -8,7 +8,22 @@
     ],
     "ask": [
       "Bash(git push *)",
-      "Bash(git -C * push *)"
+      "Bash(git -C * push *)",
+      "Bash(git -C * push)",
+      "Bash(git reset --hard *)",
+      "Bash(gh pr create *)",
+      "Bash(gh pr merge *)",
+      "Bash(gh pr close *)",
+      "Bash(gh pr comment *)",
+      "Bash(gh pr edit *)",
+      "Bash(gh pr review *)",
+      "Bash(gh issue create *)",
+      "Bash(gh issue close *)",
+      "Bash(gh issue comment *)",
+      "Bash(gh issue edit *)",
+      "Bash(gh repo delete *)",
+      "Bash(gh workflow run *)",
+      "Bash(gh release create *)"
     ],
     "deny": [
       "Read(**/.localrc)",
