@@ -110,6 +110,10 @@ alias avenv="source .venv/bin/activate || source venv/bin/activate"
 alias dvenv="deactivate"
 
 alias ccyolo="claude --dangerously-skip-permissions"
+# The Artifact tool stays out of normal sessions, where its description costs
+# context in every request. cca starts or resumes a session that has it.
+export CLAUDE_CODE_DISABLE_ARTIFACT=1
+alias cca="env -u CLAUDE_CODE_DISABLE_ARTIFACT claude"
 
 # local folders
 alias projects='cd ~/Documents/Projects/'
