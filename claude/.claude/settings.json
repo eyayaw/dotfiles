@@ -32,7 +32,8 @@
     "defaultMode": "auto"
   },
   "attribution": {
-    "commit": ""
+    "commit": "",
+    "pr": ""
   },
   "pluginConfigs": {
     "cc-plugin-agents-md@builtin": {
