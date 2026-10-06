@@ -29,8 +29,17 @@ Most of the subdirs (pkgs in gnu Stow lingo) are symlinked into the home dir (-t
 
 ```sh
 cd ~/Developer/dotfiles
-stow -t ~ git ghostty karabiner nvim R rstudio tmux zed zsh tuna
+stow -t ~ git ghostty karabiner nvim R rstudio tmux zed zsh tuna claude codex
 ```
+
+`codex-system/config.toml` holds the hand-written Codex settings. Codex reads it from `/etc/codex`, outside the home dir, so link it by hand:
+
+```sh
+sudo mkdir -p /etc/codex
+sudo ln -s ~/Developer/dotfiles/codex-system/config.toml /etc/codex/config.toml
+```
+
+Codex writes its own state to `~/.codex/config.toml`, which stays out of this repo.
 
 The empty `.stow-local-ignore` file in `git/` is a [trick](https://github.com/aspiers/stow/issues/75#issuecomment-1719558252) to stow git/.gitignore.
 
