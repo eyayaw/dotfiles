@@ -6,7 +6,6 @@
 - Lint and format with ruff, type-check with ty. Use built-in generics (`list`, `dict`).
 - A check passed only if the project's pinned tool exited 0. Run it through `uv run` and read the exit status unpiped.
 - Search with `fd` and `rg`, keeping their defaults of skipping gitignored and hidden files.
-- Parse .docx with `doxx`, .xlsx with `xleak`, and legacy .doc with `uvx --from liteparse lit parse`.
 - R: use `=` for assignment.
 - Remote file transfer: `rsync`.
 - GitHub: use the `gh` CLI, and retry a failed API call a few times. Private repos are reachable through `gh` only, so ask me to paste the text when it fails.
@@ -59,7 +58,7 @@
 ## Design
 
 - Simple means few concepts and one way to do each thing. Minimal means the smallest design that meets the stated contract. Both hold from the first draft.
-- Before code for anything beyond a small fix, give a design brief of at most ten lines: the contract (inputs, outputs, failure behavior), the non-goals, the public names, and the expected size in lines and files. Explain an overrun.
+- Before code for anything beyond a small fix, give a design brief of at most ten lines: the contract (inputs, outputs, failure behavior), the non-goals, the public names, and the expected size in lines and files. Wait for my go when the public API or a dependency changes. Explain an overrun.
 - Prefer, in this order: delete, reuse what exists, use the standard library, inline, write new code. Add an abstraction at its third use, a config option when I ask, a dependency when the standard library falls short.
 - Robust means validating input once at the boundary, failing before work starts when arguments are wrong, keeping completed work when one unit fails, and making reruns safe. Say which of these a change needs. A check for a state the code cannot reach is footprint.
 - Quality means typed public functions, errors that say what happened and what to do next, one code path per behavior, and passing checks.
