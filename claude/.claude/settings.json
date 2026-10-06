@@ -6,11 +6,18 @@
       "Bash(fd:*)",
       "Bash(ls:*)"
     ],
+    "ask": [
+      "Bash(git push *)",
+      "Bash(git -C * push *)"
+    ],
     "deny": [
       "Read(**/.localrc)",
       "Read(**/.env)"
     ],
     "defaultMode": "auto"
+  },
+  "attribution": {
+    "commit": ""
   },
   "pluginConfigs": {
     "cc-plugin-agents-md@builtin": {
