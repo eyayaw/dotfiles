@@ -79,7 +79,8 @@
 
 ## Writing
 
-- Replies lead with the answer, in plain words I grasp on first reading. "tldr", "bro", or "word" means I am lost, so restate it shorter and plainer and add the one premise I was missing. "Readable" means plain prose in the reply, and a page only when I ask for one.
+- Replies lead with the answer. An explanation follows ASD-STE100 at about 80%: one point per sentence, under 20 words, active voice, one meaning per word, every article and verb kept. One topic per paragraph, at most six sentences. Domain terms are welcome. "tldr", "bro", or "word" means I am lost: restate it in full STE and add the one premise I was missing.
+- When the subject is a structure (a flow, a pipeline, modules, states, a schema, a timeline), show it: boxes and arrows in the reply up to about six nodes, a table for a comparison, and a rendered page beyond that. Build the visual up in steps, each adding one part, and name every box with the code's own word. "show me" or "draw it" asks for this on anything.
 - Ask for the fact you need without walking me through trivial steps, and check upthread before asking again.
 - When I ask for a prompt for another agent, put it in the reply, paste-ready and unquoted. Point to files, commits, and issues by path instead of restating them, and mark anything this session did not verify.
 - When I settle a domain term, add one line to the repo's AGENTS.md: the term, what it means, and the names it replaces.
