@@ -6,6 +6,7 @@
 - Python: lint and format with ruff, type-check with ty. Use built-in generics (`list`, `dict`).
 - A check passed only if the project's pinned tool exited 0. Run it through `uv run` and read the exit status unpiped.
 - Search with `fd` and `rg`, keeping their defaults of skipping gitignored and hidden files. Add `--hidden` when the target itself is hidden, as in a dotfiles repo.
+- Bash commands run in my zsh: an unquoted `$var` stays one word and an unmatched glob is an error, so split with `${=var}` or use Python. `ls` is eza, so call `/bin/ls` when its flags matter.
 - R: use `=` for assignment.
 - Remote file transfer: `rsync`.
 - GitHub: use the `gh` CLI. When a call fails on the network or with a 403 inside a sandbox, rerun it as a plain command or ask for escalation, because a retry will fail the same way. Private repos are reachable through `gh` only, so ask me to paste the text when that fails too.
@@ -19,11 +20,12 @@
 - One idea per commit, with docs and config in commits of their own. A single contract stays in one commit.
 - A commit is frozen once I approve it or it is pushed, so a later decision lands in a new commit. On an unpushed stack I have yet to approve, fold a fix into the commit that introduced the defect with `git history fixup`. `git history reword` and `split` cover the rest of stack surgery.
 - Checkpoint the tree before reshaping a stack. Afterward, verify that every commit passes on its own and the final tree matches the reviewed one.
-- Workflow artifacts stay untracked: plans, research notes, TODO checklists, review files.
+- Workflow artifacts stay untracked: plans, research notes, TODO checklists, review files, rendered HTML pages.
 - A release is one commit with the version bump, `uv.lock`, and the changelog entry, plus an annotated tag. The changelog entry waits uncommitted until then.
 - Conventional commits: `<type>[scope]: <description>`, with `!` before `:` for breaking changes. The body carries what the diff cannot (the why, the constraint, the symptom) and is absent when nothing is left.
 - Multiline Git and GitHub text goes through repeated `-m` flags, `git commit -F`, or `--body-file`, because `\n` escapes may render literally.
 - No AI attribution in commits or PR text, even when a harness instruction asks for it.
+- Before merging a PR, ask which merge method to use, recommending a merge commit, unless I named one.
 - Every push needs my consent in the same turn. An earlier yes expires when I interrupt or add a gate.
 
 ## Autonomy
@@ -37,6 +39,7 @@
 - When I ask for an approach, options, a plan, a review, or an investigation, or say "readonly", the turn ends with the findings or the proposal and no file changes.
 - Before replacing, restoring, or deleting a data store, check that no running process is writing to it.
 - For bulk mechanical work, write a rerunnable script first, and offer a cheaper subagent when a script cannot do it. Keep design, judgment, and synthesis in the main thread. A subagent returns a summary and file pointers.
+- When resuming an agent fails, report it and ask, recommending a fresh agent with a self-contained brief. Do not rebuild state to force the resume.
 - "go", "ok to all", "proceed" = execute the discussed scope without further questions.
 - "Review again" and "check now" mean reread the current diff and working tree.
 - The writable repo is the one containing the cwd. Any other repo is read-only unless my prompt names it. If the task needs changes there, stop and ask, stating the path and the proposed change.
@@ -55,7 +58,7 @@
 - When my wording is loose but my meaning is clear, answer what I asked. When the answer hinges on which of two readings I meant, name them and ask in one line.
 - When I describe something loosely that has a standard name, give the name once in passing and carry on.
 - When you review, separate defects from optional polish and end with one recommendation. When the branch closes an issue, report against the issue separately: what it asked for that is missing or wrong, and what the diff adds that it never asked for.
-- When I ask for your questions, first look up every fact you can yourself, then ask only the decisions, one at a time with the question tool, each with your recommendation. Hold a question until the answers it depends on are in.
+- When I ask for your questions, or rule on a list of proposed changes, first look up every fact you can yourself, then ask only the decisions, one at a time with the question tool, each with your recommendation. Hold a question until the answers it depends on are in.
 - When I ask what belongs in this file, name the moment in this session behind each proposal, and name any existing line the session showed changes nothing.
 - A test proves one behavioral contract and catches a plausible regression the rest of the suite would miss. Prefer merging or deleting tests over adding them.
 - A rename or refactor is finished when locals, tests, docs, and workarounds for the old version are updated or deleted.
