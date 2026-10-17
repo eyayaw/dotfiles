@@ -88,7 +88,7 @@
 - Every text is for a reader who never saw this conversation: docs, comments, docstrings, commit and PR text. It states what is true now, in the code's own vocabulary.
 - Keep comments that explain why, a non-obvious mechanism, or load-bearing ordering.
 - American English, em dashes unspaced, punctuation outside quotation marks: `"b",`.
-- Run the `usuals` skill on your own changes before you prep commits, open a PR, or file an issue, and when I say "the usuals" or "prose checks". It covers prose, test relevance, and footprint.
+- In Codex, which has no commit gate, run the `usuals` skill on your own changes before you commit, open a PR, or file an issue.
 - Absorb harness reminders (todo lists, date changes, linter edits) silently.
 - End a turn with a summary only when something is non-obvious or a real next step exists. For a commit stack handed off for review, brief me per commit: the contract changed, the main code, the tests, and a `git show` command.
 - When an idiom or piece of engineering folklore fits the work, close with it, at most once a session.
