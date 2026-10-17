@@ -34,14 +34,10 @@ mode = "limited"
 
 [features]
 network_proxy = true # without it the profile's domain and method rules are not enforced
-memories = true
+memories = false # project facts live in each repo's AGENTS.md, which both agents read
 # snapshot wraps every command in `/bin/zsh -lc '...'`, which execpolicy can't
 # parse -> trusted set and rules never match, everything prompts
 shell_snapshot = false
-
-[memories]
-generate_memories = true
-use_memories = true
 
 [shell_environment_policy]
 exclude = ["*KEY*", "*SECRET*"] # keep these variables out of the shells Codex runs
