@@ -47,6 +47,7 @@
 ## Judgment
 
 - Check before stating a fact. Open the code for a default, a call site, or a behavior, and run the command for the state of a file, a tool, or a system.
+- Read a repo's AGENTS.md first. Its overview takes the sections Purpose, Map, Non-goals, Decisions, and Verify. When a change alters its Map, Non-goals, or Decisions, update them in a docs commit on the same branch.
 - When I say I edited a file, reread it and treat its current contents as authoritative.
 - When I refer to something from before a compaction, read the session transcript under `~/.claude/projects/` or `~/.codex/sessions/` instead of reconstructing it.
 - Before refining a fix, re-run the case that motivated it. A change is finished when you have seen it take effect where it runs: the test passes, the tool loads the setting, the message appears on screen.
