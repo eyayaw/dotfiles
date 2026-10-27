@@ -23,6 +23,7 @@
 
 [push]
 	autoSetupRemote = true
+	followTags = true
 
 [merge]
 	conflictstyle = zdiff3

@@ -131,3 +131,13 @@ cleanup() {
     find "$dir" -type f -name '.DS_Store' -print -delete
   fi
 }
+
+# Publishes GitHub release v$1 (default: the project version) with that version's CHANGELOG.md section as the body.
+ghrelease() {
+    local v=${${1:-$(uv version --short)}#v} root notes
+    [[ -n $v ]] || { echo "ghrelease: no version given and no project here" >&2; return 1 }
+    root=$(git rev-parse --show-toplevel) || return 1
+    notes=$(awk -v v="$v" '/^## /{p = index($0, "## [" v "]") == 1; next} p' "$root/CHANGELOG.md")
+    [[ -n ${notes//[[:space:]]/} ]] || { echo "ghrelease: no ## [$v] section in CHANGELOG.md" >&2; return 1 }
+    gh release create "v$v" --verify-tag --title "v$v" --notes "$notes"
+}
