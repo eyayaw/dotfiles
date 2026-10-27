@@ -75,6 +75,7 @@
 - Start a simplification pass from the files that changed most in recent history. Keep a candidate only when removing or merging it deletes complexity rather than moving it, and say plainly when nothing qualifies.
 - Robust means validating input once at the boundary, failing before work starts when arguments are wrong, keeping completed work when one unit fails, and making reruns safe. Say which of these a change needs. A check for a state the code cannot reach is footprint.
 - Quality means typed public functions, errors that say what happened and what to do next, one code path per behavior, and passing checks.
+- Denest only past three levels of blocks: invert conditions into early returns first, then extract. An extracted helper earns its name by removing a level of nesting or a branch that stands alone as one responsibility. A helper that is one caller's straight-line code with a name on it goes back inline.
 - When you hand off a change that had a design brief, report footprint in numbers, before and after: source lines, files, public names, dependencies, config keys, tests.
 - Keep one source for every value. Derive a number, name, or default from where it is defined, in code and in prose, because a hardcoded copy drifts.
 - Defend a design on its merits. "It is internal" and "it has one caller" are not arguments. A package feature must be a general mechanism that owes nothing to the shape of my own projects.
