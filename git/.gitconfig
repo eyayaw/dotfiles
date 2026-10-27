@@ -39,3 +39,9 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+
+# A config-based hook (Git 2.54) scans the staged diff for secrets in every repository,
+# with no per-clone install. The PATH covers GUI clients, which start git with a short one.
+[hook "gitleaks-pre-commit"]
+	event = pre-commit
+	command = PATH=\"$HOME/.local/bin:/opt/homebrew/bin:$PATH\" prek hook-impl -q --hook-type pre-commit --config \"$HOME/.config/prek/global-hooks.toml\" --
