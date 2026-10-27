@@ -12,8 +12,8 @@
 # Inline -m or --body text is not fingerprinted; message and body files (-F,
 # --body-file) are.
 # The hook runs before the command, so it cannot see a file that the same command
-# writes before committing. A command behind a prefix (`env`, `time`, `VAR=x`)
-# is not matched.
+# writes before committing. A commit behind `env`, `command`, `time`, or `bash -c`,
+# and a gh post behind any prefix, is not matched.
 set -u
 
 tree() {  # build the tree in a copy of the index, so the real index stays untouched
@@ -40,10 +40,12 @@ input=$(cat)
 cmd=$(jq -r '.tool_input.command // empty' <<<"$input")
 dir=$(jq -r '.cwd // empty' <<<"$input")
 start=$'(^|[;&|(\n][[:space:]]*)'
+envs='([A-Za-z_][A-Za-z0-9_]*=[^[:space:]]*[[:space:]]+)*'
 q="'"
 path="(\"[^\"]*\"|${q}[^${q}]*${q}|[^;&|[:space:]]+)"  # quoted, or up to a space
 opts="([[:space:]]+-[cC][[:space:]]+${path}|[[:space:]]+--[a-z-]+(=[^[:space:]]+)?)*"
-if [[ $cmd =~ ${start}git${opts}[[:space:]]+commit([[:space:]]|$) ]]; then
+commit_re="${start}${envs}git${opts}[[:space:]]+commit([[:space:]]|$)"
+if [[ $cmd =~ $commit_re ]]; then
     hit=${BASH_REMATCH[0]}; files_re='(-F|--file)[=[:space:]]+([^[:space:]]+)'
 elif [[ $cmd =~ ${start}gh[[:space:]]+(pr|issue)[[:space:]]+(create|edit|comment)([[:space:]]|$) ]]; then
     hit=${BASH_REMATCH[0]}; files_re='(-F|--body-file)[=[:space:]]+([^[:space:]]+)'
@@ -51,6 +53,23 @@ elif [[ $cmd =~ ${start}gh[[:space:]]+(pr|issue)[[:space:]]+(create|edit|comment
 else
     exit 0
 fi
+# Each commit's own arguments: line continuations joined, quoted strings removed whole, cut
+# at the next command or line. A short cluster counts only when every flag before the n
+# takes no argument (so -minit and -uno pass), and git accepts --no-veri and --no-verif as
+# --no-verify. Before `commit`, a hook.* or core.hooksPath setting, a SKIP or PREK_SKIP
+# variable, and a GIT_CONFIG_PARAMETERS or GIT_CONFIG_COUNT variable each turn hooks off.
+off_re="(-c[[:space:]]+[\"']?|--config-env=)(hook\.|core\.hookspath)|(^|[[:space:];&|(])((prek_)?skip|git_config_parameters|git_config_count)="
+rest=${cmd//$'\\\n'/ }
+while [ -z "${post:-}" ] && [[ $rest =~ $commit_re ]]; do
+    h=${BASH_REMATCH[0]}; rest=${rest#*"$h"}; args=$rest
+    while [[ $args =~ \"[^\"]*\"|\'[^\']*\' ]]; do args=${args/"${BASH_REMATCH[0]}"/}; done
+    args=${args%%[;\&|$'\n']*}
+    h=$(tr '[:upper:]' '[:lower:]' <<<"$h")
+    if [[ " $args " =~ [[:space:]](--no-veri(fy?)?|-[aeiopqsvz]*n[aeiopqsvz]*([CcFmStu][^[:space:]]*)?)[[:space:]] ]] ||
+        [[ $h =~ $off_re ]]; then
+        echo "usuals-gate: the pre-commit hooks are the gate. Commit with them on and fix what they report." >&2; exit 2
+    fi
+done
 # The command runs where its last `cd` before the match, then `git -C`, point.
 sub='' c=''
 rest=${cmd%%"$hit"*}
