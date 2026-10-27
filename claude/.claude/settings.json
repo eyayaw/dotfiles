@@ -79,6 +79,16 @@
             "timeout": 10
           }
         ]
+      },
+      {
+        "matcher": "startup|resume|clear",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "'/Users/eyayaw/.claude/hooks/prose_review.py'",
+            "timeout": 30
+          }
+        ]
       }
     ],
     "PreToolUse": [
@@ -89,6 +99,17 @@
             "type": "command",
             "command": "bash '/Users/eyayaw/.claude/hooks/usuals-gate.sh'",
             "timeout": 15
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "'/Users/eyayaw/.claude/hooks/prose_review.py'",
+            "timeout": 30
           }
         ]
       }
