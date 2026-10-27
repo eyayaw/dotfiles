@@ -82,6 +82,22 @@
 - Fold a new requirement in as if it had been there from the start. A fix that special-cases around the existing shape is a bandaid.
 - Prefer a clean break. Remove the old name outright and mark the change breaking. Add a compatibility shim or a migration only when I ask.
 
+## Python
+
+- A docstring goes on a module, or on a public function or class, when the next bullet can be met, and anywhere a caller needs a fact the signature does not give: a unit, a side effect, a raised exception, a reason. Nothing else gets one.
+- The first sentence states the observable behavior and holds at least one word that is not in the name, the parameters, or the annotations. When no such sentence exists, write no docstring.
+- An `Args:` entry exists only for a parameter with a constraint the annotation cannot express: no type in parentheses after the name, no "Defaults to X" when the signature shows X. No `Returns:` section when the summary already says what comes back.
+- A comment never names a change ("now uses", "previously", "per review"), a lint code outside a `# noqa`, or a step number, never forms a banner, and never narrates the statement below it (`# Return the list` above `return result`).
+- Before adding a test, name the bug it catches in one sentence and break the code that way. When an existing test already fails on that break, add nothing. Call only public names. Expected values are literals or a property, never a recomputation. Three example rows for one invariant become one Hypothesis property.
+- A package owns its tool config: `ruff.toml`, `ty.toml`, `pytest.toml`, `prek.toml`, and `uv.toml`, rendered by the template at `~/Developer/workflows/templates/python` as the starting point. `pyproject.toml` holds no tool tables except `[tool.uv.sources]`, which uv reads only there. Verify with `prek run --all-files`. Silence one line with `# noqa: CODE` for ruff or `# ty: ignore[rule]` for ty, followed by its reason. Disable a rule that is wrong for the package in its `ruff.toml`.
+
+| Before | After |
+|---|---|
+| `"""Fetch the URL.` with `Args: url (str): The URL. timeout (float): The timeout. Defaults to 5.0.` | `"""Return the body of url, retrying once on HTTP 503."""` |
+| `def __init__(...): """Initialize the class."""` | no docstring |
+| `# Iterate over items` above `for item in items:` | no comment |
+| `# now uses httpx instead of requests` | no comment, or `# httpx, because the API serves HTTP/2 only.` |
+
 ## Writing
 
 - Replies lead with the answer. An explanation follows ASD-STE100 at about 80%: one point per sentence, under 20 words, active voice, one meaning per word, every article and verb kept. One topic per paragraph, at most six sentences. Domain terms are welcome. "tldr", "bro", or "word" means I am lost: restate it in full STE and add the one premise I was missing.
