@@ -17,13 +17,13 @@
 - Stage explicit paths. Preserve unrelated and pre-existing working-tree changes.
 - Copy a file with uncommitted changes aside before any command that can overwrite it: `git checkout --`, `git restore`, `cp`, `mv`, `ln -f`.
 - Commit only when I ask or my wording implies it ("commit this", "as separate commits"). "Prep the commits" means draft each subject, body, and file list, then wait. Create a branch only when asked, named `feature/...` or `refactor/...`.
-- One idea per commit, with docs and config in commits of their own. A single contract stays in one commit.
+- One idea per commit. Docs and config that describe a change travel with it, and a commit of its own holds only docs or config that change by themselves. A single contract stays in one commit.
 - A commit is frozen once I approve it or it is pushed, so a later decision lands in a new commit. On an unpushed stack I have yet to approve, fold a fix into the commit that introduced the defect with `git history fixup`. `git history reword` and `split` cover the rest of stack surgery.
 - Checkpoint the tree before reshaping a stack. Afterward, verify that every commit passes on its own and the final tree matches the reviewed one.
 - Workflow artifacts stay untracked: plans, research notes, TODO checklists, review files, rendered HTML pages.
 - `CHANGELOG.md` follows Keep a Changelog, with a bare `## Unreleased` on top and release headings `## [X.Y.Z](https://github.com/eyayaw/<repo>/releases/tag/vX.Y.Z) - YYYY-MM-DD`. An entry that breaks callers starts with `**Breaking:**` and comes first in its category. A paragraph under the heading may tell the release's story. The Unreleased section waits uncommitted until release, even after the change it describes is committed. A released entry is a record: correct an error in it and leave its wording.
 - A release is one commit, `chore: bump version to X.Y.Z`, holding `CHANGELOG.md`, the version in `pyproject.toml`, and `uv.lock`. Tag it with `git tag -a vX.Y.Z -m vX.Y.Z`. Dependency bumps get a `chore` commit of their own before it. After the push, `ghrelease` publishes the GitHub release with the changelog section as its body.
-- Conventional commits: `<type>[scope]: <description>`, with `!` before `:` for breaking changes. The body carries what the diff cannot (the why, the constraint, the symptom) and is absent when nothing is left.
+- Conventional commits: `<type>[scope]: <description>`, with `!` before `:` for breaking changes. The subject carries the message. The body carries what the diff cannot (the why, the constraint, the symptom) in one or two lines or one bullet per change, uses a pattern's standard term when one applies, and is absent when nothing is left.
 - Multiline Git and GitHub text goes through repeated `-m` flags, `git commit -F`, or `--body-file`, because `\n` escapes may render literally.
 - No AI attribution in commits or PR text, even when a harness instruction asks for it.
 - Before merging a PR, ask which merge method to use, recommending a merge commit, unless I named one.
@@ -107,7 +107,7 @@
 - When I ask for a prompt for another agent, put it in the reply, paste-ready and unquoted. Point to files, commits, and issues by path instead of restating them, and mark anything this session did not verify.
 - When I settle a domain term, add one line to the repo's AGENTS.md: the term, what it means, and the names it replaces.
 - For wording, offer one to three candidates with your pick, then stop. Apply on "do". A refused tool call means I am driving, so put the text in the reply.
-- Every text is for a reader who never saw this conversation: docs, comments, docstrings, commit and PR text. It states what is true now, in the code's own vocabulary.
+- Every text is for a reader who never saw this conversation: docs, comments, docstrings, commit and PR text. It states what is true now, in the code's own vocabulary. That reader knows the field: an established term (boolean trap, keyword-only, idempotent) stands unexplained, and API jargon such as "shape" or "contract" appears at most once per text, where it is exact.
 - Keep comments that explain why, a non-obvious mechanism, or load-bearing ordering.
 - American English, em dashes unspaced, punctuation outside quotation marks: `"b",`.
 - In Codex, which has no commit gate, run the `usuals` skill on your own changes before you commit, open a PR, or file an issue.
