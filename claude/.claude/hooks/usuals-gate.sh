@@ -19,7 +19,7 @@ set -u
 tree() {  # build the tree in a copy of the index, so the real index stays untouched
     local tmp
     tmp=$(mktemp)
-    cp "$(git rev-parse --git-path index)" "$tmp" 2>/dev/null
+    cp "$(git rev-parse --git-path index)" "$tmp" 2>/dev/null || rm -f "$tmp"  # no index yet: start empty
     GIT_INDEX_FILE=$tmp git add -A . >/dev/null 2>&1 && GIT_INDEX_FILE=$tmp git write-tree
     rm -f "$tmp"
 }
