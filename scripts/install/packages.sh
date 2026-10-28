@@ -81,7 +81,7 @@ bi arf # r console
 
 ### Linters, formatters, type checkers
 uv tool install ruff # python linter and formatter
-uv tools install ty
+uv tool install ty # type checker
 uv tool install prek # git hook runner, also behind the pre-commit hook in ~/.gitconfig
 # Air r formatter
 curl -LsSf https://github.com/posit-dev/air/releases/latest/download/air-installer.sh | sh
