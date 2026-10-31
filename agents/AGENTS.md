@@ -17,13 +17,14 @@
 - Stage explicit paths. Preserve unrelated and pre-existing working-tree changes.
 - Copy a file with uncommitted changes aside before any command that can overwrite it: `git checkout --`, `git restore`, `cp`, `mv`, `ln -f`.
 - Commit only when I ask or my wording implies it ("commit this", "as separate commits"). "Prep the commits" means draft each subject, body, and file list, then wait. Create a branch only when asked, named `feature/...` or `refactor/...`.
-- One idea per commit. Docs and config that describe a change travel with it, and a commit of its own holds only docs or config that change by themselves. A single contract stays in one commit.
+- One idea per commit. In an existing package, docs and config that describe a change travel with it, and a commit of its own holds only docs or config that change by themselves. A single contract stays in one commit.
+- In a new package, README.md and AGENTS.md each land in a docs commit of their own after the code commits.
 - A commit is frozen once I approve it or it is pushed, so a later decision lands in a new commit. On an unpushed stack I have yet to approve, fold a fix into the commit that introduced the defect with `git history fixup`. `git history reword` and `split` cover the rest of stack surgery.
 - Checkpoint the tree before reshaping a stack. Afterward, verify that every commit passes on its own and the final tree matches the reviewed one.
 - Workflow artifacts stay untracked: plans, research notes, TODO checklists, review files, rendered HTML pages.
 - `CHANGELOG.md` follows Keep a Changelog, with a bare `## Unreleased` on top and release headings `## [X.Y.Z](https://github.com/eyayaw/<repo>/releases/tag/vX.Y.Z) - YYYY-MM-DD`. An entry that breaks callers starts with `**Breaking:**` and comes first in its category. A paragraph under the heading may tell the release's story. The Unreleased section waits uncommitted until release, even after the change it describes is committed. A released entry is a record: correct an error in it and leave its wording.
 - A release is one commit, `chore: bump version to X.Y.Z`, holding `CHANGELOG.md`, the version in `pyproject.toml`, and `uv.lock`. Tag it with `git tag -a vX.Y.Z -m vX.Y.Z`. Dependency bumps get a `chore` commit of their own before it. After the push, `ghrelease` publishes the GitHub release with the changelog section as its body.
-- Conventional commits: `<type>[scope]: <description>`, with `!` before `:` for breaking changes. The subject carries the message. The body carries what the diff cannot (the why, the constraint, the symptom) in one or two lines or one bullet per change, uses a pattern's standard term when one applies, and is absent when nothing is left.
+- Conventional commits: `<type>[scope]: <description>`, with `!` before `:` for breaking changes. The subject carries the message and names the change in the fewest plain words. The body carries what the diff cannot (the why, the constraint, the symptom) in one or two lines or one bullet per change, uses a pattern's standard term when one applies, and is absent when nothing is left.
 - Multiline Git and GitHub text goes through repeated `-m` flags, `git commit -F`, or `--body-file`, because `\n` escapes may render literally.
 - No AI attribution in commits or PR text, even when a harness instruction asks for it.
 - Before merging a PR, ask which merge method to use, recommending a merge commit, unless I named one.
@@ -39,6 +40,7 @@
 - Adopting a framework, standard, schema, or repo layout is my decision. Compare the alternatives against named practice first. If a question to me goes unanswered, continue only reversible work.
 - When I ask for an approach, options, a plan, a review, or an investigation, or say "readonly", the turn ends with the findings or the proposal and no file changes.
 - Before replacing, restoring, or deleting a data store, check that no running process is writing to it.
+- Before a repo goes public, a fresh reviewer reads it for signs of AI authorship.
 - For bulk mechanical work, write a rerunnable script first, and offer a cheaper subagent when a script cannot do it. Keep design, judgment, and synthesis in the main thread. A subagent returns a summary and file pointers.
 - When resuming an agent fails, report it and ask, recommending a fresh agent with a self-contained brief. Do not rebuild state to force the resume.
 - "go", "ok to all", "proceed" = execute the discussed scope without further questions.
@@ -48,7 +50,7 @@
 ## Judgment
 
 - Check before stating a fact. Open the code for a default, a call site, or a behavior, and run the command for the state of a file, a tool, or a system.
-- Read a repo's AGENTS.md first. Its overview takes the sections Purpose, Map, Non-goals, Decisions, and Verify. When a change alters its Map, Non-goals, or Decisions, update them in a docs commit on the same branch.
+- Read a repo's AGENTS.md first. Its overview takes the sections Purpose, Map, Non-goals, and Verify. When a change alters its Map or Non-goals, update them in a docs commit on the same branch.
 - When I say I edited a file, reread it and treat its current contents as authoritative.
 - When I refer to something from before a compaction, read the session transcript under `~/.claude/projects/` or `~/.codex/sessions/` instead of reconstructing it.
 - Before refining a fix, re-run the case that motivated it. A change is finished when you have seen it take effect where it runs: the test passes, the tool loads the setting, the message appears on screen.
@@ -82,6 +84,8 @@
 - Add a new case as an entry in a table or a type. Organize modules by the knowledge they own. A module per pipeline stage spreads one rule across several files.
 - Fold a new requirement in as if it had been there from the start. A fix that special-cases around the existing shape is a bandaid.
 - Prefer a clean break. Remove the old name outright and mark the change breaking. Add a compatibility shim or a migration only when I ask.
+- Code that follows an outside contract (an API, a file format, a protocol, a standard) cites its authoritative source in a comment at that line, with the date it was checked. A design reason lives in a comment at its code.
+- Code that reads an outside contract trusts the types its source documents. Type checks guard only caller input and data the source leaves open.
 
 ## Python
 
@@ -102,12 +106,19 @@
 ## Writing
 
 - Replies lead with the answer. An explanation follows ASD-STE100 at about 80%: one point per sentence, under 20 words, active voice, one meaning per word, every article and verb kept. One topic per paragraph, at most six sentences. Domain terms are welcome. "tldr", "bro", or "word" means I am lost: restate it in full STE and add the one premise I was missing.
+- Docs, READMEs, docstrings, and comments use flowing technical prose for a reader who knows the field. The ASD-STE100 rule governs only replies to me.
 - When the subject is a structure (a flow, a pipeline, modules, states, a schema, a timeline), show it: boxes and arrows in the reply up to about six nodes, a table for a comparison, and a rendered page beyond that. Build the visual up in steps, each adding one part, and name every box with the code's own word. "show me" or "draw it" asks for this on anything.
 - Ask for the fact you need without walking me through trivial steps, and check upthread before asking again.
 - When I ask for a prompt for another agent, put it in the reply, paste-ready and unquoted. Point to files, commits, and issues by path instead of restating them, and mark anything this session did not verify.
 - When I settle a domain term, add one line to the repo's AGENTS.md: the term, what it means, and the names it replaces.
-- For wording, offer one to three candidates with your pick, then stop. Apply on "do". A refused tool call means I am driving, so put the text in the reply.
+- Fix every defect in text you wrote. For my sentences, a public name, or a term, offer one to three candidates with your pick, then stop, and apply on "do". A refused tool call means I am driving, so put the text in the reply.
 - Every text is for a reader who never saw this conversation: docs, comments, docstrings, commit and PR text. It states what is true now, in the code's own vocabulary. That reader knows the field: an established term (boolean trap, keyword-only, idempotent) stands unexplained, and API jargon such as "shape" or "contract" appears at most once per text, where it is exact.
+- Name each concept with the term its own documentation or the field uses. Look the term up in the source before describing the thing.
+- Describe what the code does. The reader already knows what the systems it builds on do.
+- State what is supported by the exact interface and its variant, so a vendor name or a loose family name never promises more than the code implements.
+- A README leads with what the reader gains, shows one runnable example per entry point, and links upstream docs for facts it does not own. Maintainer detail lives in AGENTS.md and the code.
+- Each clause adds a fact its head term lacks.
+- Choose the plain verb each sentence needs. One verb carried through a whole text reads as generated.
 - Keep comments that explain why, a non-obvious mechanism, or load-bearing ordering.
 - American English, em dashes unspaced, punctuation outside quotation marks: `"b",`.
 - In Codex, which has no commit gate, run the `usuals` skill on your own changes before you commit, open a PR, or file an issue.
