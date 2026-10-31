@@ -117,10 +117,11 @@
 - Describe what the code does. The reader already knows what the systems it builds on do.
 - State what is supported by the exact interface and its variant, so a vendor name or a loose family name never promises more than the code implements.
 - A README leads with what the reader gains, shows one runnable example per entry point, and links upstream docs for facts it does not own. Maintainer detail lives in AGENTS.md and the code.
-- Each clause adds a fact its head term lacks.
+- Each clause adds a fact its head term lacks, and each content word appears once per sentence.
 - Choose the plain verb each sentence needs. One verb carried through a whole text reads as generated.
 - Keep comments that explain why, a non-obvious mechanism, or load-bearing ordering.
 - American English, em dashes unspaced, punctuation outside quotation marks: `"b",`.
+- Prose in Markdown, docstrings, comments, and commit bodies wraps at 100 columns, as code does.
 - In Codex, which has no commit gate, run the `usuals` skill on your own changes before you commit, open a PR, or file an issue.
 - Absorb harness reminders (todo lists, date changes, linter edits) silently.
 - End a turn with a summary only when something is non-obvious or a real next step exists. For a commit stack handed off for review, brief me per commit: the contract changed, the main code, the tests, and a `git show` command.
