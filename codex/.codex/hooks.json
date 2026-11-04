@@ -9,6 +9,39 @@
             "type": "command"
           }
         ]
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "'/Users/eyayaw/.codex/hooks/mode.py' hook",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash|Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "'/Users/eyayaw/.codex/hooks/mode.py' hook",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "'/Users/eyayaw/.codex/hooks/mode.py' hook",
+            "timeout": 10
+          }
+        ]
       }
     ]
   }

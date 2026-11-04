@@ -89,6 +89,16 @@
             "timeout": 30
           }
         ]
+      },
+      {
+        "matcher": "startup|resume|clear|compact",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "'/Users/eyayaw/.claude/hooks/mode.py' hook",
+            "timeout": 10
+          }
+        ]
       }
     ],
     "PreToolUse": [
@@ -99,6 +109,47 @@
             "type": "command",
             "command": "bash '/Users/eyayaw/.claude/hooks/usuals-gate.sh'",
             "timeout": 15
+          },
+          {
+            "type": "command",
+            "command": "'/Users/eyayaw/.claude/hooks/mode.py' hook",
+            "timeout": 10,
+            "onFailure": "block"
+          }
+        ]
+      },
+      {
+        "matcher": "Edit|Write|NotebookEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "'/Users/eyayaw/.claude/hooks/mode.py' hook",
+            "timeout": 10,
+            "onFailure": "block"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "'/Users/eyayaw/.claude/hooks/mode.py' hook",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "PostToolUseFailure": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "'/Users/eyayaw/.claude/hooks/mode.py' hook",
+            "timeout": 10
           }
         ]
       }
