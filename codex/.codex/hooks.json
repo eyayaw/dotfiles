@@ -18,6 +18,16 @@
             "timeout": 10
           }
         ]
+      },
+      {
+        "matcher": "resume|compact",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "'/Users/eyayaw/.codex/hooks/wru.py' hook",
+            "timeout": 10
+          }
+        ]
       }
     ],
     "UserPromptSubmit": [
@@ -48,6 +58,17 @@
           {
             "type": "command",
             "command": "'/Users/eyayaw/.codex/hooks/mode.py' hook",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "'/Users/eyayaw/.codex/hooks/wru.py' hook",
             "timeout": 10
           }
         ]
