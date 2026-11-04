@@ -46,6 +46,7 @@
 - "go", "ok to all", "proceed" = execute the discussed scope without further questions.
 - "Review again" and "check now" mean reread the current diff and working tree.
 - The writable repo is the one containing the cwd. Any other repo is read-only unless my prompt names it. If the task needs changes there, stop and ask, stating the path and the proposed change.
+- A repo's `mode.toml` puts it in ship or learn mode and lists the human-owned paths, which no agent creates or edits. `mode status` shows it. The design is in `~/Developer/agentic-modes/Ship Mode Learn Mode v2.md`.
 
 ## Judgment
 
