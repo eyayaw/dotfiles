@@ -1,0 +1,162 @@
+#!/usr/bin/env -S uv run --script
+# /// script
+# requires-python = ">=3.14"
+# ///
+"""Say whether the repo in the cwd needs a release, and what the release still needs.
+
+Reads the commits since the last tag, the version in ``pyproject.toml``, the Unreleased section of
+``CHANGELOG.md``, and the public names added or removed under ``src/`` since the tag. Prints one
+line per check. Exit status is 0 even when work is needed; the lines are the answer.
+"""
+
+import re
+import subprocess
+import sys
+import tomllib
+from collections import Counter
+from pathlib import Path
+
+LEVELS = ("major", "minor", "patch")
+BUMP = {"feat": "minor", "fix": "patch", "perf": "patch"}  # commit type -> level; "!" means major
+SUBJECT = re.compile(r"(\w+)(\([^)]*\))?(!)?:")
+BREAKING = re.compile(r"^BREAKING[ -]CHANGE:", re.M)  # the footer form, always uppercase
+VERSION = re.compile(r"(\d+)\.(\d+)\.(\d+)")
+NAME = (  # an unindented def or class, a CLI subcommand, or a CLI flag, on a line with the sign
+    r"^{sign}(?:async\s+)?def\s+([A-Za-z]\w*)|^{sign}class\s+([A-Za-z]\w*)"
+    r"|^{sign}.*add_parser\(\s*[\"'](\S+?)[\"']|^{sign}.*add_argument\(\s*[\"'](--[\w-]+)"
+)
+ADDED = re.compile(NAME.format(sign=r"\+"))
+REMOVED = re.compile(NAME.format(sign="-"))
+CODE = re.compile(r"```.*?```|`[^`\n]+`", re.S)  # fenced and inline code spans in Markdown
+
+
+def git(*args: str) -> str:
+    return subprocess.run(["git", *args], capture_output=True, text=True, check=True).stdout
+
+
+def commits(rng: str) -> list[tuple[str, str]]:
+    """Return (subject, body) per commit in the range."""
+    records = git("log", "--format=%s%n%b%x00", rng).split("\0")
+    return [(r.lstrip("\n").partition("\n")[0], r.partition("\n")[2]) for r in records if r.strip()]
+
+
+def bump_for(entries: list[tuple[str, str]]) -> str | None:
+    """Return the semver level the conventional commits imply, or None for no release."""
+    wanted = set()
+    for subject, body in entries:
+        if m := SUBJECT.match(subject):
+            breaking = m.group(3) or BREAKING.search(body)
+            wanted.add("major" if breaking else BUMP.get(m.group(1).lower()))
+    return next((level for level in LEVELS if level in wanted), None)
+
+
+def parse(version: str) -> tuple[int, int, int] | None:
+    m = VERSION.match(version.lstrip("v"))
+    return (int(m[1]), int(m[2]), int(m[3])) if m else None
+
+
+def bumped(version: tuple[int, int, int], level: str) -> tuple[int, int, int]:
+    major, minor, patch = version
+    if level == "major":
+        return (major + 1, 0, 0) if major else (0, minor + 1, 0)
+    return (major, minor + 1, 0) if level == "minor" else (major, minor, patch + 1)
+
+
+def dotted(version: tuple[int, int, int]) -> str:
+    return ".".join(map(str, version))
+
+
+def names(diff: list[str], pattern: re.Pattern) -> set[str]:
+    return {
+        g
+        for ln in diff
+        if (m := pattern.match(ln))
+        for g in m.groups()
+        if g and not g.startswith("_")
+    }
+
+
+def release(tag: str | None, entries: list, level: str | None, kinds: Counter) -> list[str]:
+    since = tag or "the start"
+    summary = ", ".join(f"{v} {k}" for k, v in kinds.most_common())
+    if not entries:
+        return [f"release: nothing since {since}"]
+    if level is None:
+        return [f"release: no bump needed; {len(entries)} commits since {since} are {summary}"]
+    return [f"release: {level} bump; {len(entries)} commits since {since}: {summary}"]
+
+
+def version(tag: str | None, level: str | None) -> list[str]:
+    pyproject = Path("pyproject.toml")
+    if not pyproject.is_file():
+        return []
+    current = tomllib.loads(pyproject.read_text()).get("project", {}).get("version", "")
+    parsed = parse(current)
+    if parsed is None:
+        return [f"version: {current!r} in pyproject.toml is not major.minor.patch"]
+    base = parse(tag) if tag else None
+    if level and base:
+        target = bumped(base, level)
+        if parsed < target:
+            return [f"version: {current} in pyproject.toml is below {dotted(target)}; bump to it"]
+        return [f"version: {current} in pyproject.toml already meets {dotted(target)}"]
+    return [f"version: {current}"]
+
+
+def changelog(level: str | None, kinds: Counter) -> list[str]:
+    changelog = Path("CHANGELOG.md")
+    notable = sum(kinds[k] for k in BUMP)
+    if not changelog.is_file():
+        return ["changelog: no CHANGELOG.md"] if level else []
+    m = re.search(r"^## \[?Unreleased\]?.*?$(.*?)(?=^## |\Z)", changelog.read_text(), re.M | re.S)
+    if m:
+        entries = len(re.findall(r"^- ", m.group(1), re.M))
+        return [f"changelog: Unreleased has {entries} entries for {notable} feat/fix commits"]
+    return [f"changelog: no Unreleased section for {notable} feat/fix commits"] if level else []
+
+
+def readme(tag: str | None) -> list[str]:
+    doc = Path("README.md")
+    if not (tag and Path("src").is_dir() and doc.is_file()):
+        return []
+    diff = git("diff", f"{tag}..HEAD", "--", "src").splitlines()
+    added, removed = names(diff, ADDED), names(diff, REMOVED)
+    added, removed = added - removed, removed - added
+    code = "\n".join(CODE.findall(doc.read_text()))
+
+    def mentioned(name: str) -> bool:
+        return re.search(rf"(?<![\w-]){re.escape(name)}(?![\w-])", code) is not None
+
+    missing = sorted(n for n in added if not mentioned(n))
+    stale = sorted(n for n in removed if mentioned(n))
+    lines = []
+    if missing:
+        lines.append(f"readme: new public names not mentioned: {', '.join(missing)}")
+    if stale:
+        lines.append(f"readme: still mentions removed names: {', '.join(stale)}")
+    return lines or [f"readme: covers the {len(added)} public names added since {tag}"]
+
+
+def main() -> None:
+    try:
+        git("rev-parse", "--show-toplevel")
+    except subprocess.CalledProcessError:
+        sys.exit("relcheck: not in a git repository")
+    try:
+        tag = git("describe", "--tags", "--abbrev=0").strip()
+    except subprocess.CalledProcessError:
+        tag = None
+    entries = commits(f"{tag}..HEAD" if tag else "HEAD")
+    level = bump_for(entries)
+    kinds = Counter(m[1].lower() if (m := SUBJECT.match(s)) else "?" for s, _ in entries)
+    for line in [
+        *release(tag, entries, level, kinds),
+        *version(tag, level),
+        *changelog(level, kinds),
+        *readme(tag),
+    ]:
+        print(line)
+
+
+if __name__ == "__main__":
+    main()
