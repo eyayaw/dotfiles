@@ -20,7 +20,28 @@
         ]
       }
     ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "'/Users/eyayaw/.codex/hooks/commitgate.py'",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
     "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "'/Users/eyayaw/.codex/hooks/commitgate.py'",
+            "timeout": 10
+          }
+        ]
+      },
       {
         "matcher": "Bash|Edit|Write",
         "hooks": [

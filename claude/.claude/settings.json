@@ -101,6 +101,17 @@
         ]
       }
     ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "'/Users/eyayaw/.claude/hooks/commitgate.py'",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
     "PreToolUse": [
       {
         "matcher": "Bash",
@@ -109,6 +120,11 @@
             "type": "command",
             "command": "bash '/Users/eyayaw/.claude/hooks/usuals-gate.sh'",
             "timeout": 15
+          },
+          {
+            "type": "command",
+            "command": "'/Users/eyayaw/.claude/hooks/commitgate.py'",
+            "timeout": 10
           },
           {
             "type": "command",
