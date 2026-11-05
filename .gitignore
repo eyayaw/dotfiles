@@ -2,5 +2,7 @@
 .luarc.json
 **/tmux/plugins
 automatic_backups/
+snippets/private.toml
+snippets/build/
 !claude/.claude
 !codex/.codex

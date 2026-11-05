@@ -57,6 +57,11 @@ For more, check `man stow`.
 </details>
 
 
+## Snippets
+
+`snippets/` holds one TOML behind macOS Text Replacements and Alfred snippets; see
+[snippets/README.md](snippets/README.md).
+
 ## Agent hooks and tools
 
 Claude Code and Codex run the scripts in `agents/hooks/` as hooks, so the rules I care about are
