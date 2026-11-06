@@ -132,7 +132,7 @@ italic = "\\textit{{cursor}}"
 split = "\\begin{split}{cursor}\\end{split}"
 
 [mac]
-alfred = ".."
+alfred = "..mac"
 
 [mac.snippets]
 cmd = "⌘"
@@ -141,20 +141,20 @@ ctrl = "⌃"
 shift = "⇧"
 "caps lock" = "⇪"
 del = "⌫"
-delf = "⌦"
+fdel = "⌦"
 eject = "⏏"
 enter = "⌅"
 return = "↵"
 esc = "⎋"
 space = "␣"
 tab = "↹"
-tableft = "⇤"
-tabright = "⇥"
-upkey = "↑"
+ltab = "⇤"
+rtab = "⇥"
+up = "↑"
 down = "↓"
 left = "←"
 right = "→"
-homekey = "↖"
+home = "↖"
 end = " ↘"
 pgup = "⇞"
 pgdn = "⇟"
@@ -179,7 +179,7 @@ ready = """{cursor} is ready. Do the next step of your section in the assignment
 the path of what you wrote in one line."""
 resume = """Read the latest wru line, the worklog, and git status. Restate: what landed,
 what is in flight, the next step, and the open questions. Then wait."""
-pr = """Open the PR. Title from the commit subjects; body with the what, the why, the test
+openpr = """Open the PR. Title from the commit subjects; body with the what, the why, the test
 evidence, and the issue it closes; links checked. Show me the body first; the push waits for my go."""
 diagnose = """Investigate: {cursor}. Reproduce it first, rank two or three causes with what
 each predicts, and check the top one before proposing a fix."""
