@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """Build macOS text replacements and Alfred snippet collections from snippets.toml.
 
 Reads snippets.toml and, when present, private.toml next to this file. Both share one schema and
