@@ -241,3 +241,39 @@ of guessing."""
 ship = """Finish the change: run the usuals and fix what they find, check whether the README and
 CHANGELOG describe it, then prep the commits, one idea each, and stop for my review. No
 commit, push, or PR before my go."""
+writeup = """Write up {cursor} for a reader who knows the field and never saw this work. Lead with
+the finding, then what supports it, then what stays open. Leave out the order we worked in and
+anything the reader cannot use. Every number and claim traces to a file or a run I can open.
+Write paragraphs that carry the argument, and use a table or code block only where prose would
+read worse. If it goes out under my name, draft it with w-edit. Then run the usuals."""
+trail = """Write the trail of how you got this, so I can learn from it and rerun it: the searches
+and commands as run, what each returned, each fork with what you chose and why, and the dead
+ends. Mark anything you reconstructed from memory instead of the logs. Save it under .worklog/
+and give me the path."""
+sweep = """Sweep {cursor} start to finish and change nothing. I may have marked places; look
+everywhere. Read each paragraph whole and state its gist before you judge a sentence in it. For
+each problem, quote the line and name what the reader loses: an unsupported claim, a sentence with
+no link to the one before, a fact they already have, a word doing no work. Offer one to three
+rewordings with your pick. My sentences stay mine until I say do."""
+viz = """Visualize {cursor}, and answer so what. For data, state the question each figure answers
+and its finding in one sentence. A figure with no finding goes or gets a better idea in its place;
+a sentence or a small table may beat it, and we need not keep the ones we have. Say what the
+figures tell together and in what order. Title each with its finding and build it with the dataviz
+skill. For how something works, read the code first, name every box with the code's own word, and
+mark what you did not verify. Open the output and read it as a stranger would."""
+page = """Show {cursor} as one static HTML page I want to read. Functional comes first, and the
+beauty comes from type and spacing. No framework, build step, or network request. Use system
+fonts, a readable column, and one accent color that carries meaning. Skip the generic AI-artifact
+look: cards, gradients, shadows, clay and tan palettes. When the data will grow, render from a
+data file so new rows need no HTML edit. Save it under .worklog/ unless this repo publishes it.
+Open it and check it at desktop and phone width."""
+letter = """Draft the cover letter for {cursor}. Follow templates/cover_letter/guide.md, which
+holds the rules. Read the letters it lists before you write a sentence, because they set the
+voice. Tell me about any blocker or weak fit first. Report the packet path, the page count, the
+`// confirm` lines, and what the fresh agent objected to."""
+redesign = """If you built {cursor} from scratch today, knowing what we know now, what would it be?
+Read the code and its callers first, then sketch the design without defending the current one.
+Compare the two by lines, files, public names, and concepts. Say what the new design loses and
+whom a move would break. End with one recommendation: rebuild, change one part, or keep it. Keep
+is the right answer when a new design only moves the complexity. Propose only, and change no
+files."""
