@@ -7,7 +7,9 @@ alfred = ".."
 macos = "qq"
 
 [personal.snippets]
-site = "https://eyayaw.github.io"
+site = "https://eyayaw.com"
+blog = "https://eyayaw.com/blog"
+papers = "https://eyayaw.com/research"
 diss = "https://github.com/eyayaw/dissertation"
 facebook = "https://facebook.com/eyayaw"
 twitter = "https://twitter.com/eyayaw"
@@ -16,6 +18,12 @@ moodle = "https://moodle.uni-due.de/"
 sciebo = "https://uni-duisburg-essen.sciebo.de/"
 maildue = "https://webmailer.uni-duisburg-essen.de/"
 bug = "brew upgrade --greedy-latest -y"
+p1 = "https://doi.org/10.4419/96973169"
+p2 = "https://doi.org/10.1515/ger-2024-0049"
+p3 = "https://dx.doi.org/10.2139/ssrn.4803607"
+r1 = "https://github.com/eyayaw/housing-supply-elasticity-in-germany"
+r2 = "https://github.com/eyayaw/de-donut-effect"
+r3 = "https://github.com/eyayaw/the-monocentric-city-gradients-addis-ababa"
 
 [chat]
 alfred = ""
