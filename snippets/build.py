@@ -85,17 +85,18 @@ def alfred_snippets_dir() -> Path:
     return Path(json.loads(ALFRED_PREFS.read_text())["current"]) / "snippets"
 
 
-def macos_entries(collections: dict[str, dict]) -> dict[str, str]:
-    entries: dict[str, str] = {}
+def entries(collections: dict[str, dict], target: str) -> dict[str, str]:
+    """Map each full trigger (prefix + keyword) for target to its text; a repeat is an error."""
+    triggers: dict[str, str] = {}
     for title, collection in collections.items():
-        if "macos" not in collection:
+        if target not in collection:
             continue
         for keyword, text in collection["snippets"].items():
-            shortcut = collection["macos"] + keyword
-            if shortcut in entries:
-                sys.exit(f"[{title}] {keyword!r}: macOS shortcut {shortcut!r} is defined twice")
-            entries[shortcut] = text
-    return entries
+            trigger = collection[target] + keyword
+            if trigger in triggers:
+                sys.exit(f"[{title}] {keyword!r}: {target} trigger {trigger!r} is defined twice")
+            triggers[trigger] = text
+    return triggers
 
 
 def write_macos(entries: dict[str, str], out: Path) -> None:
@@ -128,10 +129,11 @@ def write_alfred(collections: dict[str, dict], snippets_dir: Path) -> None:
 
 def main() -> None:
     collections = load()
-    entries = macos_entries(collections)
+    entries(collections, "alfred")
+    macos = entries(collections, "macos")
     plist = HERE / "build" / "Text Replacements.plist"
-    write_macos(entries, plist)
-    print(f"{len(entries)} text replacements -> {plist.relative_to(HERE)}")
+    write_macos(macos, plist)
+    print(f"{len(macos)} text replacements -> {plist.relative_to(HERE)}")
     print("  drag it into System Settings > Keyboard > Text Replacements")
     write_alfred(collections, alfred_snippets_dir())
     for title, collection in collections.items():
