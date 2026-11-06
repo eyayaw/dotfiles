@@ -39,14 +39,14 @@ date = "{isodate}"
 ldate = "{date:long}"
 lastclip = "{clipboard:0}"
 nextclip = "{clipboard:1}"
-ehead = '''
+ehead = """
 Hello {cursor},
 
 I hope you'd a wonderful weekend.
 
 Cheers,
-Eyayaw'''
-lsig = '''
+Eyayaw"""
+lsig = """
 Best Regards,
 Eyayaw Beze
 
@@ -54,11 +54,11 @@ Researcher at the [Chair of Economics](https://www.vwl.msm.uni-due.de/team/)
 MSM University of Duisburg-Essen
 Lotharstr. 65 47057 Duisburg
 PhD candidate at  [Ruhr Graduate School in Economics](http://www.rgs-econ.de)
-'''
-ssig = '''
+"""
+ssig = """
 Best Regards,
-Eyayaw '''
-rlsig = '''
+Eyayaw """
+rlsig = """
 Best Regards,
 Eyayaw Beze
 PhD candidate at
@@ -67,7 +67,7 @@ PhD candidate at
 Researcher at the [Chair of Economics](https://www.vwl.msm.uni-due.de/team/)
 MSM University of Duisburg-Essen
 Lotharstr. 65 47057 Duisburg
-'''
+"""
 
 [r]
 alfred = ".."
@@ -97,28 +97,28 @@ tmrw = "rstudioapi::applyTheme('Tomorrow')"
 alfred = ".."
 
 [latex.snippets]
-align = '''
-\begin{align}
+align = """
+\\begin{align}
 {cursor}
-\end{align}'''
-ealigned = '''
-\begin{equation}
-	\begin{aligned}
+\\end{align}"""
+ealigned = """
+\\begin{equation}
+	\\begin{aligned}
 	{cursor}
-	\end{aligned}
-\end{equation}'''
-daligned = '''
+	\\end{aligned}
+\\end{equation}"""
+daligned = """
 $$
-\begin{aligned}
+\\begin{aligned}
 {cursor}
-\end{aligned}
-$$'''
+\\end{aligned}
+$$"""
 bold = "\\textbf{{cursor}}"
 color = "\\textcolor{{cursor}}{}"
-equation = '''
-\begin{equation}
+equation = """
+\\begin{equation}
 {cursor}
-\end{equation}'''
+\\end{equation}"""
 gather = "\\begin{gather}{cursor}\\end{gather}"
 italic = "\\textit{{cursor}}"
 split = "\\begin{split}{cursor}\\end{split}"
@@ -156,33 +156,33 @@ pgdn = "⇟"
 alfred = ".."
 
 [agent.snippets]
-release = '''What does the release still need? Run relcheck, then check whether the README
-and the CHANGELOG describe the change, and which bump the commits imply.'''
-questions = '''Before you implement: any questions for me, any decision only I can make,
-anything you would do differently from first principles? One at a time, with your recommendation.'''
-review = '''Have a fresh agent review the change. Give it the diff, not your conclusions.
-Fix what you reproduce and raise only the judgment calls.'''
-scrub = '''Have a fresh agent read every comment, docstring, doc, and commit message as
+release = """What does the release still need? Run relcheck, then check whether the README
+and the CHANGELOG describe the change, and which bump the commits imply."""
+questions = """Before you implement: any questions for me, any decision only I can make,
+anything you would do differently from first principles? One at a time, with your recommendation."""
+review = """Have a fresh agent review the change. Give it the diff, not your conclusions.
+Fix what you reproduce and raise only the judgment calls."""
+scrub = """Have a fresh agent read every comment, docstring, doc, and commit message as
 someone who never saw our sessions. Rewrite each to what is true now, delete what has no
-current fact behind it, and remove every sign of AI authorship.'''
-role = '''You are {cursor} for issue #N. Read .worklog/fix/N/assignment.md in this worktree,
-follow your section up to its first stop, and report the path of what you wrote in one line.'''
-ready = '''{cursor} is ready. Do the next step of your section in the assignment and report
-the path of what you wrote in one line.'''
-resume = '''Read the latest wru line, the worklog, and git status. Restate: what landed,
-what is in flight, the next step, and the open questions. Then wait.'''
-pr = '''Open the PR. Title from the commit subjects; body with the what, the why, the test
-evidence, and the issue it closes; links checked. Show me the body first; the push waits for my go.'''
-diagnose = '''Investigate: {cursor}. Reproduce it first, rank two or three causes with what
-each predicts, and check the top one before proposing a fix.'''
-run = '''Run it for real, end to end, under .worklog/scratch/, not as a unit test. Show the
-command, the output, and what you checked.'''
-file = '''File it as an issue in the owning package: the symptom, a repro, and where you
-looked, without a proposed solution. Show me the text first.'''
-fanout = '''Fan out agents, one brief each: the goal, what is ruled out, files to read, and
-the scope. Bring back summaries and file pointers, and keep the synthesis here.'''
+current fact behind it, and remove every sign of AI authorship."""
+role = """You are {cursor} for issue #N. Read .worklog/fix/N/assignment.md in this worktree,
+follow your section up to its first stop, and report the path of what you wrote in one line."""
+ready = """{cursor} is ready. Do the next step of your section in the assignment and report
+the path of what you wrote in one line."""
+resume = """Read the latest wru line, the worklog, and git status. Restate: what landed,
+what is in flight, the next step, and the open questions. Then wait."""
+pr = """Open the PR. Title from the commit subjects; body with the what, the why, the test
+evidence, and the issue it closes; links checked. Show me the body first; the push waits for my go."""
+diagnose = """Investigate: {cursor}. Reproduce it first, rank two or three causes with what
+each predicts, and check the top one before proposing a fix."""
+run = """Run it for real, end to end, under .worklog/scratch/, not as a unit test. Show the
+command, the output, and what you checked."""
+file = """File it as an issue in the owning package: the symptom, a repro, and where you
+looked, without a proposed solution. Show me the text first."""
+fanout = """Fan out agents, one brief each: the goal, what is ruled out, files to read, and
+the scope. Bring back summaries and file pointers, and keep the synthesis here."""
 name = "Give me one to three names for {cursor}, with your pick and the reason, then stop."
-autonomy = '''You have full autonomy from here on. Stop asking me questions and stop
+autonomy = """You have full autonomy from here on. Stop asking me questions and stop
 narrating options.
 
 - When a decision comes up, pick the best option yourself, note it in one line, and move on.
@@ -193,43 +193,43 @@ fix what breaks, and clean up dead code and leftovers.
 - When finished, give me a short report: what you built, the key decisions and why (one line
 each), and anything I need to check.
 
-Don't come back until the work is complete and reviewed.'''
-taste = '''What I want, in checkable terms:
+Don't come back until the work is complete and reviewed."""
+taste = """What I want, in checkable terms:
 - Less stuff: the fewest concepts, files, names, and lines that meet the stated contract;
 nothing for a case nobody has.
 - Understandable without the history: names in the field's own words, comments that say why,
 replies a newcomer can follow.
 - Honesty with evidence: checks run, not claimed; a position with proof over agreement.
-When two of these pull apart, say which you chose and why.'''
-sure = '''Are you sure? Verify it where it runs before answering: open the code or run the
-command, and show me the output, not a restatement.'''
-honest = '''I pushed back; do not fold. Check my claim against the code and take a position:
-show the evidence that I am wrong, or name what changed your mind.'''
-overkill = '''Is {cursor} earning its place? Run the deletion test and answer with evidence.
+When two of these pull apart, say which you chose and why."""
+sure = """Are you sure? Verify it where it runs before answering: open the code or run the
+command, and show me the output, not a restatement."""
+honest = """I pushed back; do not fold. Check my claim against the code and take a position:
+show the evidence that I am wrong, or name what changed your mind."""
+overkill = """Is {cursor} earning its place? Run the deletion test and answer with evidence.
 1. Name the complexity it carries: lines, concepts, names, branches.
 2. Remove it on a scratch branch and run the checks.
 3. If the complexity vanishes and the checks pass, it goes.
 4. If the complexity reappears in the callers, it stays; show where, with the diff that
 would have to absorb it.
-One answer with the diff sizes, no survey of options.'''
-deepreview = '''Review this PR exhaustively, with one fresh agent per dimension:
+One answer with the diff sizes, no survey of options."""
+deepreview = """Review this PR exhaustively, with one fresh agent per dimension:
 correctness, readability, simplicity and footprint, robustness, maintainability, test coverage.
 Give each the diff, not your conclusions. Verify every finding before it reaches me: reproduce it, or
 drop it. Report defects first, each with the inputs that break it and the wrong result; then
 optional polish, separated. The best minimal yet extensible design wins, and this is the
-time to change it. End with one recommendation.'''
-prompt = '''Turn this into a prompt for another agent: my intent, the files, commits, and
-issues by path, the constraints, and the done criterion. Paste-ready, unquoted.'''
-research = '''Research {cursor}. Open the sources, do not skim titles: official docs, the code of
+time to change it. End with one recommendation."""
+prompt = """Turn this into a prompt for another agent: my intent, the files, commits, and
+issues by path, the constraints, and the done criterion. Paste-ready, unquoted."""
+research = """Research {cursor}. Open the sources, do not skim titles: official docs, the code of
 projects that solved it, and what they chose and why. Compare the options in a table against
 named practice, with what each costs here. Mark what you could not verify. End with one
-recommendation, and say what would change it.'''
-learn = '''What can we learn from {cursor} for this package? Read its code, not its README: the
+recommendation, and say what would change it."""
+learn = """What can we learn from {cursor} for this package? Read its code, not its README: the
 design choices, the failure handling, the names, the tests. List each idea with where it lives
-there and what it would cost here. We stay lightweight and simple; nothing is adopted yet.'''
-docs = '''Read the official docs for {cursor} before answering, and cite the page. Set it up the way
+there and what it would cost here. We stay lightweight and simple; nothing is adopted yet."""
+docs = """Read the official docs for {cursor} before answering, and cite the page. Set it up the way
 the docs and common practice do, nothing invented. If the docs do not cover it, say so instead
-of guessing.'''
-ship = '''Finish the change: run the usuals and fix what they find, check whether the README and
+of guessing."""
+ship = """Finish the change: run the usuals and fix what they find, check whether the README and
 CHANGELOG describe it, then prep the commits, one idea each, and stop for my review. No
-commit, push, or PR before my go.'''
+commit, push, or PR before my go."""
